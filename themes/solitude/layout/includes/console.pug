@@ -70,4 +70,8 @@ div#console
             div.console-btn-item#consoleplayer(onclick="musicsw()")
                 span.music-switch(title=_p('console.switch_music'))
                     i.solitude.fa-solid.fa-compact-disc
+        if theme.live2d.enable
+            div.console-btn-item#consolelive2d(onclick="live2dsw()")
+                span.music-switch(title='Live2D')
+                    i.solitude.fa-solid.fa-gift
     div.console-mask(onclick="sco.hideConsole()")

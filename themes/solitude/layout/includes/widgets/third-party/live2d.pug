@@ -1,0 +1,46 @@
+script.
+    if (localStorage.getItem("live2d") == undefined) {
+        localStorage.setItem("live2d", "0");
+    };
+    var consolelive2d = document.getElementById("consolelive2d");
+    function live2dsw() {
+        if (localStorage.getItem("live2d") == "0") {
+            localStorage.setItem("live2d", "1");
+            loadlive2d();
+        } else {
+            localStorage.setItem("live2d", "0");
+            loadlive2d();
+        }
+    };
+    function loadlive2d() {
+        var live2djs = document.getElementById('live2djs');
+        var autoloadjs = document.getElementById('autoloadjs');
+        var oml2dstage = document.getElementById('oml2d-stage');
+        var oml2dstatusBar = document.getElementById('oml2d-statusBar');
+        if (localStorage.getItem("live2d") == "1") {
+            if (oml2dstage && oml2dstatusBar && live2djs && autoloadjs) {
+                oml2dstage.style.visibility = 'visible';
+                oml2dstatusBar.style.visibility = 'visible';
+            }else{
+                var l2dscript = document.createElement('script');
+                l2dscript.id = 'live2djs';
+                l2dscript.src = '!{url_for(theme.cdn.live2d)}';
+                document.getElementsByTagName('body')[0].appendChild(l2dscript);
+
+                var autoloadjs = document.createElement('script');
+                autoloadjs.id = 'autoloadjs';
+                autoloadjs.src = '/js/loadlive2d.js';
+                document.getElementsByTagName('body')[0].appendChild(autoloadjs);
+            }
+            if (!consolelive2d.classList.contains('on')) {
+                consolelive2d.classList.add('on')
+            }
+        }else if (localStorage.getItem("live2d") == "0" && oml2dstage && oml2dstatusBar && live2djs && autoloadjs)  {
+            oml2dstage.style.visibility = 'hidden';
+            oml2dstatusBar.style.visibility = 'hidden';
+            if (consolelive2d.classList.contains('on')) {
+                consolelive2d.classList.remove('on')
+            }
+        }
+    };
+    loadlive2d();

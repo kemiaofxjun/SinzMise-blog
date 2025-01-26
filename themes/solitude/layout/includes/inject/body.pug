@@ -91,6 +91,9 @@ div
   if theme.right_menu.enable
     script(src=url_for(theme.cdn.right_menu_js))
 
+  if theme.live2d.enable
+    !=partial('includes/widgets/third-party/live2d', {}, {cache: true})   
+
   if theme.player.enable
     #mplayer
     script(src=url_for(theme.cdn.player_js))

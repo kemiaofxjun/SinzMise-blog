@@ -204,6 +204,13 @@ hexo.extend.filter.register('before_generate', () => {
       type: 'playlist',
       volume: 0.8,
     },
+    player:{
+      enable: false,
+      js: 'https://y.cenguigui.cn/Static/player12/js/player.js',
+      div: false,
+      api: 'https://y.cenguigui.cn/',
+      key: '661a038c31f2b',
+    },
     keyboard: {
       enable: false,
       list: []
@@ -395,6 +402,20 @@ hexo.extend.filter.register('before_generate', () => {
         enable: false,
         translate: false,
         mode: false
+      }
+    },
+    live2d: {
+      enable: false,
+      option: {}
+    },
+    indieweb: {
+      enable: false,
+      auth_endpoint: 'https://indieauth.com/auth',
+      token_endpoint: 'https://tokens.indieauth.com/token',
+      webmention: {
+        enable: false,
+        endpoint: '',
+        pingback: ''
       }
     },
     CDN: {
