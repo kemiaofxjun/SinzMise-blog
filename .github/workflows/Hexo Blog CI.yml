@@ -48,4 +48,5 @@ jobs:
 
       - name: Deploy Hexo
         run: |
+          git clone -b zh git@github.com:SinzMise/blog .deploy_git
           yarn deploy
