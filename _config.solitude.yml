@@ -808,6 +808,8 @@ verify_site:
     content: codeva-4q6Ku8Tvj6
   - name: msvalidate.01
     content: 18428535B4425286753107589FC35E79
+  - name: google-site-verification
+    content: DPzEKXtGxKYHOBi_De-sPv3Uw7l9oD8vaLRZmSWCJR8
   - name: blogsclub-find
     content: 0bcd40f87500234dd4721904e917e748
   - name: blogsclub-verify
