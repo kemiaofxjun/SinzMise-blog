@@ -50,12 +50,3 @@ jobs:
         run: |
           git clone -b zh git@github.com:SinzMise/blog .deploy_git
           yarn deploy
-
-      - name: NPM Publish Pre Set
-        run: |
-          node ./prescripts/pkgpublish.mjs
-
-      - uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./public/package.json
