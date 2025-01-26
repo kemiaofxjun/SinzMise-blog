@@ -855,6 +855,7 @@ extends:
   # Insert in body
   # 插入到 body
   body:
+    - <script src="https://jsd.cdn.sinzmise.top/npm/axios/dist/axios.min.js"></script> # Axios
     - <script src="/js/schedule.js"></script>
     - <script src="https://jsd.cdn.sinzmise.top/npm/chinese-lunar@0.1.4/lib/chinese-lunar.js"></script>
     - <script src="/chatroom/chatroom.js"></script>
