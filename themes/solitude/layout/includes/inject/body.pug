@@ -91,6 +91,10 @@ div
   if theme.right_menu.enable
     script(src=url_for(theme.cdn.right_menu_js))
 
+  if theme.player.enable
+    #mplayer
+    script(src=url_for(theme.cdn.player_js))
+
   if theme.extends.body
     each item in theme.extends.body
       != item

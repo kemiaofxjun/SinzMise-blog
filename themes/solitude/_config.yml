@@ -604,7 +604,7 @@ meting_api: "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth
 
 # --------------------------- start ---------------------------
 # Capsule music
-# 音乐胶囊
+# 音乐胶囊（和“音乐播放器”冲突！）
 capsule:
   enable: false
   # 歌单 ID / 单曲 ID
@@ -614,6 +614,22 @@ capsule:
   # 类型：playlist / song
   type: playlist
   volume: 0.8
+# --------------------------- end ---------------------------
+
+# --------------------------- start ---------------------------
+# Music Player 2
+# 音乐播放器 方案2（适配明月浩空等悬浮音乐播放器，和“音乐胶囊”冲突！）
+player:
+  enable: false
+  # 播放器代码提供的script地址
+  js: https://y.cenguigui.cn/Static/player12/js/player.js
+  # 看播放器代码
+  # 如果有div的话就设置为true，反之则设置为false
+  div: false
+  # 使用的api（一般来说不用填，如果播放器代码有个api的话就必须得填）
+  api: https://y.cenguigui.cn/
+  # 播放器key
+  key: 
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -999,6 +1015,19 @@ google_adsense:
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
+# IndieWeb
+indieweb:
+  enable: false
+  auth_endpoint: # https://indieauth.com/auth
+  token_endpoint: # https://tokens.indieauth.com/token
+  # WebMention 网络回响
+  webmention:
+   enable: false
+   endpoint: # https://webmention.io/blog.storical.space/webmention
+   pingback: # https://webmention.io/blog.storical.space/xmlrpc
+# --------------------------- end ---------------------------
+
+# --------------------------- start ---------------------------
 # 非必要请勿修改
 CDN:
   internal: local # local / cdnjs / jsdelivr / unpkg / custom
@@ -1014,6 +1043,7 @@ CDN:
     # artalk_js
     # blueimp_md5
     # busuanzi_js
+    # cenguigui_player
     # chart_js
     # color_thief
     # fancyapps_css
@@ -1037,4 +1067,7 @@ CDN:
     # valine
     # waline_css
     # waline_js
+    # webmention
+    # player_js_1
+    # player_js_2
 # --------------------------- end ---------------------------

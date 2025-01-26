@@ -659,7 +659,7 @@ meting_api: "https://meting.api.sinzmise.eu.org/api?server=:server&type=:type&id
 
 # --------------------------- start ---------------------------
 # Capsule music
-# 音乐胶囊
+# 音乐胶囊（和“音乐播放器”冲突！）
 capsule:
   enable: false
   # 歌单 ID / 单曲 ID
@@ -669,6 +669,22 @@ capsule:
   # 类型：playlist / song
   type: playlist
   volume: 0.8
+# --------------------------- end ---------------------------
+
+# --------------------------- start ---------------------------
+# Music Player 2
+# 音乐播放器 方案2（适配明月浩空等悬浮音乐播放器，和“音乐胶囊”冲突！）
+player:
+  enable: true
+  # 播放器代码提供的script地址
+  js: https://y.cenguigui.cn/Static/player12/js/player.js
+  # 看播放器代码
+  # 如果有div的话就设置为true，反之则设置为false
+  div: false
+  # 使用的api（一般来说不用填，如果播放器代码有个api的话就必须得填）
+  api: https://y.cenguigui.cn/
+  # 播放器key
+  key: 661a038c31f2b
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -847,7 +863,6 @@ extends:
     - <script src="https://jsd.cdn.sinzmise.top/npm/aplayer/dist/APlayer.min.js"></script>
     - <script src="https://jsd.cdn.sinzmise.top/npm/meting/dist/Meting.min.js"></script>
     - <script src="https://jsd.cdn.sinzmise.top/npm/@ruffle-rs/ruffle"></script>
-    - <script src="/js/cenguigui.js"></script>
     - <script defer src="https://umami.status.sinzmise.top/a8f9c04189c7d6a2b6b03f4f3948ef41" data-website-id="f18a2137-2dfe-45b9-a524-21413e09bd68"></script>
   #  - <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/pace.min.js"></script>
     
@@ -1102,6 +1117,7 @@ CDN:
     # artalk_js
     # blueimp_md5
     busuanzi_js: https://jsd.cdn.sinzmise.top/npm/penndu/bsz.js
+    # cenguigui_player
     # chart_js
     # color_thief
     # fancyapps_css
@@ -1125,4 +1141,7 @@ CDN:
     # valine
     # waline_css
     # waline_js
+    # webmention
+    # player_js_1
+    # player_js_2
 # --------------------------- end ---------------------------

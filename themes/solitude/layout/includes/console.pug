@@ -66,7 +66,8 @@ div#console
             div.console-btn-item.on#consoleCommentBarrage(onclick="sco.switchCommentBarrage()")
                 span.commentBarrage
                     i.solitude.fa-solid.fa-comment
-        div.console-btn-item#consoleplayer(onclick="musicsw()")
-            span.music-switch(title=_p('console.switch_music'))
-                i.solitude.fa-solid.fa-compact-disc
+        if theme.player.enable
+            div.console-btn-item#consoleplayer(onclick="musicsw()")
+                span.music-switch(title=_p('console.switch_music'))
+                    i.solitude.fa-solid.fa-compact-disc
     div.console-mask(onclick="sco.hideConsole()")
