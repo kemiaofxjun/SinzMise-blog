@@ -150,3 +150,7 @@ live2d:
   name: oh-my-live2d
   file: dist/index.min.js
   version: 0.19.3
+axios:
+  name: axios
+  file: dist/axios.min.js
+  version: 1.7.9
