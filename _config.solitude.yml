@@ -990,12 +990,12 @@ music:
 # Danmaku Page
 # 弹幕留言页面
 envelope:
-  enable: false
+  enable: true
   line: 10 # 显示行数
   speed: 20 # 播放速度
   hover: true # 鼠标悬停暂停
   loop: true # 循环播放
-  page: /message/ # 留言板页面 / message board page
+  page: /comments/ # 留言板页面 / message board page
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------

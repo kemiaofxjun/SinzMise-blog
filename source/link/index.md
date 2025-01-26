@@ -1,11 +1,10 @@
 ---
 title: 友人帐
 date: 2020-12-01 22:19:45
-banner: true
+desc: 是屋主的朋友们哦！
+banner: false
 type: "links"
-top_img: false
-aside: false
-comment: false
+data: links
 ---
 # 待君归（大佬）
 “大佬们们”链接中无法访问的站点
