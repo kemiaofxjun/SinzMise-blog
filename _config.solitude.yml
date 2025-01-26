@@ -413,9 +413,9 @@ background:
 # When the user exits the page, modify the title
 # 当用户退出页面时，修改标题
 lure:
-  enable: false
-  jump: 404 Not Found
-  back: ヾ(≧∇≦*)ゝHey, hey, you fell for it.
+  enable: true
+  jump: 蛾儿雪柳黄金缕，笑语盈盈暗香去。
+  back: 众里寻他千百度，蓦然回首，那人却在、灯火阑珊处。
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -466,11 +466,21 @@ right_menu:
   # Custom list
   # 自定义列表
   custom_list:
-    # - name: 随机文章
-    #   click: toRandomPost()
-    #   id: menu-randomPost
-    #   class:
-    #   icon: fas fa-tower-broadcast
+    - name: 随机文章
+      click: toRandomPost()
+      id: menu-randomPost
+      class:
+      icon: fas fa-tower-broadcast
+    - name: 音乐开关
+      click: musicsw()
+      id: menu-player
+      class:
+      icon: fas fa-music
+    - name: Live2D开关
+      click: live2dsw()
+      id: menu-live2d
+      class:
+      icon: fas fa-gift
     # - name: 全部分类
     #   click: pjax.loadUrl('/categories/') # External links with window.open, pjax can not request cross-domain content.
     #   id:
@@ -1116,7 +1126,7 @@ live2d:
              id: 'home',
              icon: 'fa fa-house',
              title: '我的个人主页',
-             onClick: ()=>window.open('https://www.sinzmise.top/')
+             onClick: ()=>window.open('https://www.storical.space/')
             },
             defaultItems[0],
             defaultItems[2],
