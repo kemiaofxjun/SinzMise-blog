@@ -12,6 +12,18 @@ script.
             loadlive2d();
         }
     };
+    function loadl2dscript() {
+        var l2dscript = document.createElement('script');
+        l2dscript.id = 'live2djs';
+        l2dscript.src = '!{url_for(theme.cdn.live2d)}';
+        document.getElementsByTagName('body')[0].appendChild(l2dscript);
+    }
+    function loadl2dconfig() {
+        var autoloadjs = document.createElement('script');
+        autoloadjs.id = 'autoloadjs';
+        autoloadjs.src = '/js/loadlive2d.js';
+        document.getElementsByTagName('body')[0].appendChild(autoloadjs);
+    }
     function loadlive2d() {
         var live2djs = document.getElementById('live2djs');
         var autoloadjs = document.getElementById('autoloadjs');
@@ -22,15 +34,8 @@ script.
                 oml2dstage.style.visibility = 'visible';
                 oml2dstatusBar.style.visibility = 'visible';
             }else{
-                var l2dscript = document.createElement('script');
-                l2dscript.id = 'live2djs';
-                l2dscript.src = '!{url_for(theme.cdn.live2d)}';
-                document.getElementsByTagName('body')[0].appendChild(l2dscript);
-
-                var autoloadjs = document.createElement('script');
-                autoloadjs.id = 'autoloadjs';
-                autoloadjs.src = '/js/loadlive2d.js';
-                document.getElementsByTagName('body')[0].appendChild(autoloadjs);
+                var loadl2dscript = await loadl2dscript();
+                loadl2dconfig();
             }
             if (!consolelive2d.classList.contains('on')) {
                 consolelive2d.classList.add('on')
