@@ -116,6 +116,15 @@ aplayer:
 
 plugins:
   - hexo-algoliasearch
+  - hexo-generator-sitemap
+  - hexo-generator-baidu-sitemap
+
+baidusitemap:
+  path: baidusitemap.xml
+sitemap:
+  path: sitemap.xml
+
+
 
 # algolia搜索: https://github.com/LouisBarranqueiro/hexo-algoliasearch
 algolia:

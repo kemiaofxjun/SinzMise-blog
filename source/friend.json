@@ -1,6 +1,11 @@
 {
   "friends": [
     [
+      "Solitude",
+      "https://github.com/everfu/hexo-theme-solitude",
+      "https://solitude.js.org/img/logo.png"
+    ],
+    [
       "安知鱼",
       "https://blog.anheyu.com/",
       "https://img01.anheyu.com/useruploads/90/2023/04/23/6444e85234e51.jpg"
@@ -51,9 +56,9 @@
       "https://saop.cc/avatar.webp"
     ],
     [
-      "小孙同学",
+      "Guoqi Sun",
       "https://blog.sunguoqi.com",
-      "https://blog.sunguoqi.com/avatar.webp"
+      "https://assets.guoqi.dev/images/avatar.png"
     ],
     [
       "Echo 的小窝",
@@ -181,19 +186,14 @@
       "https://www.imalun.com/images/avatar.jpg?v=1"
     ],
     [
-      "磊磊落落",
-      "https://leileiluoluo.com/",
-      "https://leileiluoluo.com/images/favicon.png"
-    ],
-    [
       "半方池水半方田",
       "https://uuanqin.top/",
       "https://cdn.gallery.uuanqin.top/img/avatar.webp"
     ],
     [
-      "朽丘博",
+      "朽丘秋雨",
       "https://koxiuqiu.cn/",
-      "https://cdn.koxiuqiu.cn/koxiuqiu/img/favicon.webp"
+      "https://cdn.koxiuqiu.cn/koxiuqiu/img/klcdm_big.webp"
     ],
     [
       "网友小宋",
@@ -219,6 +219,16 @@
       "风记星辰",
       "https://www.thyuu.com",
       "https://std.thyuu.com/logo.svg"
+    ],
+    [
+      "甜鱼/Ayu",
+      "https://ayu.land/",
+      "https://ayu.land/about/Ayu.jpg"
+    ],
+    [
+      "小鹿的个人网站",
+      "https://www.siena.zone",
+      "https://www.siena.zone/favicon_compressed.png"
     ],
     [
       "Aciano",
@@ -351,9 +361,9 @@
       "https://jsd.cdn.storisinz.site/gh/lveMonsi/ImgPlus/img/202307151450821.jpg"
     ],
     [
-      "蛋蛋困了",
+      "彬彬加冰",
       "https://blog.wzwzx.cn",
-      "https://blog.wzwzx.cn/wp-content/uploads/2024/03/b_6c707fe3d582ea760057a6c818ab7b6a.jpg"
+      "https://cdn.wzwzx.cn/binbin-w8sl.png"
     ],
     [
       "Isoheptane",
@@ -526,14 +536,19 @@
       "https://www.yuncheng.fun/static/webAvatar/11727945933180571.png"
     ],
     [
-      "甜鱼/Ayu",
-      "https://ayu.land/",
-      "https://ayu.land/about/Ayu.jpg"
+      "亚斯之声",
+      "https://we.owaii.net",
+      "https://me.owaii.net/favicon.ico"
     ],
     [
-      "小鹿的个人网站",
-      "https://www.siena.zone",
-      "https://www.siena.zone/favicon_compressed.png"
+      "酸奶云✨",
+      "https://blog.mcyogurt.cn/",
+      "https://i.postimg.cc/Lss1ZM3n/avatar.jpg"
+    ],
+    [
+      "王鑫的小站",
+      "https://wxweb.xyz",
+      "https://wxweb.xyz/wp-content/uploads/2024/05/1716211806-mmexport1716211797071.jpg"
     ]
   ]
 }
