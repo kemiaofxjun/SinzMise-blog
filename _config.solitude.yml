@@ -1122,12 +1122,6 @@ live2d:
       items: |
         (defaultItems)=>{
           return [
-            {
-             id: 'home',
-             icon: 'fa fa-house',
-             title: '我的个人主页',
-             onClick: ()=>window.open('https://www.storical.space/')
-            },
             defaultItems[0],
             defaultItems[2],
             defaultItems[3]
