@@ -5,7 +5,7 @@
             a.post-meta-original(title=_p('post.cc').replace(/\$\{cc}/, cc))= cc
             if page.categories.data.length > 0
                 span.post-meta-categories
-                    a.post-meta-categories.p-category(href=url_for('/' + page.categories.data[0].path))= page.categories.data[0].name
+                    a.post-meta-categories(href=url_for('/' + page.categories.data[0].path))= page.categories.data[0].name
             .tag_share
                 .post-meta__tag-list
                     each tag in page.tags.data
@@ -13,7 +13,7 @@
                             span.tags-name.tags-punctuation
                                 i.solitude.fa-solid.fa-hashtag
                                 = tag.name
-    h1.post-title.p-name= page.title
+    h1.post-title= page.title
     #post-meta
         .meta-secondline
             if theme.post.meta.date

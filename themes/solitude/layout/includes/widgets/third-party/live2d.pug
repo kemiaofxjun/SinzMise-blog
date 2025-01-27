@@ -34,7 +34,7 @@ script.
                 oml2dstage.style.visibility = 'visible';
                 oml2dstatusBar.style.visibility = 'visible';
             }else{
-                var loadl2dscript = await loadl2dscript();
+                setTimeout("loadl2dscript()",3000 ); 
                 loadl2dconfig();
             }
             if (!consolelive2d.classList.contains('on')) {

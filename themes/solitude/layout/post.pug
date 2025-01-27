@@ -2,13 +2,17 @@ extends includes/layout.pug
 
 block content
     main.layout#content-inner
-        #post
+        #post.h-entry
+            a.p-author.h-card(href=url_for("/") rel="author" style='display:none')= config.author
+            a.u-url.p-name(href=urlNoIndex() style='display:none')= page.title
+            if page.categories.data.length > 0
+                a.p-category(href=url_for('/' + page.categories.data[0].path) style='display:none')= page.categories.data[0].name
             if page.not_cover
                 include includes/widgets/post/postInfo
-            article.post-content.article-container.e-content
+            article.post-content.article-container
                 if theme.post_ai.enable && page.ai
                     include includes/widgets/post/post-ai
-                != page.content
+                .e-content!= page.content
             include includes/widgets/post/copyright
             .post-tools-right
                 .tag_share

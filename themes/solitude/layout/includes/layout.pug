@@ -31,7 +31,7 @@ html(lang=config.language, data-theme="light")
         if theme.rightside.enable
             include rightside
 
-        #body-wrap(class = is_post() ? 'post h-entry' : 'page')
+        #body-wrap(class = is_post() ? 'post' : 'page')
             include ./header.pug
 
             if(page.type !== '404')

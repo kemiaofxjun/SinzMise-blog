@@ -107,9 +107,8 @@ theme: solitude
 # Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   - type: git
-    repository: git@github.com:SinzMise/blog
-    branch: zh
-    ignore_hidden: false # 忽略隐藏文件及文件夹(目录)
+    repository: git@github.com:SinzMise/blog-pages.git
+    branch: main
 
 aplayer:
   asset_inject: false
