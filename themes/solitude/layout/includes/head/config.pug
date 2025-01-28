@@ -36,7 +36,7 @@
 
     let post_ai = false
 
-    if (theme.post_ai.enable) {
+    if (theme.post_ai.enable && page.ai) {
         post_ai = JSON.stringify({
             key: theme.post_ai.key,
             talk: theme.post_ai.talk,
