@@ -42,7 +42,7 @@ date: 2025-01-27 15:20:44
 添加标签和代码：
 {% tabs IndieAuth && RelMeAuth %}
 <!-- tab Solitude主题 -->
-修改`[Blogroot]\themes\solitude\layout\includes\widgets\aside\asideInfoCard.pug`
+修改`[Blogroot]\themes\solitude\layout\includes\widgets\aside\asideInfoCard.pug`，转到最后一行
 ```diff
             .card-info-social-icons.is-center
                 each value, label in theme.aside.my_card.information || {}
@@ -106,7 +106,105 @@ extends:
 而如果是Redifine这种使用了Tailwind CSS就更难，因为这个会在页面中留下许多`h-`开头的类名，导致部分 microformats 解析器解析出错误的数据
 {% psw 这也是为什么我这么讨厌Tailwind CSS %}
 
-因此目前只有Solitude的魔改教程，而且只有必要的class，其它主题或者非Hexo博客可以参考一下：
+因此目前只有Solitude的魔改教程，而且只有必要的class，其它主题或者非Hexo博客可以参考一下wiki：
+https://microformats.org/wiki/h-card
+https://microformats.org/wiki/h-entry
 
 ### h-card（个人信息）
-还没写完
+修改`[Blogroot]\themes\solitude\layout\includes\widgets\aside\asideInfoCard.pug`
+```diff
+- .card-widget.card-info
++ .card-widget.card-info.h-card
+    .card-content
+        .card-info-avatar.is-center
+            .author-info__top-group
+                .author-info__sayhi#author-info__sayhi(onclick="sco.changeWittyWord()")
+        .avatar-img-group
+-             img.avatar-img(alt=_p('aside.avatar'), src=theme.aside.my_card.author.img)
++             img.u-photo.avatar-img(alt=_p('aside.avatar'), src=theme.aside.my_card.author.img)
+            if theme.aside.my_card.author.sticker
+                .avatar-sticker
+                    img.avatar-sticker-img(src=theme.aside.my_card.author.sticker, alt=_p('aside.sticker'))
+        .author-info__description_group
+            .author-info__description!= theme.aside.my_card.content
+        .author-info__bottom-group
+            span.author-info__bottom-group-left
+-                 .author-info__name= config.author
+-                 .author-info__desc!= theme.aside.my_card.description
++                 .author-info__name.p-name= config.author
++                 .author-info__desc.p-note!= theme.aside.my_card.description
+            .card-info-social-icons.is-center
+                each value, label in theme.aside.my_card.information || {}
+                    - var array = value.split('||')
+-                     a.social-icon(class=array[2] href=url_for(trim(array[0])), title=label, rel="me")
++                     a.social-icon.u-url(class=array[2] href=url_for(trim(array[0])), title=label, rel="me")
+                        i.solitude(class=array[1])
+```
+修改完成后给博客push上去
+然后去 https://indiewebify.me/validate-h-card/ 这边检测h-card的代码添加情况
+如果识别到你设置的信息那就是成功了
+![成功提示](https://images1.blog.sinzmise.top/azurlane/msedge_F1DgJAYQgE.png)
+
+### h-entry（博客信息）
+修改`[Blogroot]\themes\solitude\layout\post.pug`
+```diff
+extends includes/layout.pug
+
+block content
+    main.layout#content-inner
+-         #post
++         #post.h-entry
++             .h-card
++                 a.p-author(href=url_for("/") rel="author" style='display:none')= config.author
++                 img.u-photo(href=theme.aside.my_card.author.img style='display:none')
++             a.u-url.p-name(href=urlNoIndex() style='display:none')= page.title
++             time.dt-published(datetime=date_xml(page.date) style='display:none')= date_xml(page.date)
++             time.dt-updated(datetime=date_xml(page.updated) style='display:none')= date_xml(page.updated)
++             if page.categories.data.length > 0
++                 a.p-category(href=url_for('/' + page.categories.data[0].path) style='display:none')= page.categories.data[0].name
+            if page.not_cover
+                include includes/widgets/post/postInfo
+            article.post-content.article-container
+                if theme.post_ai.enable
+                    include includes/widgets/post/post-ai
+-                 != page.content
++                 .e-content!= page.content
+```
+修改`[Blogroot]\themes\solitude\layout\includes\widgets\post\copyright.pug`，转到第`25`行
+```diff
+            each item in theme.post.share.list || []
+                case item
+                    when 'qq'
+-                         a.social-share-ico.icon-qq(href=`https://connect.qq.com/widget/shareqq/index.html?url=${encodedPath}&title=${encodedTitle}&desc=${encodedDescription}&summary=${encodedDescription}&site=${encodedTitle}&pics=${encodedIcon}` title=_p('post.share.qq'))
++                         a.u-syndication.social-share-ico.icon-qq(href=`https://connect.qq.com/widget/shareqq/index.html?url=${encodedPath}&title=${encodedTitle}&desc=${encodedDescription}&summary=${encodedDescription}&site=${encodedTitle}&pics=${encodedIcon}` title=_p('post.share.qq'))
+                            i.solitude.fab.fa-qq
+                    when 'weibo'
+-                         a.social-share-ico.icon-weibo(href=`http://service.weibo.com/share/share.php?url=${encodedPath}&title=${encodedTitle}&pic=${encodedIcon}` title=_p('post.share.weibo'))
++                         a.u-syndication.social-share-ico.icon-weibo(href=`http://service.weibo.com/share/share.php?url=${encodedPath}&title=${encodedTitle}&pic=${encodedIcon}` title=_p('post.share.weibo'))
+                            i.solitude.fab.fa-weibo
+                    when 'telegram'
+-                         a.social-share-ico.icon-telegram(href=`https://t.me/share/url?url=${encodedPath}&text=${encodedTitle}` title=_p('post.share.telegram'))
++                         a.u-syndication.social-share-ico.icon-telegram(href=`https://t.me/share/url?url=${encodedPath}&text=${encodedTitle}` title=_p('post.share.telegram'))
+                            i.solitude.fab.fa-telegram
+                    when 'whatsapp'
+-                         a.social-share-ico.icon-whatsapp(href=`https://api.whatsapp.com/send?text=${encodedTitle} ${encodedPath}` title=_p('post.share.whatsapp'))
++                         a.u-syndication.social-share-ico.icon-whatsapp(href=`https://api.whatsapp.com/send?text=${encodedTitle} ${encodedPath}` title=_p('post.share.whatsapp'))
+                            i.solitude.fab.fa-whatsapp
+                    when 'linkedin'
+-                         a.social-share-ico.icon-linkedin(href=`https://www.linkedin.com/shareArticle?mini=true&url=${encodedPath}&title=${encodedTitle}&summary=${encodedDescription}&source=${encodedTitle}` title=_p('post.share.linkedin'))
++                         a.u-syndication.social-share-ico.icon-linkedin(href=`https://www.linkedin.com/shareArticle?mini=true&url=${encodedPath}&title=${encodedTitle}&summary=${encodedDescription}&source=${encodedTitle}` title=_p('post.share.linkedin'))
+                            i.solitude.fab.fa-linkedin
+                    when 'facebook'
+-                         a.social-share-ico.icon-facebook(href=`https://www.facebook.com/sharer/sharer.php?u=${encodedPath}` title=_p('post.share.facebook'))
++                         a.u-syndication.social-share-ico.icon-facebook(href=`https://www.facebook.com/sharer/sharer.php?u=${encodedPath}` title=_p('post.share.facebook'))
+                            i.solitude.fab.fa-facebook
+                    when 'twitter'
+-                         a.social-share-ico.icon-twitter(href=`https://twitter.com/intent/tweet?url=${encodedPath}&text=${encodedTitle}` title=_p('post.share.twitter'))
++                         a.u-syndication.social-share-ico.icon-twitter(href=`https://twitter.com/intent/tweet?url=${encodedPath}&text=${encodedTitle}` title=_p('post.share.twitter'))
+                            i.solitude.fab.fa-twitter
+```
+两个步骤修改完成之后给博客push上去
+然后去 https://indiewebify.me/validate-h-entry/ 这边检测h-card的代码添加情况
+提示：Success!We found the following post `h-entry` on your site就成功了
+
+

@@ -3,14 +3,18 @@ extends includes/layout.pug
 block content
     main.layout#content-inner
         #post.h-entry
-            a.p-author.h-card(href=url_for("/") rel="author" style='display:none')= config.author
+            .h-card
+                a.p-author(href=url_for("/") rel="author" style='display:none')= config.author
+                img.u-photo(href=theme.aside.my_card.author.img style='display:none')
             a.u-url.p-name(href=urlNoIndex() style='display:none')= page.title
+            time.dt-published(datetime=date_xml(page.date) style='display:none')= date_xml(page.date)
+            time.dt-updated(datetime=date_xml(page.updated) style='display:none')= date_xml(page.updated)
             if page.categories.data.length > 0
                 a.p-category(href=url_for('/' + page.categories.data[0].path) style='display:none')= page.categories.data[0].name
             if page.not_cover
                 include includes/widgets/post/postInfo
             article.post-content.article-container
-                if theme.post_ai.enable && page.ai
+                if theme.post_ai.enable
                     include includes/widgets/post/post-ai
                 .e-content!= page.content
             include includes/widgets/post/copyright
