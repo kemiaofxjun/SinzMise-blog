@@ -255,7 +255,7 @@ rightside:
 
 webmention:
   webmention: WebMention
-  title: 'Have you written a <a href="https://indieweb.org/responses" target="_blank">response</a> to this article? You can submit your article URL or Twitter link here (the article or Twitter content needs to include the address of this article) | <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a>'
+  title: 'Have you written a <a href="https://indieweb.org/responses" target="_blank">response</a> to this article? You can submit your article URL here (the article needs to include the address of this article) | <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a>'
   placeholder: 'Your article URL or Twitter link'
   likes: '${distinctMentions} friends have already liked, shared or discussed this article:'
   comment: 'Quote or comment（${replies}）'

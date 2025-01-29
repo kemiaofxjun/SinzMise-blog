@@ -33,7 +33,7 @@ date: 2025-01-27 15:20:44
 必须要有独立网站和个人域名，{% psw 没错，就是独立网站和个人域名，其实刚开始看的时候我还以为我看错了，后来才发现我没看错，那官方文档就是这么写的 %}
 
 # 教程开始！
-对IndieWeb的适配分为四个部分：IndieAuth、RelMeAuth、Microformats和WebMention
+对IndieWeb的适配分为四个部分：IndieAuth、RelMeAuth和Microformats
 ## IndieAuth（必选）&& RelMeAuth（必选）
 这个教程其实很简单，就是在你的Github链接和邮箱链接对应的元素添加`rel="me"`的标签
 并且去 https://indieauth.com/ 那边登录+获取IndieAuth代码放到head里面就行（后面那Web Sign-in form什么的不用添加）
@@ -89,7 +89,9 @@ extends:
 <!-- endtab -->
 {% endtabs %}
 然后去 https://indieauth.com/ 这边登录你的账号 
-**（注意：如果你用的是静态博客，那么在去登录之前你必须要给博客push上去！要不然提示找不到rel=me标签！）**
+{% tip warning %}
+如果你用的是静态博客，那么在去登录之前你必须要给博客push上去！要不然提示找不到rel=me标签！
+{% endtip %}
 划到最下面，在`Try It!`这个地方输入你的网址
 ![在这里输入网址](https://images1.blog.sinzmise.top/20250127/msedge_ZBaJIoLQB4.avif)
 然后点击Sign-In会询问你用Github登录还是用邮箱登录
@@ -207,4 +209,198 @@ block content
 然后去 https://indiewebify.me/validate-h-entry/ 这边检测h-card的代码添加情况
 提示：Success!We found the following post `h-entry` on your site就成功了
 
+# 可选添加
+如果你做完前面这三个步骤，恭喜你，你的站点已经适配IndieWeb了
+适配完IndieWeb之后就可以选择加入IndieWeb webring或者添加WebMention（也就是我那评论下面的网络回响）
+## WebMention （可选）
+[官方介绍](https://indieweb.org/Webmention)（翻译后）：
 
+[Webmention](https://www.w3.org/TR/webmention/) 是一种用于跨 Web 对话和交互的开放 Web 标准（[W3C](https://indieweb.org/W3C) 推荐标准），是一个强大的构建块，用于不断增长的分布式网络，该网络包含跨 Web 的点对点[评论](https://indieweb.org/comment)、[点赞](https://indieweb.org/like)、[转发](https://indieweb.org/repost)和其他[响应](https://indieweb.org/responses)。
+
+### 登录WebMention，获取两段link
+前往 https://webmention.io/ 登录你的网站
+登录之后点击最上方的Setting，按照图片的来
+![按照图片来](https://images1.blog.sinzmise.top/azurlane/msedge_nK204ZgG2B.avif)
+然后点击最上方的Sites，新增一个网站，新增完成之后点击你新增站点的“Get Setup Code”获取代码
+![获取到的代码在这](https://images1.blog.sinzmise.top/azurlane/image.avif)
+把这个地方的`<link>`代码也给复制到`</head>`前面
+
+然后，去 https://webmention.rocks/receive/2 检验你的代码是否安装成功
+如果提示这个就代表成功了：
+![成功的提示](https://images1.blog.sinzmise.top/azurlane/msedge_BTNfmkpumY.avif)
+
+### 添加 网络回响 功能
+这个获取Mention的js代码是基于别人的方案而改来
+在此基础上适配了pjax
+{% tabs WebMention %}
+<!-- tab Solitude主题 -->
+新增`[Blogroot]\themes\solitude\layout\includes\widgets\third-party\webmention.pug`，内容如下：
+```pug
+hr
+#post-comment
+  .comment-head
+    .comment-headline
+      i.fas.fa-comments.fa-fw
+      span= ' ' + _p('webmention.webmention')
+
+  .comment-wrap
+    p!= _p('webmention.title')
+    br
+    form.form-webmention(action=url_for(theme.indieweb.webmention.endpoint) method="post" target="_blank")
+      input#form-webmention-source(name="source" placeholder=_p('webmention.placeholder') required="" type="url")
+      input(name="target" type="hidden" value=urlNoIndex())
+      input.form-webmention-btn(type="submit" value="Send Webmention")
+    .webmention-timeline
+```
+修改`[Blogroot]\themes\solitude\layout\post.pug`
+给这个功能加在comment下面
+```diff
+            if page.comment
+                - var comment_js = true
+                include includes/widgets/third-party/comments/comment
++             if theme.indieweb.enable && theme.indieweb.webmention.enable && page.webmention !== false
++                 !=partial('includes/widgets/third-party/webmention', {}, {cache: true})   
+```
+引入css代码：
+```css
+.wm-avatar {
+  border-radius: 50%;
+  margin: 0;
+}
+.webmention-avatars .avatar-wrapper {
+  margin-right: -8px;
+}
+a.avatar-wrapper {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+.replies {
+  margin: 0;
+  padding: 0;
+}
+.reply {
+  list-style: none;
+  display: flex;
+  position: relative;
+  padding: 0;
+  align-items: flex-start;
+  margin-top: 0.6rem;
+}
+.reply p {
+  margin: 0;
+}
+.reply .text {
+  margin-left: 1rem;
+  font-size: 14px;
+}
+.reply-author-name {
+  font-weight: 500;
+}
+.form-webmention {
+  display: flex;
+}
+.form-webmention-btn {
+  flex: 0 0 auto;
+  margin-left: 12px;
+  align-items: baseline;
+  border: 0;
+  cursor: pointer;
+}
+.form-webmention-btn,
+a.retweetBtn {
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
+  background: var(--anzhiyu-reverse);
+  color: var(--efu-secondbg);
+}
+#form-webmention-source {
+  flex: 1 0 auto;
+  border: 1px solid;
+  padding: 0 8px;
+  background: var(--efu-secondbg);
+  border: var(--style-border-always);
+}
+#form-webmention-source,
+.form-webmention-btn,
+a.retweetBtn {
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+```
+引入js代码：
+```js
+function webmention() {
+    const url = window.location.href;
+    const webmentionBaseUrl = "https://webmention.io"
+    fetch(webmentionBaseUrl + "/api/mentions.jf2?target=" + encodeURIComponent(url))
+        .then(function (response) {
+            console.log('sucess '  + webmentionBaseUrl + "/api/mentions.jf2?target=" + url);
+            return response.json();
+        })
+        .then(function (data) {
+            var html = '';
+            const distinctMentions = [
+                ...new Map(data.children.map((item) => [item.author.url, item])).values()].sort((a, b) => new Date(a['wm-received']) - new Date(b['wm-received']));
+
+            html += `<div><p>`;
+
+            if (distinctMentions.length > 0) {
+                html += `${GLOBAL_CONFIG.lang.webmention.likes.replace(/\$\{distinctMentions}/, distinctMentions.length)}</p>`;
+            }
+            html += `<div className="webmention-avatars">`;
+            distinctMentions.forEach(function (reply) {
+                html += `<a class="avatar-wrapper" href=${reply.author.url} key=${reply.author.name}><image class="wm-avatar" loading="lazy" src=${reply.author.photo != "" ? reply.author.photo: "/img/avatar.png"} data-nimg="fill" sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw, 33vw"/></a>`;
+            });
+            html += `</div>`;
+
+            const replies = distinctMentions.filter(
+                (mention) => ('in-reply-to' in mention || 'mention-of' in mention)&& 'content' in mention
+            );
+            if (replies && replies.length) {
+                html +=  `<div class="webmention-replies">`;
+                html += `</br><h3>${GLOBAL_CONFIG.lang.webmention.comment.replace(/\$\{replies}/, replies.length)}</h3>`;
+                html += `<ul class="replies">`;
+                replies.forEach(function (reply){
+                    html += `<li class="reply" key=${reply["wm-id"]}>`;
+                    html += `<div>`;
+                    html += `<a class="avatar-wrapper" href=${reply.author.url} key=${reply.author.name}><image class="wm-avatar" loading="lazy" src=${reply.author.photo != "" ? reply.author.photo: "/img/avatar.png"} alt=${reply.author.name} data-nimg="fill" sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw, 33vw"/></a>`;
+                    html += `</div>`;
+                    html += `<div class="text">`;
+                    html += `<p class="reply-author-name"><a href=${reply.url} target="_blank">${reply.author.name}</a></p>`;
+                    html += `<p class="reply-content">${reply.content.text.slice(0, 200)}</p>`;
+                    html += `</div>`;
+                    html += `</li>`;
+
+                });
+                html += `</ul>`;
+                html += `</div>`;
+            }
+            document.querySelector('div.webmention-timeline').innerHTML = html;
+        })
+        .catch(function (ex) {
+            console.error('fetch webmention error' + ex);
+        });
+}
+window.WebMentionLoad = function () {
+	if (document.querySelector('.webmention-timeline')) webmention();
+};
+window.addEventListener("load", WebMentionLoad)
+document.addEventListener("pjax:complete", WebMentionLoad)
+```
+如果还不知道怎么引入js和css代码的话看这个：
+https://blog.leonus.cn/2022/custom.html
+https://akilar.top/posts/ebf20e02/#%E9%AD%94%E6%94%B9%E6%A0%B7%E5%BC%8F%E5%BC%95%E5%85%A5
+{% tip warning %}
+Butterfly主题的inject，对应的是Solitude主题的extends，别看错！
+{% endtip %}
+<!-- endtab -->
+
+<!-- tab Butterfly主题 -->
+还没写完
+<!-- endtab -->
+{% endtabs %}

@@ -253,7 +253,7 @@ rightside:
 
 webmention:
   webmention: 网络回响
-  title: '你有對這篇文章寫<a href="https://indieweb.org/responses" target="_blank">回應</a>嗎? 你可以在這裏提交你的文章網址或推特鏈接（文章或推特內容需要包含這篇文章的地址，點擊這裏了解 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a>）：'
+  title: '你有對這篇文章寫<a href="https://indieweb.org/responses" target="_blank">回應</a>嗎? 你可以在這裏提交你的文章網址（文章需要包含這篇文章的地址，點擊這裏了解 <a href="https://indieweb.org/Webmention" target="_blank">Webmention</a>）：'
   placeholder: '你的文章網址或推特鏈接'
   likes: '已經有 ${distinctMentions} 朋友喜歡、分享或討論這篇文章:'
   comment: '引用或評論（${replies}）'
