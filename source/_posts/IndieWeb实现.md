@@ -156,9 +156,7 @@ block content
     main.layout#content-inner
 -         #post
 +         #post.h-entry
-+             .h-card
-+                 a.p-author(href=url_for("/") rel="author" style='display:none')= config.author
-+                 img.u-photo(href=theme.aside.my_card.author.img style='display:none')
++             a.h-card.p-author(href=url_for("/") rel="author" style='display:none')= config.author
 +             a.u-url.p-name(href=urlNoIndex() style='display:none')= page.title
 +             time.dt-published(datetime=date_xml(page.date) style='display:none')= date_xml(page.date)
 +             time.dt-updated(datetime=date_xml(page.updated) style='display:none')= date_xml(page.updated)
