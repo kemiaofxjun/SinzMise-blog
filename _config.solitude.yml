@@ -1121,7 +1121,7 @@ tianli_talk:
   key:  # key
   option:
 post_ai:
-  enable: true
+  enable: false
   modelName: GPT 4
   key: 3782872dfbfe495c1c52
   talk: # 我是 Efu 开发的摘要生成助理EfuGPT，EfuGPT在静态部署时进行摘要的撰写，并且在访客访问时通过EfuCorrection转译后的文本摘要实现工具。我在这里只负责已经生成的摘要显示，你无法与我直接沟通，但我可以回答一些预设的问题。
