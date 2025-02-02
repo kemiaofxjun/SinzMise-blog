@@ -8,7 +8,6 @@ document.addEventListener("pjax:complete", () => {
 
 function initializeCard() {
     cardTimes();
-    cardRefreshTimes();
 }
 
 let year, month, week, date, dates, weekStr, monthStr, asideTime, asideDay, asideDayNum, animalYear, ganzhiYear, lunarMon, lunarDay;
