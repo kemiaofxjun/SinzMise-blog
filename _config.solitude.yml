@@ -109,13 +109,13 @@ aside:
   # Sticky: Fixed position / noSticky: Not fixed position
   # Sticky: 固定位置 / noSticky: 不固定位置
   home: # on the homepage
-    noSticky: "about,schedule"
+    noSticky: "about"
     Sticky: "calendar,newestPost,allInfo"
   post: # on the article page
-    noSticky: "about,schedule"
+    noSticky: "about"
     Sticky: "calendar,newestPost,allInfo"
   page: # on the page
-    noSticky: "about,schedule"
+    noSticky: "about"
     Sticky: "calendar,newestPost,allInfo"
   # 菜单栏位置(0: 左 1: 右)
   position: 1 # Sidebar positioning(0: left 1: right)
