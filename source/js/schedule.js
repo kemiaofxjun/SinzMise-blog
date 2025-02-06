@@ -95,7 +95,6 @@ function cardTimes() {
         lunarDay = chineseLunar.format(lunarDate, "d");
 
         const newYearDate = new Date("2025/01/29 00:00:00");
-        const daysUntilNewYear = Math.floor((newYearDate - now) / 1e3 / 60 / 60 / 24);
         asideTime = new Date(`${new Date().getFullYear()}/01/01 00:00:00`);
         asideDay = (now - asideTime) / 1e3 / 60 / 60 / 24;
         asideDayNum = Math.floor(asideDay);
@@ -105,6 +104,5 @@ function cardTimes() {
         e.querySelector("#calendar-date").innerHTML = date.toString().padStart(2, "0");
         e.querySelector("#calendar-solar").innerHTML = `${year}年${monthStr}&nbsp;第${asideDay.toFixed(0)}天`;
         e.querySelector("#calendar-lunar").innerHTML = `${ganzhiYear}${animalYear}年&nbsp;${lunarMon}${lunarDay}`;
-        document.getElementById("schedule-days").innerHTML = daysUntilNewYear;
     }
 }
