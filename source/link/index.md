@@ -164,3 +164,4 @@ a(href='https://blog.storical.space/' rel="external nofollow") 汐塔魔法屋
 {% endtabs %}
 # 申请友链
 请前往[这个地方](https://github.com/SinzMise/blog/blob/master/source/_data/links.yml)，按照格式在后面添加您的链接之后提交一个 Pull Request
+或者在评论区申请（速度可能会很慢）
