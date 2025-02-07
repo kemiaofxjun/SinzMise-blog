@@ -2,6 +2,21 @@
 title: 关于本站
 date: 2025-02-01 19:28:28
 ---
+# 关于站长
+网名：王九弦SZ·Ninty
+又称SZNinty、Sinz Ninty或者Sinz Ninty Ong
+
+QQ：669506721
+
+Github: [@SinzMise](https://github.com/SinzMise)
+
+Email：[email@sinzmise.top](mailto:email@sinzmise.top)
+
+![Steam Card](https://mysteam.sinzmise.eu.org/card/76561199020867169/dark,en,badge,group,bg-game)
+
+其它正在解锁......
+# 关于站点
+
 框架为[Hexo](https://hexo.io/)
 主题基于[Solitude](https://github.com/everfu/hexo-theme-solitude/)魔改，添加了如下功能：
 
