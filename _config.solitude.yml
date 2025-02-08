@@ -454,7 +454,7 @@ font:
   code-font-size: 16px
   # Global font
   # 全局字体
-  font-family: "DingTalk-JinBuTi, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif"
+  font-family: "LXGW Neo XiHei Plus, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif"
   # Code font
   # 代码字体
   code-font-family: '"monospace", monospace'
@@ -928,7 +928,7 @@ extends:
   head:
     - <link rel="stylesheet" href="https://jsd.cdn.sinzmise.top/npm/aplayer/dist/APlayer.min.css">
     - <link rel="stylesheet" href="/css/schedule.css">
-    - <link rel="stylesheet" href="/css/custom.css">
+    - <link rel="stylesheet" href="https://files.blog.sinzmise.top/fonts/LXGWNeoXiHeiPlus/result.css">
     - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4199232_vgnl0ve5ode.css"> # css图标引入
   #  - <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/pace.min.js"></script>
 
