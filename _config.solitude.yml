@@ -646,6 +646,7 @@ footer:
       BlogFinder: https://bf.zzxworld.com/s/995
       站点聚合平台: https://sites.applinzi.com/site-info?siteType=life&siteId=64cb373190e35300a8eec654
       博客录: https://boke.lu/
+      十年之约: https://www.foreverblog.cn/blog/6371.html
     我加入的2:
       RssBlog: https://rssblog.cn/member/d711afd659d65c2ba2d3b18697818cf7/
       笔墨迹: https://blogscn.fun/
@@ -687,6 +688,12 @@ footer:
         - fab fa-creative-commons-by
         - fab fa-creative-commons-nc
         - fab fa-creative-commons-nd
+    - name: 十年之约
+      url: https://www.foreverblog.cn/
+      img: https://img.foreverblog.cn/logo_en_default.png
+    - name: 穿梭虫洞-随机访问十年之约友链博客
+      url: https://www.foreverblog.cn/go.html
+      img: https://img.foreverblog.cn/wormhole_3_tp.gif
     - name: 开往-友链接力
       url: https://www.travellings.cn/go.html
       img: https://www.travellings.cn/assets/logo.gif
