@@ -91,6 +91,9 @@ data: links
 1. 站点可以在中国大陆区域正常访问且内容符合中国大陆法律法规
 2. 站点友情链接含本站链接
 3. 站点类型为**博客**（除我主动申请的链接之外）
+
+<div style='user-select: all;-webkit-user-select: all;'>
+
    {% tabs 友链添加方式 %}
 <!-- tab General -->
 | 名称      | 值 |
@@ -162,6 +165,9 @@ a(href='https://blog.storical.space/' rel="external nofollow") 汐塔魔法屋
 ```
 <!-- endtab -->
 {% endtabs %}
+
+</div>
+
 # 申请友链
 请前往[这个地方](https://github.com/SinzMise/blog/blob/master/source/_data/links.yml)，按照格式在后面添加您的链接之后提交一个 Pull Request
 或者在评论区申请（速度可能会很慢）
