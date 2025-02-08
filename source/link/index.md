@@ -92,7 +92,7 @@ data: links
 2. 站点友情链接含本站链接
 3. 站点类型为**博客**（除我主动申请的链接之外）
 
-<div style='user-select: auto;-webkit-user-select: auto;'>
+<div style='user-select: text;-webkit-user-select: text;'>
 
    {% tabs 友链添加方式 %}
 <!-- tab General -->
