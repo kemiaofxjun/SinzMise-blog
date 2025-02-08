@@ -66,8 +66,12 @@ nav:
       - name: 开往 # 名字
         url: https://www.travellings.cn/go-by-clouds.html # 跳转链接
         icon: fas fa-train # 图标
-    #    onclick: # 点击事件
         id: travellings_button # id
+      - name: 十年之约·虫洞 # 名字
+        url: https://www.foreverblog.cn/go.html # 跳转链接
+        icon: pj-historical icon-pjh-chongdonglogo
+    #    onclick: # 点击事件
+        id: foreverblog_wormhole_button # id
 # --------------------------- end ---------------------------
 
 # --------------------------- start ---------------------------
@@ -924,7 +928,7 @@ extends:
   head:
     - <link rel="stylesheet" href="https://jsd.cdn.sinzmise.top/npm/aplayer/dist/APlayer.min.css">
     - <link rel="stylesheet" href="/css/schedule.css">
-    - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4199232_8ne8um0jhmu.css"> # css图标引入
+    - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4199232_vgnl0ve5ode.css"> # css图标引入
   #  - <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/pace.min.js"></script>
 
   # Insert in body
@@ -935,7 +939,7 @@ extends:
     - <script src="https://jsd.cdn.sinzmise.top/npm/chinese-lunar@0.1.4/lib/chinese-lunar.js"></script>
     - <script src="/chatroom/chatroom.js"></script>
     - <script async src="//at.alicdn.com/t/c/font_3586335_hsivh70x0fm.js"></script> # js图标引入1
-    - <script async src="//at.alicdn.com/t/c/font_4199232_8ne8um0jhmu.js"></script> # js图标引入2
+    - <script async src="//at.alicdn.com/t/c/font_4199232_vgnl0ve5ode.js"></script> # js图标引入2
     - <script src="https://jsd.cdn.sinzmise.top/npm/aplayer/dist/APlayer.min.js"></script>
     - <script src="https://jsd.cdn.sinzmise.top/npm/meting/dist/Meting.min.js"></script>
     - <script src="https://jsd.cdn.sinzmise.top/npm/@ruffle-rs/ruffle"></script>
