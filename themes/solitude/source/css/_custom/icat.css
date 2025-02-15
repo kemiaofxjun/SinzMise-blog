@@ -65,10 +65,10 @@
   }
   
   [data-theme=light] {
-    --icat-theme: #425AEF;
-    --icat-theme-op: #4259ef23;
-    --icat-theme-op-deep: #4259efdd;
-    --icat-theme-none: #4259ef01;
+    --icat-theme: var(--efu-theme);
+    --icat-theme-op: var(--efu-theme-op);
+    --icat-theme-op-deep: var(--efu-theme-op-deep);
+    --icat-theme-none: var(--efu-theme-none);
     --icat-blue: #425AEF;
     --icat-red: #f04a63;
     --icat-pink: #FF7C7C;
@@ -109,10 +109,10 @@
   }
   
   [data-theme=dark] {
-    --icat-theme: #f2b94b;
-    --icat-theme-op: #f2b94b23;
-    --icat-theme-op-deep: #f2b94bdd;
-    --icat-theme-none: #f2b94b00;
+    --icat-theme: var(--efu-theme);
+    --icat-theme-op: var(--efu-theme-op);
+    --icat-theme-op-deep: var(--efu-theme-op-deep);
+    --icat-theme-none: var(--efu-theme-none);
     --icat-blue: #0084FF;
     --icat-red: #FF3842;
     --icat-pink: #d44040;

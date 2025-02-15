@@ -38,8 +38,8 @@
   }
   
   [data-theme="light"] {
-    --anzhiyu-theme: #3b70fc;
-    --anzhiyu-theme-op: #4259ef23;
+    --anzhiyu-theme: var(--efu-theme);
+    --anzhiyu-theme-op: var(--efu-theme-op);
     --anzhiyu-blue: #3b70fc;
     --anzhiyu-red: #d8213c;
     --anzhiyu-pink: #ff7c7c;
@@ -67,8 +67,8 @@
   
   [data-theme="dark"] {
     --global-bg: #191919;
-    --anzhiyu-theme: #0084ff;
-    --anzhiyu-theme-op: #0084ff23;
+    --anzhiyu-theme: var(--efu-theme);
+    --anzhiyu-theme-op: var(--efu-theme-op);
     --anzhiyu-blue: #0084ff;
     --anzhiyu-red: #ff3842;
     --anzhiyu-pink: #ff7c7c;
