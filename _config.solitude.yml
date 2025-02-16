@@ -796,7 +796,7 @@ keyboard:
 lazyload:
   enable: true
   # post, site
-  field: post
+  field: site
   # 加载时替换图
   placeholder: '/img/load-games.gif'
   # 加载失败替换图
