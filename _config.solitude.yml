@@ -933,6 +933,8 @@ extends:
     - <link rel="stylesheet" href="https://jsd.cdn.sinzmise.top/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     - <link rel="stylesheet" href="https://jsd.cdn.sinzmise.top/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css" />
     - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4199232_vgnl0ve5ode.css"> # css图标引入
+
+    - <script src="/chatroom/chatroom.js"></script>
   #  - <script src="https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/pace.min.js"></script>
 
   # Insert in body
@@ -941,7 +943,6 @@ extends:
     - <script src="https://jsd.cdn.sinzmise.top/npm/axios/dist/axios.min.js"></script> # Axios
     - <script src="/js/schedule.js"></script>
     - <script src="https://jsd.cdn.sinzmise.top/npm/chinese-lunar@0.1.4/lib/chinese-lunar.js"></script>
-    - <script src="/chatroom/chatroom.js"></script>
     - <script async src="//at.alicdn.com/t/c/font_3586335_hsivh70x0fm.js"></script> # js图标引入1
     - <script async src="//at.alicdn.com/t/c/font_4199232_vgnl0ve5ode.js"></script> # js图标引入2
     - <script src="https://jsd.cdn.sinzmise.top/npm/aplayer/dist/APlayer.min.js"></script>
