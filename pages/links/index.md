@@ -5,7 +5,6 @@ description: 欢迎各位与屋主交朋友！
 links: https://friends.sinzmise.top/result.json
 links_dalao: https://friends.sinzmise.top/result-dalao.json
 random: true
-aplayer: true
 medium_zoom: false
 ---
 
@@ -51,6 +50,8 @@ medium_zoom: false
 
 如果想要提交友链，请移步[这里](https://github.com/SinzMise/check-flink)按照说明提交 Pull Request。如果你的友链为全站链接，我会同样将你的小站同时放置在本页与全站页脚。
 
-你可以在 `https://api.storical.space/blog/links.json` 查看所有友链的 JSON 格式数据。
+你可以在 `https://friends.sinzmise.top/result.json` 查看所有友链的 JSON 格式数据。
+
+大佬请移步 `https://friends.sinzmise.top/result-dalao.json`
 
 如果没有其它情况出现，我不会移除友链。但如果你在上述流程通过以后移除了我的友链，那么我也会毫不留情的删除你的小站。
