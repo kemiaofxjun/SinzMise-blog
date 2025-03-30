@@ -1,0 +1,16 @@
+@use "./ui.scss" as *;
+@use "./content.scss" as *;
+@use './markdown.scss' as *;
+
+body {
+  font-family: "Noto Sans SC";
+  font-display: optional;
+}
+
+.scrollbar-none{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

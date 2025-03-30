@@ -1,0 +1,206 @@
+@use 'valaxy/client/styles/mixins/index.scss' as *;
+
+@use 'valaxy/client/styles/components/code.scss' as *;
+@use 'valaxy/client/styles/components/code-group.scss' as *;
+@use 'valaxy/client/styles/components/custom-block.scss' as *;
+
+.markdown-body {
+  --c-toc-link: var(--va-c-text-light);
+}
+
+html.dark {
+  .markdown-body {
+    --c-toc-link: var(--va-c-text-dark);
+  }
+}
+
+.markdown-body {
+  word-wrap: break-word;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--va-font-family-base);
+    font-weight: 900;
+  }
+
+  ul {
+    li > p {
+      margin-bottom: 0;
+    }
+  }
+
+  div[class*=language-] {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    background-color: #efefef;
+    border: 2px solid var(--foreground-color);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px #c1c1c1;
+    overflow: hidden;
+    padding-top: 48px;
+    margin-bottom: 10px;
+    [data-theme=dark] & {
+      background-color: #1f1f2c;
+      border: 2px solid #383852;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .lang {
+      position: absolute;
+      transform: translate(-50%, -42px);
+      left: 50%;
+      user-select: none;
+      font-weight: bold;
+      padding-bottom: 2.5px;
+      border-bottom: 5px solid var(--font-color-gold);
+    }
+
+    code {
+      background-color: transparent;
+    }
+
+    button.copy {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      background-image: var(--vp-icon-copy);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: transparent;
+      border: 0;
+
+      &.copied {
+        background-image: var(--vp-icon-copied);
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      border-bottom: 3px solid rgb(213, 217, 219);
+      box-sizing: border-box;
+      background-color: rgb(239, 242, 244);
+      background-image: var(--deco2);
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: contain;
+      [data-theme=dark] & {
+        border-bottom: 3px solid #383852;
+        background-color: rgba(31, 31, 44, 0.8);
+      }
+    }
+
+    pre {
+      margin: 0;
+      flex-grow: 1;
+      overflow-x: scroll;
+      overflow-y: scroll;
+      scrollbar-width: none;
+    }
+
+    .vp-code {
+      font-family: monospace;
+    }
+
+    .line-numbers-wrapper {
+      border-right: 2px solid #dfdfdf;
+      text-align: center;
+      user-select: none;
+      [data-theme=dark] & {
+        border-right: 2px solid #383852;
+      }
+    }
+
+    pre,
+    .line-numbers-wrapper {
+      padding: 8px;
+    }
+  }
+
+  blockquote {
+    margin: 16px 0;
+    border-left: 4px solid var(--va-c-divider);
+    padding-left: 12px;
+    transition: border-color 0.5s p {
+      margin: 0;
+      font-size: 16px;
+      color: var(--vp-c-text-2);
+      transition: color 0.5s;
+    }
+  }
+
+  code:not(pre > code) {
+    color: var(--va-c-text-code);
+    background-color: var(--va-c-bg-mute);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+
+    &::before {
+      content: none;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+  
+  psw {
+    color: transparent;
+    background: #a1a1a1;
+    border-radius: 2px;
+    transition: all .28s ease;
+    -moz-transition: all .28s ease;
+    -webkit-transition: all .28s ease;
+    -o-transition: all .28s ease;
+    &:hover {
+      color: #444;
+      background: 0 0;
+    }
+  }
+
+  .tabs-tabs-wrapper{
+    .tabs-tabs-header{
+      background-color: #f0f0f0; 
+      color: #333; 
+      border-radius: 4px 4px 0 0; 
+
+      .tabs-tab-button{
+        padding: 10px 20px; 
+
+        &.active{ 
+          color: #007bff; 
+          border-bottom: 2px solid #007bff; 
+        }
+
+      }
+
+    }
+    
+    .tabs-tab-content { 
+      background-color: #fff; 
+      padding: 20px; 
+      border: 1px solid #ddd; 
+      border-top: none; 
+      border-radius: 0 0 4px 4px;
+      display:none;
+
+      &.show{
+        display:block;
+      }
+
+    } 
+  }
+}

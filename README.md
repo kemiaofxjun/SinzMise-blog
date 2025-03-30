@@ -1,22 +1,26 @@
-<h1 align="center">汐塔魔法屋</h1>
-<div align="center">
+# Ceta Storical House | 🏠汐塔故事屋
 
-Ceta Magical House
+## Preview | 预览
 
-[![Author](https://flat.badgen.net/badge/author/SinzMise/)](https://github.com/SinzMise)
-[![Blog](https://flat.badgen.net/badge/blog/Ceta%20Storical%20House/orange)](https://blog.storical.space/)
-[![Build Status(CN)](https://github.com/SinzMise/blog/actions/workflows/Hexo%20Blog%20CI.yml/badge.svg)](https://github.com/SinzMise/blog/actions/workflows/Hexo%20Blog%20CI.yml)
+![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/SinzMise/blog/gh-pages.yml?branch=source&label=Pages&logo=GitHub&style=flat-square)
 
-</div>
+框架：[Valaxy](https://valaxy.site)
 
-## Introduction
+主题：[Big_Cake 同款 Material You 风格主题](https://github.com/Big-Cake-jpg/big-cake-jpg.github.io/)
 
-- 基于 [Hexo](https://hexo.io/)
-- 主题为 [Solitude](https://github.com/everfu/hexo-theme-solitude)。
-- 评论系统采用 [Artalk](https://artalk.js.org/)。
-- 友链文件位于 [/source/_data/links.yml](https://github.com/SinzMise/blog/blob/master/source/_data/links.yml)，如需添加友链请自行对其发起PullRequest。
-- 博客文件存储在Github仓库中，采用 [CloudFlare](https://www.cloudflare.com/)面向海外用户分发。
-- 博客采用 [云驰互联](https://cloud.zyidc.net/)CDN面向国内用户提供CDN加速服务。
-- 博客协议采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)。
+友链仓库：[SinzMise/friends](https://github.com/SinzMise/friends.git)
 
-~~别问为啥这么像cyanfalse博客的介绍，我的Readme.md不知道要写啥。。。。。。~~
+## Usage | 用法
+
+```bash
+git clone https://github.com/SinzMise/blog.git
+yarn # npm install
+valaxy new 
+yarn build
+```
+
+### Publish | 日常发布
+
+推送至 GitHub，使用 Actions 生成静态页面并推送 main 分支
+
+同时触发其它地方的构建（Vercel，Cloudflare Pages……）
