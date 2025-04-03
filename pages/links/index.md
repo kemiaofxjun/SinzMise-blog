@@ -48,7 +48,7 @@ medium_zoom: false
   color: "#39C5BB"
 ```
 
-如果想要提交友链，请移步[这里](https://github.com/SinzMise/check-flink)按照说明提交 Pull Request。如果你的友链为全站链接，我会同样将你的小站同时放置在本页与全站页脚。
+如果想要提交友链，请移步[这里](https://github.com/SinzMise/friends)按照说明提交 Pull Request。如果你的友链为全站链接，我会同样将你的小站同时放置在本页与全站页脚。
 
 你可以在 `https://friends.sinzmise.top/result.json` 查看所有友链的 JSON 格式数据。
 

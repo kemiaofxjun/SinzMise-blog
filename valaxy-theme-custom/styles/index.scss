@@ -2,6 +2,8 @@
 @use "./content.scss" as *;
 @use './markdown.scss' as *;
 
+@use './webmention.scss' as *;
+
 body {
   font-family: "Noto Sans SC";
   font-display: optional;

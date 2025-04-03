@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { useRandomData } from "../valaxy-theme-custom/composables/helper";
-import { onImgError } from "../valaxy-theme-custom/utils/index";
+import { useRandomData } from "../../composables/helper";
+import { onImgError } from "../../utils/index";
 import { computed, ref } from "vue";
 
 interface LinkType {
@@ -42,7 +42,7 @@ const placeholders = Array(placeholderCount).fill(null);
 <template>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <template v-if="loading">
-      <div v-for="(_, index) in placeholders" :key="index" class="box !mb-0">
+      <div v-for="(_, index) in placeholders" :key="index" class="box box-ba !mb-0">
         <div class="media flex items-center">
           <div class="media-left mr-3">
             <div class="w-16 h-16 is-skeleton rounded-lg"></div>
@@ -61,7 +61,7 @@ const placeholders = Array(placeholderCount).fill(null);
       :href="link.url" 
       target="_blank" 
     >
-      <div class="box h-full">
+      <div class="box h-full box-ba">
         <article class="media">
           <div class="media-left">
             <figure class="image is-64x64">
