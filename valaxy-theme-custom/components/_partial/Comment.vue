@@ -54,7 +54,7 @@ function initArtalk(conf: any) {
 
 function getConfByPage() {
   return {
-    pageKey: "" + route.path + "/",
+    pageKey: "" + route.path,
     pageTitle: fm.value.title,
     server: "https://artalk.sinzmise.top",
     site: "汐塔魔法屋",
