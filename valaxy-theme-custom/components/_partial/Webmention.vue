@@ -1,203 +1,76 @@
+<template>
+  <div class="webmentions">
+    <h2 class="title is-4">📢 网络回响 ({{ mentions.length  }})</h2>
+    
+    <!-- 不同类型的回响（评论、点赞、转发等） -->
+    <div v-if="mentions.length"> 
+      <div v-for="mention in mentions" :key="mention.url"  class="card mb-4">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img :src="mention.author.photo  || 'https://via.placeholder.com/48'"  :alt="mention.author.name"  class="is-rounded mention-avatar">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-6">
+                <a :href="mention.author.url"  target="_blank" rel="noopener noreferrer">
+                  {{ mention.author.name  || "匿名用户" }}
+                </a>
+              </p>
+              <p class="subtitle is-7">
+                <a :href="mention.url"  target="_blank" rel="noopener noreferrer">
+                  {{ new Date(mention.published  || mention['wm-received']).toLocaleDateString() }}
+                </a>
+              </p>
+            </div>
+          </div>
+ 
+          <div class="content">
+            <!-- 显示回响内容 -->
+            <div v-if="mention.content"> 
+              <div v-html="mention.content.html  || mention.content.text"></div> 
+            </div>
+            
+            <!-- 显示互动类型（点赞、转发等） -->
+            <div v-else-if="mention['wm-property'] === 'like-of'" class="has-text-success">
+              ❤️ 点赞了这篇文章 
+            </div>
+            <div v-else-if="mention['wm-property'] === 'repost-of'" class="has-text-info">
+              🔄 转发了这篇文章 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 无回响时的提示 -->
+    <div v-else class="notification is-light">
+      暂无互动，欢迎在 Mastodon/Twitter 等平台讨论并链接到本文！
+    </div>
+  </div>
+</template>
+
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted } from 'vue'
+import axios from 'axios' // 或直接使用 fetch 
  
 const mentions = ref([])
-const isLoading = ref(true)
-const error = ref(null)
-const currentUrl = typeof window !== 'undefined' ? window.location.href  : ''
- 
-// 分类 Webmention 类型 
-const categorizedMentions = computed(() => {
-  return {
-    replies: mentions.value.filter(m  => m.activity.type  === 'reply'),
-    likes: mentions.value.filter(m  => m.activity.type  === 'like'),
-    reposts: mentions.value.filter(m  => m.activity.type  === 'repost')
-  }
-})
  
 onMounted(async () => {
   try {
-    const response = await fetch(
-      `https://webmention.io/api/mentions?target=${encodeURIComponent(currentUrl)}` 
+    const response = await axios.get( 
+      `https://webmention.io/api/mentions.jf2?target=https://blog.storical.space/posts/60486/` 
     )
-    const data = await response.json() 
-    mentions.value  = data.links  || []
-  } catch (err) {
-    error.value  = '加载互动数据失败，请稍后重试。'
-  } finally {
-    isLoading.value  = false 
+    mentions.value  = response.data.children  || []
+  } catch (error) {
+    console.error('Failed  to fetch WebMentions:', error)
   }
 })
 </script>
- 
-<template>
-  <section class="webmentions-container section">
-    <h3 class="title is-4 has-text-centered mb-5">
-      <span class="icon-text">
-        <span class="icon">
-          <i class="fas fa-message"></i>
-        </span>
-        <span>网络回响</span>
-      </span>
-    </h3>
- 
-    <!-- 加载状态 -->
-    <div v-if="isLoading" class="has-text-centered">
-      <span class="icon is-large">
-        <i class="fas fa-spinner fa-pulse fa-2x"></i>
-      </span>
-      <p class="mt-2">正在加载互动数据...</p>
-    </div>
- 
-    <!-- 错误提示 -->
-    <div v-else-if="error" class="notification is-warning">
-      {{ error }}
-    </div>
- 
-    <!-- 内容展示 -->
-    <div v-else>
-      <!-- 网络回响（Reply） -->
-      <div v-if="categorizedMentions.replies.length"  class="mb-6">
-        <h4 class="subtitle is-5 has-text-grey mb-3">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fas fa-comment-dots"></i>
-            </span>
-            <span>回响 ({{ categorizedMentions.replies.length  }})</span>
-          </span>
-        </h4>
-        <div class="box is-shadowless" style="border-left: 3px solid #48c78e;">
-          <article 
-            v-for="mention in categorizedMentions.replies"  
-            :key="mention.id"  
-            class="media"
-          >
-            <figure v-if="mention.author?.photo"  class="media-left">
-              <p class="image is-48x48">
-                <img 
-                  :src="mention.author.photo"  
-                  :alt="mention.author.name"  
-                  class="is-rounded"
-                >
-              </p>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>{{ mention.author?.name  || '匿名用户' }}</strong>
-                  <small class="ml-2">
-                    <a :href="mention.source"  target="_blank" rel="noopener">
-                      <time :datetime="mention.published  || mention['wm-received']">
-                        {{ new Date(mention['wm-received']).toLocaleDateString() }}
-                      </time>
-                    </a>
-                  </small>
-                  <br>
-                  <span v-html="mention.content?.text  || '点击查看原文'"></span>
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
- 
-      <!-- 点赞（Like） -->
-      <div v-if="categorizedMentions.likes.length"  class="mb-6">
-        <h4 class="subtitle is-5 has-text-grey mb-3">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fas fa-heart"></i>
-            </span>
-            <span>点赞 ({{ categorizedMentions.likes.length  }})</span>
-          </span>
-        </h4>
-        <div class="tags">
-          <span 
-            v-for="mention in categorizedMentions.likes"  
-            :key="mention.id"  
-            class="tag is-rounded is-light"
-          >
-            <a :href="mention.source"  target="_blank" rel="noopener">
-              {{ mention.author?.name  || '匿名用户' }}
-            </a>
-          </span>
-        </div>
-      </div>
- 
-      <!-- 转发（Repost） -->
-      <div v-if="categorizedMentions.reposts.length"> 
-        <h4 class="subtitle is-5 has-text-grey mb-3">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fas fa-retweet"></i>
-            </span>
-            <span>转发 ({{ categorizedMentions.reposts.length  }})</span>
-          </span>
-        </h4>
-        <div class="box is-shadowless" style="border-left: 3px solid #3e8ed0;">
-          <article 
-            v-for="mention in categorizedMentions.reposts"  
-            :key="mention.id"  
-            class="media"
-          >
-            <figure v-if="mention.author?.photo"  class="media-left">
-              <p class="image is-48x48">
-                <img 
-                  :src="mention.author.photo"  
-                  :alt="mention.author.name"  
-                  class="is-rounded"
-                >
-              </p>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>{{ mention.author?.name  || '匿名用户' }}</strong> 转发了本文 
-                  <small class="ml-2">
-                    <a :href="mention.source"  target="_blank" rel="noopener">
-                      <time :datetime="mention.published  || mention['wm-received']">
-                        {{ new Date(mention['wm-received']).toLocaleDateString() }}
-                      </time>
-                    </a>
-                  </small>
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
- 
-      <!-- 空状态 -->
-      <div 
-        v-if="!categorizedMentions.replies.length  && !categorizedMentions.likes.length  && !categorizedMentions.reposts.length"  
-        class="has-text-centered has-text-grey"
-      >
-        <p>反正亦是空空空空如也~~</p>
-      </div>
-    </div>
-  </section>
-</template>
- 
-<style scoped>
-.webmentions-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
- 
-.media {
-  margin-bottom: 1.5rem;
-}
- 
-.media:last-child {
-  margin-bottom: 0;
-} 
- 
-.tag {
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
- 
-.tag a {
-  color: inherit;
+
+<style>
+.mention-avatar{
+  width: 3em;
 }
 </style>

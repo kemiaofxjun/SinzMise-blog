@@ -2,7 +2,6 @@
 import { useFrontmatter } from "valaxy";
 import { usePrevNext } from "valaxy";
 import { useThemeConfig } from "../../composables";
-import SendWebmention from "./SendWebmention.vue";
 import { formatTimestamp } from '../../utils'
 import { useScriptTag } from '@vueuse/core'
 useScriptTag('/js/tab.js')
