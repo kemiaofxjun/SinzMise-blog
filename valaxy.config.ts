@@ -141,6 +141,10 @@ export default defineValaxyConfig<ThemeConfig>({
         url: "/archives",
       },
       {
+        name: "音乐",
+        url: "/music",
+      },
+      {
         name: "友链",
         url: "/links",
       },

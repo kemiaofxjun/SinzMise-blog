@@ -1,13 +1,8 @@
 ---
 title: 如果你觉得不开心的话，就来听一下这些音乐吧
 cover: https://jsd.cdn.storisinz.site/gh/SinzMise/picx-images-hosting@master/20230901/wallhaven-ne3k6o_1920x1080.39jlt0h900u0.png
-sticky: 1
-categories:
-  - 歌曲收集
-tags: 歌曲收集
-abbrlink: 54386
 date: 2023-09-01 21:23:01
-lang: zh-CN
+aplayer: true
 ---
 如果你觉得不开心，或者有些压力的话，就来听一下这些歌曲吧
 
