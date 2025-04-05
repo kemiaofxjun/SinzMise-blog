@@ -29,7 +29,7 @@ const formatDate = (date: string | number | Date) => {
         </figure>
       </div>
     </RouterLink>
-    <div class="card-content card-content-ba">
+    <div class="card-content">
       <RouterLink v-if="post.path" :to="post.path">
         <p class="text-2xl mb-2">{{ post.title }}</p>
       </RouterLink>
