@@ -7,7 +7,7 @@
   </Transition>
 </template>
 <style scoped>
-.loading-bg {
+.loading {
   position: fixed;
   top: 0;
   left: 0;
