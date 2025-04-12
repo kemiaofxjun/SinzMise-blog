@@ -99,8 +99,8 @@ export default defineValaxyConfig<ThemeConfig>({
           url: "https://icp.gov.moe/?keyword=20231033"
         },
         {
-          name: "团ICP备20241025号",
-          url: "https://icp.yuncheng.fun/id.php?keyword=20241025"
+          name: "团ICP备20250007号",
+          url: "https://icp.星.fun/id.php?keyword=20250007"
         },
         {
           name: "MIIT备20240818号",
@@ -122,11 +122,11 @@ export default defineValaxyConfig<ThemeConfig>({
       since: 2021,
       beian: {
         icp: {
-          enable: true,
-          info: "晋 ICP 备 2024031556 号 - 1",
+          enable: false,
+          info: "",
         },
         moe: {
-          enable: true,
+          enable: false,
           info: "20230105",
         },
       },
