@@ -219,7 +219,7 @@ export default defineValaxyConfig<ThemeConfig>({
     announcement: {
       enable: true,
       type: "warning",
-      content: "友链页面正在重构，期间会出现无法访问的情况，请见谅！",
+      content: "友链页面正在重构，期间会出现无法正常加载情况，请见谅！",
     },
 
     valaxyDarkOptions: {
