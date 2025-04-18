@@ -217,7 +217,7 @@ export default defineValaxyConfig<ThemeConfig>({
     ],
 
     announcement: {
-      enable: true,
+      enable: false,
       type: "warning",
       content: "友链页面正在重构，期间会出现加载异常的情况，请见谅！",
     },
