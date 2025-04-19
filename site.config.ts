@@ -2,7 +2,7 @@ import { defineSiteConfig } from "valaxy";
 
 export default defineSiteConfig({
   url: "https://blog.storical.space",
-  favicon: "https://images1.blog.sinzmise.top/profile/icon.avif",
+  favicon: "/favicon.ico",
   lang: "zh-CN",
   title: "汐塔魔法屋",
   author: {
@@ -19,7 +19,7 @@ export default defineSiteConfig({
   },
 
   cdn: {
-    prefix: "https://npm.elemecdn.com/",
+    prefix: "https://jsd.cdn.sinzmise.top/npm/",
   },
 
   social: [
