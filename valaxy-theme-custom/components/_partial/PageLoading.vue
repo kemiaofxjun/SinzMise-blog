@@ -92,6 +92,5 @@ const svgContent =
   </filter>
 </defs>
 </svg>
-<progress class="progress is-small max-w-75" max="100"></progress>
 `)
 </script>
