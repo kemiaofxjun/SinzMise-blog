@@ -1,6 +1,7 @@
 sidebar:
   pages: Pages
   recent_posts: Recent Posts
+  headline: Website Info
 
 aside:
   toc: Table of Contents
