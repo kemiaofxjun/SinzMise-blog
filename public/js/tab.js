@@ -1,6 +1,6 @@
 // 假设这里是处理 tab 切换的代码 
-const tabLabels = document.querySelectorAll('.tabs-tab-button');  
-const tabContents = document.querySelectorAll('.tabs-tab-content');  
+var tabLabels = document.querySelectorAll('.tabs-tab-button');  
+var tabContents = document.querySelectorAll('.tabs-tab-content');  
 
 if(tabLabels && tabContents){
   tabLabels[0].classList.add('active');  
