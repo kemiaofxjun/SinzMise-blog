@@ -1,4 +1,5 @@
 <template>
+    <LinkInterceptor />
     <Head>
         <title>归档</title>
     </Head>

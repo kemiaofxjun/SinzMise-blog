@@ -1,4 +1,5 @@
 <template>
+    <LinkInterceptor />
     <Layout>
         <main class="main">
             <div class="flex justify-center items-center h-screen">

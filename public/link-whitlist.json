@@ -1,0 +1,10 @@
+{
+  "enable": true,
+  "links": [
+    "https://cn.bing.com/",
+    "https://www.travellings.cn/"
+  ],
+  "domain": [
+    "https://github.com"
+  ]
+}

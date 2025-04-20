@@ -1,4 +1,5 @@
 <template>
+    <LinkInterceptor />
     <Head>
         <title>搜索</title>
     </Head>

@@ -1,10 +1,11 @@
 <template>
+    <LinkInterceptor />
     <Layout>
         <main class="main">
             <div class="container mx-auto p-3">
                 <div class="grid grid-cols-1 lg:grid-cols-5 lg:gap-4 max-w-7xl m-auto">
-                    <div class="lg:col-span-3 lg:mb-0 lg:mb-6">
-                        <div class="card content card-content">
+                    <div class="card lg:col-span-3 lg:mb-0">
+                        <div class="content card-content">
                             <slot>
                                 <RouterView></RouterView>
                             </slot>
