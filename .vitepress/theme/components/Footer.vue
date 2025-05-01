@@ -16,7 +16,7 @@
         </a>
       </div>
       <div class="meta">
-        <span v-if="theme.indiewebring" class="indiewebring">
+        <span v-if="theme.indiewebring" class="webring">
           <a href="https://xn--sr8hvo.ws/previous">←</a>
             An <a href="https://xn--sr8hvo.ws">IndieWeb Webring</a> 🕸💍
           <a href="https://xn--sr8hvo.ws/next">→</a>
@@ -175,7 +175,7 @@ onBeforeUnmount(() => {
         }
       }
     }
-    .indiewebring{
+    .webring{
       margin: 0 2px;
       padding: 8px;
     }
