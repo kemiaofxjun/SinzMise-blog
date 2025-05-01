@@ -16,9 +16,9 @@
         </a>
       </div>
       <div class="meta">
-        <span v-if="theme.indiewebring" class="link">
+        <span v-if="theme.indiewebring" class="indiewebring">
           <a href="https://xn--sr8hvo.ws/previous">←</a>
-            &nbsp;An&nbsp;<a href="https://xn--sr8hvo.ws">IndieWeb&nbsp;Webring</a>&nbsp;🕸💍&nbsp;
+            An <a href="https://xn--sr8hvo.ws">IndieWeb Webring</a> 🕸💍
           <a href="https://xn--sr8hvo.ws/next">→</a>
         </span>
         <a class="power link" href="https://vitepress.dev/" target="_blank">
@@ -174,13 +174,10 @@ onBeforeUnmount(() => {
           color: white;
         }
       }
-      a:hover{
-        color: white;
-        background-color: var(--main-color-bg);
-        .iconfont {
-          color: white;
-        }
-      }
+    }
+    .indiewebring{
+      margin: 0 2px;
+      padding: 8px;
     }
     @media (max-width: 768px) {
       font-size: 14px;
