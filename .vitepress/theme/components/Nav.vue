@@ -60,6 +60,15 @@
           >
             <i class="iconfont icon-subway"></i>
           </a>
+          <!-- 十年之约 -->
+                    <a
+            class="menu-btn nav-btn foreverblog"
+            title="开往-友链接力"
+            href="https://www.foreverblog.cn/go.html"
+            target="_blank"
+          >
+            <i class="iconfont pj-historical icon-pjh-chongdonglogo"></i>
+          </a>
           <!-- 随机文章 -->
           <div
             class="menu-btn nav-btn"

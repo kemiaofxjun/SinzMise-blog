@@ -105,6 +105,14 @@ export const themeConfig = {
           href: "https://cdn2.codesign.qq.com/icons/g5ZpEgx3z4VO6j2/latest/iconfont.css",
         },
       ],
+      [
+        "link",
+        {
+          crossorigin: "anonymous",
+          rel: "stylesheet",
+          href: "//at.alicdn.com/t/c/font_4199232_vgnl0ve5ode.css",
+        },
+      ],
       // Embed code
       ["link", { rel: "preconnect", href: "https://use.sevencdn.com" }],
       ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" }],
@@ -236,6 +244,38 @@ export const themeConfig = {
           { text: "文章归档", link: "/pages/archives", newTab: true },
         ],
       },
+      {
+        text: "虚拟备案",
+        items: [
+          { text: "萌ICP备20231033号", link: "https://icp.gov.moe/?keyword=20231033", newTab: true },
+          { text: "团ICP备20250007号", link: "https://icp.星.fun/id.php?keyword=20250007", newTab: true },
+          { text: "MIIT备20240818号", link: "https://beian.miit.cn.com/gov/search.php?query=20240818", newTab: true },
+          { text: "官码2024000155号", link: "https://guan.ma/hao/2024000155/", newTab: true },
+          { text: "SICP备20243448号", link: "https://icp.sepocatch.xyz/search.php?keyword=blog.storical.space", newTab: true },
+          { text: "追梦ICP备20251025号", link: "https://icp.20097747.xyz/id.php?keyword=20251025", newTab: true },
+        ],
+      },
+      {
+        text: "我加入的-1",
+        items: [
+          { text: "中文博客列表", link: "https://zhblogs.ohyee.cc/", newTab: true },
+          { text: "个站商店", link: "https://storeweb.cn/member/o/1585", newTab: true },
+          { text: "BlogFinder", link: "https://bf.zzxworld.com/s/995", newTab: true },
+          { text: "站点聚合平台", link: "https://sites.applinzi.com/site-info?siteType=life&siteId=64cb373190e35300a8eec654", newTab: true },
+          { text: "博客录", link: "https://boke.lu/", newTab: true },
+          { text: "十年之约", link: "https://www.foreverblog.cn/blog/6371.html", newTab: true },
+        ],
+      },
+      {
+        text: "我加入的-2",
+        items: [
+          { text: "RssBlog", link: "https://rssblog.cn/member/d711afd659d65c2ba2d3b18697818cf7/", newTab: true },
+          { text: "笔墨迹", link: "https://blogscn.fun/", newTab: true },
+          { text: "博客大全", link: "https://daohang.lusongsong.com/", newTab: true },
+          { text: "BlogsClub", link: "https://www.blogsclub.org/blog/99.html", newTab: true },
+          { text: "OurBlogs", link: "https://ourblo.gs/blogs/55/", newTab: true },
+        ],
+      },
     ],
   },
   // 评论
@@ -355,6 +395,7 @@ export const themeConfig = {
       "social-link",
       "link-text",
       "travellings",
+      "foreverblog",
       "post-link",
       "report",
       "more-link",

@@ -218,7 +218,7 @@ const socialLinkData = computed(() => {
         .link-text {
           color: var(--main-font-color);
           display: inline-block;
-          max-width: 120px;
+          max-width: 200px;
           width: max-content;
           margin: 4px 0;
           overflow: hidden;
