@@ -107,7 +107,7 @@ onBeforeUnmount(() => {
   :global(.glow-color) {
     flood-color: white;
   }
-  html[theme='dark'] & {
+  html.dark & {
     background: linear-gradient(#c3bde9, #fee4ff);
     :global(.circle-path) {
       fill: #fee4ff;
