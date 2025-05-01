@@ -10,8 +10,17 @@
           <i class="iconfont icon-safe" />
           {{ theme.icp }}
         </a>
+        <a v-if="theme.gongan.enable" class="icp link" :href="theme.gongan.link" target="_blank">
+          <i class="iconfont icon-safe" />
+          {{ theme.gongan.text }}
+        </a>
       </div>
       <div class="meta">
+        <span v-if="theme.indiewebring" class="link">
+          <a href="https://xn--sr8hvo.ws/previous">←</a>
+            &nbsp;An&nbsp;<a href="https://xn--sr8hvo.ws">IndieWeb&nbsp;Webring</a>&nbsp;🕸💍&nbsp;
+          <a href="https://xn--sr8hvo.ws/next">→</a>
+        </span>
         <a class="power link" href="https://vitepress.dev/" target="_blank">
           <span class="by">Powered by</span>
           <span class="name">VitePress</span>
@@ -159,6 +168,13 @@ onBeforeUnmount(() => {
         transition: color 0.3s;
       }
       &:hover {
+        color: white;
+        background-color: var(--main-color-bg);
+        .iconfont {
+          color: white;
+        }
+      }
+      a:hover{
         color: white;
         background-color: var(--main-color-bg);
         .iconfont {

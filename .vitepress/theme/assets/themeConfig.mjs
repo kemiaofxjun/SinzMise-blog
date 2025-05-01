@@ -22,6 +22,11 @@ export const themeConfig = {
   },
   // 备案信息
   // icp: "萌ICP备114514号",
+  gongan: {
+    enable: false,
+    link: '',
+    text: '',
+  },
   // 建站日期
   since: "2020-07-28",
   // 每页文章数据
@@ -414,4 +419,6 @@ export const themeConfig = {
     url: 'blog.storical.space',
     token: 'BUDcxWH7PTphGZE7n6NTpA',
   },
+  // IndieWeb Webring
+  indiewebring: true,
 };

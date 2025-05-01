@@ -116,18 +116,6 @@ onMounted(() => {
   <div class="webmentions">
     <h2>互动与反馈</h2>
     
-    <!-- Like Button -->
-    <div class="action-buttons">
-      <button 
-        @click="sendLike" 
-        :disabled="sending && mentionType === 'like'"
-        class="like-button"
-      >
-        {{ likes.find(l  => l.url  === mentionUrl) ? '已点赞' : '点赞' }}
-        <span v-if="likes.length  > 0" class="count">{{ likes.length  }}</span>
-      </button>
-    </div>
-    
     <!-- Send WebMention Form -->
     <div class="send-mention">
       <h3>发送回响</h3>

@@ -395,6 +395,20 @@
     border: none;
     background-color: var(--main-card-border);
   }
+  // psw隐藏
+  psw {
+    color: transparent;
+    background: #a1a1a1;
+    border-radius: 2px;
+    transition: all .28s ease;
+    -moz-transition: all .28s ease;
+    -webkit-transition: all .28s ease;
+    -o-transition: all .28s ease;
+    &:hover {
+      color: #444;
+      background: 0 0;
+    }
+  }
   // 其他
   label {
     cursor: pointer;
