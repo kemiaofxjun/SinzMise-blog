@@ -8,7 +8,8 @@
 </template>
 
 <script setup>
-import { onMounted, ref, onUnmounted } from 'vue'
+import { ref } from 'vue'
+
 const svgContent =
   ref(`<svg viewBox="0 0 1728 1117" preserveAspectRatio="xMinYMin slice" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_2_5)">
@@ -53,7 +54,6 @@ import { storeToRefs } from "pinia";
 import { mainStore } from "@/store";
 
 const store = mainStore();
-const { theme } = useData();
 const { loadingStatus } = storeToRefs(store);
 
 // 显示提示
@@ -80,7 +80,7 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .loading {
   position: fixed;
   top: 0;
@@ -92,6 +92,9 @@ onBeforeUnmount(() => {
   align-items: center;
   background: linear-gradient(#b9e6f6, #ece5f4);
   z-index: 9999;
+  :global(#breathingParts) {
+    animation: loading 2s infinite;
+  }
   :global(.triangle-group path) {
     fill: white;
     fill-opacity: 0.15;
