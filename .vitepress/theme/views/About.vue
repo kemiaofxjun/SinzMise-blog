@@ -12,8 +12,8 @@
       <div class="about-item pursuit">
         <span class="tip">追求</span>
         <span class="title2">源于</span>
-        <span class="title2">热爱而去开发</span>
-        <span class="title2">优秀的作品</span>
+        <span class="title2">热爱而去写下</span>
+        <span class="title2">个人的故事</span>
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
@@ -59,7 +59,7 @@
           <a href="https://www.16personalities.com/ch/" target="_blank">16personalities</a>
           了解更多关于
           <a href="https://www.16personalities.com/intj-personality?utm_source=welcome-turbulent-campaigner&utm_medium=email&utm_campaign=results&utm_content=type-personality-0" target="_blank">
-            物流师
+            建筑师
           </a>
         </span>
         <img
@@ -151,14 +151,35 @@
         </div>
       </div>
     </div>
-    <!-- 心路历程 -->
+    <!-- 博客搭建历程 -->
     <div class="about-content" style="display: flex">
       <div class="about-item">
-        <span class="tip">心路历程</span>
-        <span class="title2">还未写完</span>
-        <!--<p class="text">
-          <strong>积累知识</strong>
-        </p>-->
+        <span class="tip">博客搭建历程</span>
+        <span class="title2">从个人网站到博客</span>
+        <p class="text">
+          19年的时候，我尝试着用<strong>Utool的内网穿透+IIS</strong>搞了我的第一个个人网站，但是因为<strong>耗电量太大</strong>所以这个网站搞着搞着没了
+        </p>
+        <p class="text">
+          后面意外找到了免费的虚拟主机，所以那次开始我就搞了我的第一个个人博客，使用的<strong>Z-Blog PHP</strong>，但是那个虚拟主机商跑路了，只能就此作罢，再次寻找免费的虚拟主机
+        </p>
+        <p class="text">
+          后面发现了<strong>Hexo + Github Pages</strong>能实现无服务器部署博客，我搭建静态博客之路也就此开始
+        </p>
+        <p class="text">
+          第一次搭建静态博客，用的是<strong>Hexo-Theme-NexT</strong>主题，后面也试过自己做主题什么的
+        </p>
+        <p class="text">
+          但是随着时间的推移，Hexo博客的加载速度越来越慢，最终我在2025年上半年换掉了这个我使用了4年的框架
+        </p>
+        <p class="text">
+          初次换掉Hexo框架的是Valaxy，这个框架经历很多人推荐，klcdm和小何也用的这个框架，所以我就试了一下
+        </p>
+        <p class="text">
+          结果因为tab的问题，不得不再次换框架，最终换成了<strong>VitePress</strong>，使用的是<strong>Curve</strong>主题
+        </p>
+        <psw class="text">
+          （希望后面不会再换框架或者主题了。。。。。。换来换去我自己都累啊。。。。。。）
+        </psw>
       </div>
     </div>
   </div>
