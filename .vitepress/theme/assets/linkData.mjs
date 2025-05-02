@@ -401,7 +401,7 @@ const linkData = [
       },
       {
         name:"Xiobb’s Blog",
-        url:"https://www.i45s.com/?_ref=blog.sinzmise.top",
+        url:"https://www.imxb.de/?_ref=blog.sinzmise.top",
         avatar:"https://q2.qlogo.cn/headimg_dl?dst_uin=3506642728&spec=640",
         desc:"听见笔尖回声.",
         topimg:"https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://www.i45s.com"
