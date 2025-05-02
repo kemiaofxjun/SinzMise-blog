@@ -63,7 +63,7 @@
           <!-- 十年之约 -->
                     <a
             class="menu-btn nav-btn foreverblog"
-            title="开往-友链接力"
+            title="虫洞-十年之约"
             href="https://www.foreverblog.cn/go.html"
             target="_blank"
           >
