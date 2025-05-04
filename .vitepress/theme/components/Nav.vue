@@ -69,6 +69,15 @@
           >
             <i class="iconfont pj-historical icon-pjh-chongdonglogo"></i>
           </a>
+          <!-- RSS -->
+          <a
+            class="menu-btn nav-btn foreverblog"
+            title="RSS订阅"
+            href="/atom.xml"
+            target="_blank"
+          >
+            <i class="iconfont pj-historical icon-pjh-dingyue"></i>
+          </a>
           <!-- 随机文章 -->
           <div
             class="menu-btn nav-btn"
