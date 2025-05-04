@@ -58,4 +58,4 @@ card: true
 
 ## 网站源代码协议
 
-目前站点主题尚未开发完成，开发完成后将会在 `GitHub` 开源，采用 `AGPL` 协议。
+目前站点已经在 `GitHub` 开源：https://github.com/SinzMise/blog/，采用 `AGPL` 协议。
