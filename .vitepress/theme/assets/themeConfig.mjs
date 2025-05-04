@@ -155,7 +155,7 @@ export const themeConfig = {
     {
       text: "友链",
       items: [
-        // { text: "友链鱼塘", link: "/pages/friends", icon: "fish" },
+        { text: "友链鱼塘", link: "/pages/circle", icon: "fish" },
         { text: "友人帐", link: "/pages/link", icon: "people" },
       ],
     },
@@ -342,16 +342,11 @@ export const themeConfig = {
       enable: true,
     },
   },
-  // 友链
-  friends: {
-    // 友链朋友圈
-    circleOfFriends: "",
-    // 动态友链
-    dynamicLink: {
-      server: "",
-      app_token: "",
-      table_id: "",
-    },
+  // 友链朋友圈
+  fc: {
+    api: 'https://fc.blog.sinzmise.top/',
+    number: 20,
+    errorImg: 'https://fastly.jsdelivr.net/gh/willow-god/Friend-Circle-Lite@latest/static/favicon.ico'
   },
   // 音乐播放器
   // https://github.com/imsyy/Meting-API
