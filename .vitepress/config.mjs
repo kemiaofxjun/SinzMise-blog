@@ -34,10 +34,6 @@ export default withPwa(
     appearance: "dark",
     // Head
     head: themeConfig.inject.header,
-    // sitemap
-    sitemap: {
-      hostname: themeConfig.siteMeta.site,
-    },
     // 主题配置
     themeConfig: {
       ...themeConfig,
@@ -46,6 +42,12 @@ export default withPwa(
       tagsData: getAllType(postData),
       categoriesData: getAllCategories(postData),
       archivesData: getAllArchives(postData),
+      lastUpdated: {
+        formatOptions: {
+          dateStyle: 'full',
+          timeStyle: 'medium'
+        }
+      },
     },
     // markdown
     markdown: {
@@ -173,7 +175,7 @@ export default withPwa(
         // 缓存文件
         globPatterns: ["**/*.{js,css,html,ico,png,jpg,jpeg,gif,svg,woff2,ttf}"],
         // 排除路径
-        navigateFallbackDenylist: [/^\/sitemap.xml$/, /^\/rss.xml$/, /^\/robots.txt$/],
+        navigateFallbackDenylist: [/^\/sitemap.xml$/, /^\/rss.xml$/, /^\/robots.txt$/, /^\/atom.xml$/],
       },
       manifest: {
         name: themeConfig.siteMeta.title,

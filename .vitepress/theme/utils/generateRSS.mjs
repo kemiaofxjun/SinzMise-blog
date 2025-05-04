@@ -1,7 +1,7 @@
 import { createContentLoader } from "vitepress";
 import { writeFileSync } from "fs";
 import { Feed } from "feed";
-import path from "path";
+import path,{resolve} from "path";
 
 /**
  * 生成 RSS
@@ -11,6 +11,7 @@ import path from "path";
 export const createRssFile = async (config, themeConfig) => {
   // 配置信息
   const siteMeta = themeConfig.siteMeta;
+  const cover = themeConfig.cover;
   const hostLink = siteMeta.site;
   // Feed 实例
   const feed = new Feed({
@@ -20,8 +21,8 @@ export const createRssFile = async (config, themeConfig) => {
     link: hostLink,
     language: "zh",
     generator: siteMeta.author.name,
-    favicon: siteMeta.author.cover,
-    copyright: `Copyright © 2020-present ${siteMeta.author.name}`,
+    favicon: siteMeta.logo,
+    copyright: `Copyright © 2021-present ${siteMeta.title}`,
     updated: new Date(),
   });
   // 加载文章
@@ -58,6 +59,66 @@ export const createRssFile = async (config, themeConfig) => {
       ],
     });
   }
+  // 获取所有页面 
+  let pages = await createContentLoader('posts/**/*.md', {
+    excerpt: true,
+    render: true 
+  }).load()
+
+  // 按照日期排序
+  pages = pages.sort((a, b) => {
+    const dateA = new Date(a.frontmatter.date);
+    const dateB = new Date(b.frontmatter.date);
+    return dateB - dateA;
+  });
+
+  // 过滤隐藏文章
+  const filteredPages = pages 
+    .filter(page => !page.frontmatter.hidden) 
+  
+  // RSS、Atom的XSL美化
+  const rssContent = feed.rss2() 
+    .replace('<?xml version="1.0" encoding="utf-8"?>', 
+            '<?xml version="1.0" encoding="utf-8"?>\n<?xml-stylesheet type="text/xsl" href="/xsl/rss.xsl"?>') 
+
+  const atomContent = `<?xml version="1.0" encoding="UTF-8"?>
+  <?xml-stylesheet type="text/xsl" href="/xsl/atom.xsl"?> 
+  <feed xmlns="http://www.w3.org/2005/Atom">
+    <id>${hostLink}</id>
+    <title>${siteMeta.title}</title>
+    <updated>${new Date().toLocaleString()}</updated>
+    <description>${siteMeta.description}</description>
+    <author>
+      <name>${siteMeta.author.name}</name>
+      <email>${siteMeta.author.email}</email>
+      <uri>${siteMeta.author.link}</uri>
+    </author>
+    <language>zh-Hans</language>
+    <generator uri="https://github.com/SinzMise/blog">Ceta Blog</generator>
+    <icon>${hostLink}${siteMeta.logo}</icon>
+    <logo>${hostLink}${siteMeta.logo}</logo>
+    <rights>Copyright © 2021-${new Date().getFullYear()} ${siteMeta.title}</rights>
+    <subtitle>${siteMeta.subtitle}</subtitle>
+    ${filteredPages.map(page  => `
+    <entry>
+      <id>${hostLink}${page.url}</id>
+      <title>${page.frontmatter.title}</title>
+      <updated>${new Date(page.lastUpdated || page.frontmatter.updated).toLocaleDateString()}</updated>
+      <author>
+        <name>${siteMeta.author.name}</name>
+      </author>
+      <content type="html">
+        <![CDATA[<img src="${page.frontmatter.cover || Array.isArray(cover.showCover.defaultCover) ? cover.showCover.defaultCover[Math.floor(Math.random() * cover.showCover.defaultCover.length)] : false}" /> <p>${page.frontmatter.description ? page.frontmatter.description[Math.floor(Math.random() * page.frontmatter.description)] : `暂无简介` }</p> <a href="${hostLink}${page.url}">点击查看全文</a>]]>
+      </content>
+      <link href="${hostLink}${page.url}"></link>
+      <summary>${page.frontmatter.description || `暂无简介`}</summary>
+      <category term="${page.frontmatter.categories}"></category>
+      <published>${new Date(page.frontmatter.date || page.lastUpdated).toLocaleDateString()}</published>
+    </entry>
+    `).join('')}
+  </feed>` 
+  
   // 写入文件
-  writeFileSync(path.join(config.outDir, "rss.xml"), feed.rss2(), "utf-8");
+  writeFileSync(path.join(config.outDir, "rss.xml"), rssContent, "utf-8");
+  writeFileSync(path.join(config.outDir, "atom.xml"), atomContent, "utf-8");
 };

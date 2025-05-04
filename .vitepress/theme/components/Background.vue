@@ -50,7 +50,7 @@ const coverLoaded = (e) => {
   justify-content: center;
   z-index: -2;
   &.patterns {
-    background-color: var(--general-background-color);
+    background-color: var(--main-site-background);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

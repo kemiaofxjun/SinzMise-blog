@@ -4,10 +4,12 @@ export const themeConfig = {
   siteMeta: {
     // 站点标题
     title: "汐塔魔法屋",
+    // 站点副标题（RSS限定）
+    subtitle: "种下一颗有故事的种子，让它带着魔法和奇迹生根发芽",
     // 站点描述
     description: "听，是潮汐的声音",
     // 站点logo
-    logo: "/images/logo/logo.webp",
+    logo: "/images/icon.png",
     // 站点地址
     site: "https://blog.storical.space",
     // 语言
