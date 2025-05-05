@@ -11,10 +11,12 @@
 import { onMounted, ref } from 'vue'
 import '@/assets/fclite.css'
 
+const { theme } = useData();
+
 const UserConfig = ref({
-  private_api_url: 'https://fc.blog.sinzmise.top/',
-  page_turning_number: 20,
-  error_img: "https://fastly.jsdelivr.net/gh/willow-god/Friend-Circle-Lite@latest/static/favicon.ico" 
+  private_api_url: theme.value.fc.api,
+  page_turning_number: theme.value.fc.number,
+  error_img: theme.value.fc.errorImg
 })
  
 const start = ref(0)

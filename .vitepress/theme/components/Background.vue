@@ -69,7 +69,7 @@ const coverLoaded = (e) => {
   .cover {
     width: auto;
     height: auto;
-    min-height: 100%;
+    height: 100%;
     width: 100%;
     opacity: 0;
     transition:

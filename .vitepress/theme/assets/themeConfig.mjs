@@ -260,6 +260,7 @@ export const themeConfig = {
           { text: "官码2024000155号", link: "https://guan.ma/hao/2024000155/", newTab: true },
           { text: "SICP备20243448号", link: "https://icp.sepocatch.xyz/search.php?keyword=blog.storical.space", newTab: true },
           { text: "追梦ICP备20251025号", link: "https://icp.20097747.xyz/id.php?keyword=20251025", newTab: true },
+          { text: "联bBb盟 icp备20256592", link: "https://icp.bbb-lsy07.my/query.php?keyword=20256592", newTab: true },
         ],
       },
       {
