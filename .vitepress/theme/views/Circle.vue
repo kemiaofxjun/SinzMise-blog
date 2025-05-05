@@ -4,57 +4,33 @@
     <div class="articles-container" id="articles-container"></div>
     <button id="load-more-btn" @click="loadMoreArticles">再来亿点</button>
     <div id="stats-container"></div>
-    
-    <!-- 模态框 -->
-    <div id="modal" class="modal" :class="{'modal-open': showModal}" @click.self="hideModal"  v-if="showModal">
-      <div class="modal-content">
-        <img id="modal-author-avatar" :src="modalData.avatar  || errorImg" @error="handleImgError" alt="">
-        <a id="modal-author-name-link" :href="modalData.link">{{  modalData.author  }}</a>
-        <div id="modal-articles-container">
-          <div class="modal-article" v-for="(article, index) in modalData.articles"  :key="index">
-            <a class="modal-article-title" :href="article.link"  target="_blank">{{ article.title  }}</a>
-            <div class="modal-article-date">📅{{ formatDate(article.created)  }}</div>
-          </div>
-        </div>
-        <img id="modal-bg" :src="modalData.avatar  || errorImg" @error="handleImgError" alt="">
-      </div>
-    </div>
   </div>
 </template>
  
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import '@/assets/fclite.css'
 
-const { theme } = useData();
-
-// 响应式数据 
 const UserConfig = ref({
-  private_api_url: theme.value.fc.api,
-  page_turning_number: theme.value.fc.number,
-  error_img: theme.value.fc.errorImg, 
+  private_api_url: 'https://fc.blog.sinzmise.top/',
+  page_turning_number: 20,
+  error_img: "https://fastly.jsdelivr.net/gh/willow-god/Friend-Circle-Lite@latest/static/favicon.ico" 
 })
  
-const start = ref(0) 
+const start = ref(0)
 const allArticles = ref([])
-const showModal = ref(false)
-const modalData = ref({
-  author: '',
-  avatar: '',
-  link: '',
-  articles: []
-})
-const errorImg = ref(theme.value.fc.errorImg) 
  
-// 方法 
+onMounted(() => {
+  initializeFcLite()
+})
+ 
 const initializeFcLite = () => {
   const root = document.getElementById('friend-circle-lite-root') 
   if (!root) return 
  
-  // 清除之前的内容 
+  // Clear previous content 
   root.innerHTML  = ''
  
-  // 创建DOM结构 
   const randomArticleContainer = document.createElement('div') 
   randomArticleContainer.id  = 'random-article'
   root.appendChild(randomArticleContainer) 
@@ -63,19 +39,18 @@ const initializeFcLite = () => {
   container.className  = 'articles-container'
   container.id  = 'articles-container'
   root.appendChild(container) 
-  
+ 
   const loadMoreBtn = document.createElement('button') 
   loadMoreBtn.id  = 'load-more-btn'
   loadMoreBtn.innerText  = '再来亿点'
-  loadMoreBtn.addEventListener('click',  loadMoreArticles)
   root.appendChild(loadMoreBtn) 
  
-  // 创建统计信息容器 
+  // Create stats container 
   const statsContainer = document.createElement('div') 
   statsContainer.id  = 'stats-container'
   root.appendChild(statsContainer) 
  
-  // 初始加载 
+  // Initial load 
   loadMoreArticles()
 }
  
@@ -102,30 +77,34 @@ const loadMoreArticles = () => {
     })
     .finally(() => {
       const loadMoreBtn = document.getElementById('load-more-btn') 
-      if (loadMoreBtn) loadMoreBtn.innerText  = '再来亿点'
+      if (loadMoreBtn) {
+        loadMoreBtn.innerText  = '再来亿点'
+      }
     })
 }
  
 const processArticles = (data) => {
   allArticles.value  = data.article_data  
   
-  // 处理统计数据 
+  // Process stats 
   const stats = data.statistical_data  
   const statsContainer = document.getElementById('stats-container') 
   if (statsContainer) {
     statsContainer.innerHTML  = `
       <div>Powered by: <a href="https://github.com/willow-god/Friend-Circle-Lite"  target="_blank">FriendCircleLite</a><br></div>
       <div>Designed By: <a href="https://www.liushen.fun/"  target="_blank">LiuShen</a><br></div>
-      <div>订阅:${stats.friends_num}    活跃:${stats.active_num}    总文章数:${stats.article_num}<br></div> 
+      <div>订阅:${stats.friends_num}  活跃:${stats.active_num}  总文章数:${stats.article_num}<br></div> 
       <div>更新时间:${stats.last_updated_time}</div> 
     `
   }
  
   displayRandomArticle()
  
-  const articles = allArticles.value.slice(start.value,  start.value  + UserConfig.value.page_turning_number) 
   const container = document.getElementById('articles-container') 
-  
+  if (!container) return 
+ 
+  const articles = allArticles.value.slice(start.value,  start.value  + UserConfig.value.page_turning_number) 
+ 
   articles.forEach(article  => {
     const card = document.createElement('div') 
     card.className  = 'card'
@@ -133,8 +112,8 @@ const processArticles = (data) => {
     const title = document.createElement('div') 
     title.className  = 'card-title'
     title.innerText  = article.title  
-    title.onclick  = () => window.open(article.link,  '_blank')
     card.appendChild(title) 
+    title.onclick  = () => window.open(article.link,  '_blank')
  
     const author = document.createElement('div') 
     author.className  = 'card-author'
@@ -161,7 +140,7 @@ const processArticles = (data) => {
     bgImg.onerror  = () => bgImg.src  = UserConfig.value.error_img  
     card.appendChild(bgImg) 
  
-    if (container) container.appendChild(card) 
+    container.appendChild(card) 
   })
  
   start.value  += UserConfig.value.page_turning_number  
@@ -177,55 +156,110 @@ const displayRandomArticle = () => {
   
   const randomArticle = allArticles.value[Math.floor(Math.random()  * allArticles.value.length)] 
   const randomArticleContainer = document.getElementById('random-article') 
-  
-  if (randomArticleContainer) {
-    randomArticleContainer.innerHTML  = `
-      <div class="random-container">
-        <div class="random-container-title">随机钓鱼</div>
-        <div class="random-title">${randomArticle.title}</div> 
-        <div class="random-author">作者: ${randomArticle.author}</div> 
-      </div>
-      <div class="random-button-container">
-        <a href="#" id="refresh-random-article">刷新</a>
-        <button class="random-link-button" onclick="window.open('${randomArticle.link}',  '_blank')">过去转转</button>
-      </div>
-    `
+  if (!randomArticleContainer) return 
  
-    // 为刷新按钮添加事件监听器 
-    const refreshBtn = document.getElementById('refresh-random-article') 
-    if (refreshBtn) {
-      refreshBtn.addEventListener('click',  (event) => {
-        event.preventDefault() 
-        displayRandomArticle()
-      })
-    }
+  randomArticleContainer.innerHTML  = `
+    <div class="random-container">
+      <div class="random-container-title">随机钓鱼</div>
+      <div class="random-title">${randomArticle.title}</div> 
+      <div class="random-author">作者: ${randomArticle.author}</div> 
+    </div>
+    <div class="random-button-container">
+      <a href="#" id="refresh-random-article">刷新</a>
+      <button class="random-link-button" onclick="window.open('${randomArticle.link}',  '_blank')">过去转转</button>
+    </div>
+  `
+ 
+  // Add event listener for refresh button 
+  const refreshBtn = document.getElementById('refresh-random-article') 
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click',  function(event) {
+      event.preventDefault() 
+      displayRandomArticle()
+    })
   }
 }
  
 const showAuthorArticles = (author, avatar, link) => {
-  modalData.value  = {
-    author,
-    avatar,
-    link: new URL(link).origin,
-    articles: allArticles.value.filter(article  => article.author  === author).slice(0, 4)
+  const root = document.getElementById('friend-circle-lite-root') 
+  if (!root) return 
+ 
+  // Create modal if it doesn't exist 
+  if (!document.getElementById('fcmod'))  {
+    const fcmod = document.createElement('div') 
+    fcmod.id  = 'fcmod'
+    fcmod.className  = 'fcmod'
+    fcmod.innerHTML  = `
+      <div class="fcmod-content">
+        <img id="fcmod-author-avatar" src="" alt="">
+        <a id="fcmod-author-name-link"></a>
+        <div id="fcmod-articles-container"></div>
+        <img id="fcmod-bg" src="" alt="">
+      </div>
+    `
+    root.appendChild(fcmod) 
   }
-  showModal.value  = true 
+ 
+  const fcmod = document.getElementById('fcmod') 
+  const fcmodArticlesContainer = document.getElementById('fcmod-articles-container') 
+  const fcmodAuthorAvatar = document.getElementById('fcmod-author-avatar') 
+  const fcmodAuthorNameLink = document.getElementById('fcmod-author-name-link') 
+  const fcmodBg = document.getElementById('fcmod-bg') 
+ 
+  if (!fcmod || !fcmodArticlesContainer || !fcmodAuthorAvatar || !fcmodAuthorNameLink || !fcmodBg) return 
+ 
+  fcmodArticlesContainer.innerHTML  = ''
+  fcmodAuthorAvatar.src  = avatar || UserConfig.value.error_img  
+  fcmodAuthorAvatar.onerror  = () => fcmodAuthorAvatar.src  = UserConfig.value.error_img  
+  fcmodBg.src  = avatar || UserConfig.value.error_img  
+  fcmodBg.onerror  = () => fcmodBg.src  = UserConfig.value.error_img  
+  fcmodAuthorNameLink.innerText  = author 
+  fcmodAuthorNameLink.href  = new URL(link).origin 
+ 
+  const authorArticles = allArticles.value.filter(article  => article.author  === author)
+  authorArticles.slice(0,  4).forEach(article => {
+    const articleDiv = document.createElement('div') 
+    articleDiv.className  = 'fcmod-article'
+ 
+    const title = document.createElement('a') 
+    title.className  = 'fcmod-article-title'
+    title.innerText  = article.title  
+    title.href  = article.link  
+    title.target  = '_blank'
+    articleDiv.appendChild(title) 
+ 
+    const date = document.createElement('div') 
+    date.className  = 'fcmod-article-date'
+    date.innerText  = "📅" + article.created.substring(0,  10)
+    articleDiv.appendChild(date) 
+ 
+    fcmodArticlesContainer.appendChild(articleDiv) 
+  })
+ 
+  fcmod.style.display  = 'block'
+  setTimeout(() => {
+    fcmod.classList.add('fcmod-open') 
+  }, 10)
+ 
+  // Add click event to close modal when clicking outside 
+  fcmod.onclick  = function(event) {
+    if (event.target  === fcmod) {
+      hideFcmod()
+    }
+  }
 }
  
-const hideModal = () => {
-  showModal.value  = false 
-}
+const hideFcmod = () => {
+  const fcmod = document.getElementById('fcmod') 
+  if (!fcmod) return 
  
-const handleImgError = (event) => {
-  event.target.src  = errorImg.value  
+  fcmod.classList.remove('fcmod-open') 
+  fcmod.addEventListener('transitionend',  () => {
+    fcmod.style.display  = 'none'
+    const root = document.getElementById('friend-circle-lite-root') 
+    if (root && fcmod.parentNode  === root) {
+      root.removeChild(fcmod) 
+    }
+  }, { once: true })
 }
- 
-const formatDate = (dateString) => {
-  return dateString.substring(0,  10)
-}
- 
-// 生命周期钩子 
-onMounted(() => {
-  initializeFcLite()
-})
 </script>

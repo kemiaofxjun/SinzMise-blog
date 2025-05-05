@@ -1,12 +1,12 @@
 :root {
     --text-color-light: #000000;
     --text-color-dark: #F7F7FA;
-    --background-color: var(--main-card-second-background);
+    --background-color: var(--main-card-background);
     --container-bg-color: var(--main-card-second-background);
     --hover-color: #3498db;
     --author-color-light: gray;
     --author-color-dark: #b3b3b3;
-    --modal-bg-blur: 25px;
+    --fcmod-bg-blur: 25px;
     --shadow-color-light: rgba(0, 0, 0, 0.1);
     --shadow-color-dark: rgba(255, 255, 255, 0.1);
     --border-color-light: #e3e8f7;
@@ -19,8 +19,8 @@ html.light {
     --author-color: var(--author-color-light);
     --shadow-color: var(--shadow-color-light);
     --border-color: var(--border-color-light);
-    --modal-bg-color: rgba(255, 255, 255, 0.5);
-    --modal-content-bg-color: rgba(239, 250, 255, 0.5);
+    --fcmod-bg-color: rgba(255, 255, 255, 0.5);
+    --fcmod-content-bg-color: rgba(239, 250, 255, 0.5);
     --load-more-btn-bg-color: var(--container-bg-color);
 }
 
@@ -30,8 +30,8 @@ html.dark {
     --author-color: var(--author-color-dark);
     --shadow-color: var(--shadow-color-dark);
     --border-color: var(--border-color-dark);
-    --modal-bg-color: rgba(0, 0, 0, 0.3);
-    --modal-content-bg-color: rgba(20, 20, 20, 0.5);
+    --fcmod-bg-color: rgba(0, 0, 0, 0.3);
+    --fcmod-content-bg-color: rgba(20, 20, 20, 0.5);
     --load-more-btn-bg-color: var(--container-bg-color);
 }
 
@@ -111,34 +111,34 @@ html.dark {
     transition: background-color 0.3s ease-in-out;
 }
 
-.modal {
+.fcmod {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--modal-bg-color);
-    backdrop-filter: blur(var(--modal-bg-blur));
-    -webkit-backdrop-filter: blur(var(--modal-bg-blur));
+    background-color: var(--fcmod-bg-color);
+    backdrop-filter: blur(var(--fcmod-bg-blur));
+    -webkit-backdrop-filter: blur(var(--fcmod-bg-blur));
     z-index: 999;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-.modal-open {
+.fcmod-open {
     opacity: 1;
     visibility: visible;
 }
 
-.modal-content {
+.fcmod-content {
     opacity: 0;
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) translateY(-50px);
     width: 350px;
-    background-color: var(--modal-content-bg-color);
+    background-color: var(--fcmod-content-bg-color);
     padding: 20px;
     border: 1px solid var(--border-color);
     z-index: 1000;
@@ -148,22 +148,22 @@ html.dark {
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-.modal.modal-open .modal-content {
+.fcmod.fcmod-open .fcmod-content {
     transform: translate(-50%, -50%) translateY(0);
     opacity: 1;
 }
 
-.modal-content:hover #modal-bg  {
+.fcmod-content:hover #fcmod-bg  {
     transform: scale(1.1);
 }
 
 @media screen and (max-width: 440px) {
-    .modal-content {
+    .fcmod-content {
         width: 80%;
     }
 }
 
-#modal-bg {
+#fcmod-bg {
     position: absolute;
     filter: blur(5px);
     opacity: 0.2;
@@ -177,7 +177,7 @@ html.dark {
     transition: transform 0.6s ease !important;
 }
 
-#modal-author-avatar {
+#fcmod-author-avatar {
     display: block;
     margin: 5px auto !important;
     border-radius: 50% !important;
@@ -185,7 +185,7 @@ html.dark {
     height: 110px;
 }
 
-#modal-author-name-link {
+#fcmod-author-name-link {
     display: block;
     text-align: center;
     font-size: 15px;
@@ -194,15 +194,15 @@ html.dark {
     text-decoration: none;
 }
 
-#modal-author-name-link:hover {
+#fcmod-author-name-link:hover {
     text-decoration: underline;
 }
 
-.modal-content hr {
+.fcmod-content hr {
     margin: 20px 0;
 }
 
-#modal-articles-container {
+#fcmod-articles-container {
     position: relative;
     z-index: 1;
     border-top: var(--hover-color) double 2px;
@@ -210,7 +210,7 @@ html.dark {
     padding-top: 10px;
 }
 
-.modal-article {
+.fcmod-article {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 10px;
@@ -218,7 +218,7 @@ html.dark {
     border-bottom: var(--hover-color) dashed 1px;
 }
 
-.modal-article .modal-article-title {
+.fcmod-article .fcmod-article-title {
     color: var(--text-color);
     font-size: 18px;
     line-height: 1.2;
@@ -235,12 +235,12 @@ html.dark {
     text-overflow: ellipsis;
 }
 
-.modal-article .modal-article-title:hover {
+.fcmod-article .fcmod-article-title:hover {
     color: var(--hover-color);
     text-decoration: underline;
 }
 
-.modal-article .modal-article-date {
+.fcmod-article .fcmod-article-date {
     font-size: 12px;
     width: 100%;
     color: var(--author-color);
