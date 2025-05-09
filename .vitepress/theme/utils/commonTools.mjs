@@ -102,7 +102,7 @@ export const jumpRedirect = (html, themeConfig, isDom = false) => {
     // 是否启用
     if (!themeConfig.jumpRedirect.enable) return html;
     // 中转页地址
-    const redirectPage = "/redirect.html";
+    const redirectPage = "https://www.storical.space/redirectceta.html";
     // 排除的 className
     const excludeClass = themeConfig.jumpRedirect.exclude;
     if (isDom) {

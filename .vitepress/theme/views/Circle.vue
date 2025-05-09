@@ -1,8 +1,8 @@
 <template>
   <div id="friend-circle-lite-root">
     <div id="random-article"></div>
-    <div class="articles-container" id="articles-container"></div>
-    <button id="load-more-btn" @click="loadMoreArticles">再来亿点</button>
+    <div id="articles-container" class="articles-container"></div>
+    <button id="load-more-btn">再来亿点</button>
     <div id="stats-container"></div>
   </div>
 </template>
@@ -19,8 +19,8 @@ const UserConfig = ref({
   error_img: theme.value.fc.errorImg
 })
  
-const start = ref(0)
-const allArticles = ref([])
+let start = ref(0)
+let allArticles = ref([])
  
 onMounted(() => {
   initializeFcLite()
@@ -41,7 +41,7 @@ const initializeFcLite = () => {
   container.className  = 'articles-container'
   container.id  = 'articles-container'
   root.appendChild(container) 
- 
+  
   const loadMoreBtn = document.createElement('button') 
   loadMoreBtn.id  = 'load-more-btn'
   loadMoreBtn.innerText  = '再来亿点'
@@ -54,6 +54,9 @@ const initializeFcLite = () => {
  
   // Initial load 
   loadMoreArticles()
+ 
+  // Add event listener for load more button 
+  loadMoreBtn.addEventListener('click',  loadMoreArticles)
 }
  
 const loadMoreArticles = () => {
@@ -79,23 +82,20 @@ const loadMoreArticles = () => {
     })
     .finally(() => {
       const loadMoreBtn = document.getElementById('load-more-btn') 
-      if (loadMoreBtn) {
-        loadMoreBtn.innerText  = '再来亿点'
-      }
+      if (loadMoreBtn) loadMoreBtn.innerText  = '再来亿点'
     })
 }
  
 const processArticles = (data) => {
   allArticles.value  = data.article_data  
-  
-  // Process stats 
   const stats = data.statistical_data  
   const statsContainer = document.getElementById('stats-container') 
+  
   if (statsContainer) {
     statsContainer.innerHTML  = `
       <div>Powered by: <a href="https://github.com/willow-god/Friend-Circle-Lite"  target="_blank">FriendCircleLite</a><br></div>
       <div>Designed By: <a href="https://www.liushen.fun/"  target="_blank">LiuShen</a><br></div>
-      <div>订阅:${stats.friends_num}  活跃:${stats.active_num}  总文章数:${stats.article_num}<br></div> 
+      <div>订阅:${stats.friends_num}    活跃:${stats.active_num}    总文章数:${stats.article_num}<br></div> 
       <div>更新时间:${stats.last_updated_time}</div> 
     `
   }
@@ -172,7 +172,6 @@ const displayRandomArticle = () => {
     </div>
   `
  
-  // Add event listener for refresh button 
   const refreshBtn = document.getElementById('refresh-random-article') 
   if (refreshBtn) {
     refreshBtn.addEventListener('click',  function(event) {
@@ -186,37 +185,37 @@ const showAuthorArticles = (author, avatar, link) => {
   const root = document.getElementById('friend-circle-lite-root') 
   if (!root) return 
  
-  // Create modal if it doesn't exist 
-  if (!document.getElementById('fcmod'))  {
+  // Create fcmod if it doesn't exist 
+  if (!document.getElementById('fclite-fcmod'))  {
     const fcmod = document.createElement('div') 
     fcmod.id  = 'fcmod'
     fcmod.className  = 'fcmod'
     fcmod.innerHTML  = `
-      <div class="fcmod-content">
-        <img id="fcmod-author-avatar" src="" alt="">
-        <a id="fcmod-author-name-link"></a>
-        <div id="fcmod-articles-container"></div>
-        <img id="fcmod-bg" src="" alt="">
-      </div>
+    <div class="fcmod-content">
+      <img id="fcmod-author-avatar" src="" alt="">
+      <a id="fcmod-author-name-link"></a>
+      <div id="fcmod-articles-container"></div>
+      <img id="fcmod-bg" src="" alt="">
+    </div>
     `
     root.appendChild(fcmod) 
   }
  
   const fcmod = document.getElementById('fcmod') 
-  const fcmodArticlesContainer = document.getElementById('fcmod-articles-container') 
-  const fcmodAuthorAvatar = document.getElementById('fcmod-author-avatar') 
-  const fcmodAuthorNameLink = document.getElementById('fcmod-author-name-link') 
-  const fcmodBg = document.getElementById('fcmod-bg') 
+  const modalArticlesContainer = document.getElementById('fcmod-articles-container') 
+  const modalAuthorAvatar = document.getElementById('fcmod-author-avatar') 
+  const modalAuthorNameLink = document.getElementById('fcmod-author-name-link') 
+  const modalBg = document.getElementById('fcmod-bg') 
  
-  if (!fcmod || !fcmodArticlesContainer || !fcmodAuthorAvatar || !fcmodAuthorNameLink || !fcmodBg) return 
+  if (!fcmod || !modalArticlesContainer || !modalAuthorAvatar || !modalAuthorNameLink || !modalBg) return 
  
-  fcmodArticlesContainer.innerHTML  = ''
-  fcmodAuthorAvatar.src  = avatar || UserConfig.value.error_img  
-  fcmodAuthorAvatar.onerror  = () => fcmodAuthorAvatar.src  = UserConfig.value.error_img  
-  fcmodBg.src  = avatar || UserConfig.value.error_img  
-  fcmodBg.onerror  = () => fcmodBg.src  = UserConfig.value.error_img  
-  fcmodAuthorNameLink.innerText  = author 
-  fcmodAuthorNameLink.href  = new URL(link).origin 
+  modalArticlesContainer.innerHTML  = ''
+  modalAuthorAvatar.src  = avatar || UserConfig.value.error_img  
+  modalAuthorAvatar.onerror  = () => modalAuthorAvatar.src  = UserConfig.value.error_img  
+  modalBg.src  = avatar || UserConfig.value.error_img  
+  modalBg.onerror  = () => modalBg.src  = UserConfig.value.error_img  
+  modalAuthorNameLink.innerText  = author 
+  modalAuthorNameLink.href  = new URL(link).origin 
  
   const authorArticles = allArticles.value.filter(article  => article.author  === author)
   authorArticles.slice(0,  4).forEach(article => {
@@ -235,23 +234,16 @@ const showAuthorArticles = (author, avatar, link) => {
     date.innerText  = "📅" + article.created.substring(0,  10)
     articleDiv.appendChild(date) 
  
-    fcmodArticlesContainer.appendChild(articleDiv) 
+    modalArticlesContainer.appendChild(articleDiv) 
   })
  
   fcmod.style.display  = 'block'
   setTimeout(() => {
     fcmod.classList.add('fcmod-open') 
   }, 10)
- 
-  // Add click event to close modal when clicking outside 
-  fcmod.onclick  = function(event) {
-    if (event.target  === fcmod) {
-      hideFcmod()
-    }
-  }
 }
  
-const hideFcmod = () => {
+const hideModal = () => {
   const fcmod = document.getElementById('fcmod') 
   if (!fcmod) return 
  
@@ -259,9 +251,18 @@ const hideFcmod = () => {
   fcmod.addEventListener('transitionend',  () => {
     fcmod.style.display  = 'none'
     const root = document.getElementById('friend-circle-lite-root') 
-    if (root && fcmod.parentNode  === root) {
-      root.removeChild(fcmod) 
-    }
+    if (root) root.removeChild(fcmod) 
   }, { once: true })
 }
+ 
+// Handle fcmod close when clicking outside 
+window.onclick  = function(event) {
+  const fcmod = document.getElementById('fcmod') 
+  if (event.target  === fcmod) {
+    hideModal()
+  }
+}
+ 
+// Handle PJAX reload 
+document.addEventListener("pjax:complete",  initializeFcLite)
 </script>
