@@ -17,7 +17,7 @@ export const themeConfig = {
     // 作者
     author: {
       name: "王九弦SZ·Ninty",
-      cover: "https://images1.blog.sinzmise.top/profile/avatar.avif",
+      cover: "https://images1.blog.sinzmise.top/profile/avatar.webp",
       email: "email@sinzmise.top",
       link: "https://www.storical.space",
     },
@@ -315,7 +315,7 @@ export const themeConfig = {
     hello: {
       enable: true,
       text: `<span class="h-card">
-      <img class="u-photo" style='display:none' src="https://images1.blog.sinzmise.top/profile/avatar.avif"/>
+      <img class="u-photo" style='display:none' src="https://images1.blog.sinzmise.top/profile/avatar.webp"/>
       昵称：<a class="p-name u-url" href="https://www.storical.space">王九弦SZ·Ninty</a><br>
       邮箱：<a class="u-email" href="mailto:email@sinzmise.top">email@sinzmise.top</a><br>
       <div class="p-note">听，是潮汐的声音在呼唤着我们</div>

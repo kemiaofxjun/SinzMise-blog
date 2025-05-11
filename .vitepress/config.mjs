@@ -123,6 +123,7 @@ export default withPwa(
     // PWA
     pwa: {
       registerType: "autoUpdate",
+      selfDestroying: true,
       workbox: {
         clientsClaim: true,
         skipWaiting: true,
