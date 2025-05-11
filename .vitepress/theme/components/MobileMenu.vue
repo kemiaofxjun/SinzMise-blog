@@ -16,13 +16,29 @@
               <div v-for="(item, index) in nav" :key="index" class="menu-item">
                 <span class="link-title"> {{ item.text }}</span>
                 <div v-if="item.items" class="link-child">
+                  <a
+                    v-for="(child) in item.items"
+                    v-if="item.newtab"
+                    class="link-child-btn"
+                    :href="child.link"
+                    target="_blank"
+                  >
+                    <i v-if="child.icon" :class="`iconfont icon-${child.icon}`" />
+                    <svg v-if="child.symbol" class="icon" aria-hidden="true">
+                      <use :xlink:href="`#${child.symbol}`"></use>
+                    </svg>
+                    <span class="name">{{ child.text }}</span>
+                  </a>
                   <div
-                    v-for="(child, childIndex) in item.items"
-                    :key="childIndex"
+                    v-for="(child) in item.items"
+                    v-else
                     class="link-child-btn"
                     @click="pageJump(child.link)"
                   >
                     <i v-if="child.icon" :class="`iconfont icon-${child.icon}`" />
+                    <svg v-if="child.symbol" class="icon" aria-hidden="true">
+                      <use :xlink:href="`#${child.symbol}`"></use>
+                    </svg>
                     <span class="name">{{ child.text }}</span>
                   </div>
                 </div>
@@ -158,6 +174,14 @@ const pageJump = (url) => {
           .iconfont {
             margin-right: 6px;
             opacity: 0.6;
+          }
+          .icon {
+            width: 18px;
+            height: 18px;
+            line-height: 1;
+            margin-right: 6px;
+            fill: currentColor;
+            overflow: hidden;
           }
           .name {
             max-width: 80px;

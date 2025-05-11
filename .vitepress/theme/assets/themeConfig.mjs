@@ -147,22 +147,32 @@ export const themeConfig = {
     {
       text: "文章",
       items: [
-        { text: "归档", link: "/pages/archives", icon: "article" },
-        { text: "分类", link: "/pages/categories", icon: "folder" },
-        { text: "标签", link: "/pages/tags", icon: "hashtag" },
+        { text: "归档", link: "/pages/archives", symbol: "icon-pjh-wenzhang" },
+        { text: "分类", link: "/pages/categories", symbol: "icon-pjh-fenlei" },
+        { text: "标签", link: "/pages/tags", symbol: "icon-pjh-qunfariji" },
       ],
     },
     {
       text: "友链",
       items: [
-        { text: "友链鱼塘", link: "/pages/circle", icon: "fish" },
-        { text: "友人帐", link: "/pages/link", icon: "people" },
+        { text: "友链鱼塘", link: "/pages/circle", symbol: "icon-pjh-icon_pengyouquan" },
+        { text: "友人帐", link: "/pages/link", symbol: "icon-pjh-lianjie" },
       ],
     },
     {
       text: "我的",
       items: [
-        { text: "关于本站", link: "/pages/about", icon: "contacts" },
+        { text: "关于本站", link: "/pages/about", symbol: "icon-pjh-guanyuwomen" },
+      ],
+    },
+    {
+      text: "穿梭",
+      newtab: true,
+      items: [
+        { text: "十年之约", link: "https://www.foreverblog.cn/go.html", symbol: "icon-pjh-chongdonglogo" },
+        { text: "个站商店", link: "https://storeweb.cn/s/1707", symbol: "icon-pjh-shangdian" },
+        { text: "博客录", link: "https://boke.lu/sj", symbol: "icon-pjh-blog" },
+        { text: "空间穿梭", link: "https://www.blogsclub.org/go", symbol: "icon-pjh-chuansuokuang" },
       ],
     },
   ],
@@ -419,4 +429,6 @@ export const themeConfig = {
   },
   // IndieWeb Webring
   indiewebring: true,
+  // Iconfont JS
+  iconfont: '//at.alicdn.com/t/c/font_4199232_f0feiwgh0uw.js',
 };

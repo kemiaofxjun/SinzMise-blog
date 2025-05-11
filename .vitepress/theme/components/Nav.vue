@@ -34,13 +34,29 @@
             <div v-for="(item, index) in theme.nav" :key="index" class="menu-item">
               <span class="link-btn"> {{ item.text }}</span>
               <div v-if="item.items" class="link-child">
+                <a
+                  v-for="(child) in item.items"
+                  v-if="item.newtab"
+                  :href="child.link"
+                  target="_blank"
+                  class="link-child-btn"
+                >
+                  <i v-if="child.icon" :class="`iconfont icon-${child.icon}`" />
+                  <svg v-if="child.symbol" class="icon" aria-hidden="true">
+                    <use :xlink:href="`#${child.symbol}`"></use>
+                  </svg>
+                  {{ child.text }}
+                </a>
                 <span
-                  v-for="(child, childIndex) in item.items"
-                  :key="childIndex"
+                  v-for="(child) in item.items"
+                  v-else
                   class="link-child-btn"
                   @click="router.go(child.link)"
                 >
                   <i v-if="child.icon" :class="`iconfont icon-${child.icon}`" />
+                  <svg v-if="child.symbol" class="icon" aria-hidden="true">
+                    <use :xlink:href="`#${child.symbol}`"></use>
+                  </svg>
                   {{ child.text }}
                 </span>
               </div>
@@ -59,15 +75,6 @@
             target="_blank"
           >
             <i class="iconfont icon-subway"></i>
-          </a>
-          <!-- 十年之约 -->
-                    <a
-            class="menu-btn nav-btn foreverblog"
-            title="虫洞-十年之约"
-            href="https://www.foreverblog.cn/go.html"
-            target="_blank"
-          >
-            <i class="iconfont pj-historical icon-pjh-chongdonglogo"></i>
           </a>
           <!-- RSS -->
           <a
@@ -146,12 +153,15 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { mainStore } from "@/store";
+import { useScriptTag } from '@vueuse/core'
 import { smoothScrolling, shufflePost } from "@/utils/helper";
 
 const router = useRouter();
 const store = mainStore();
 const { scrollData } = storeToRefs(store);
 const { site, theme, frontmatter, page } = useData();
+
+useScriptTag(theme.value.iconfont)
 </script>
 
 <style lang="scss" scoped>
@@ -429,6 +439,15 @@ const { site, theme, frontmatter, page } = useData();
                 margin-right: 8px;
                 font-size: 20px;
                 transition: color 0.3s;
+              }
+              .icon {
+                width: 1em;
+                height: 1em;
+                margin-right: 8px;
+                transition: color 0.3s;
+                vertical-align: -0.15em;
+                fill: currentColor;
+                overflow: hidden;
               }
               &:hover {
                 color: var(--main-card-background);
