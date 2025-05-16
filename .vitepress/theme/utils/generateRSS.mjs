@@ -86,13 +86,14 @@ export const createRssFile = async (config, themeConfig) => {
   <feed xmlns="http://www.w3.org/2005/Atom">
     <id>${hostLink}</id>
     <title>${siteMeta.title}</title>
-    <updated>${new Date().toLocaleString()}</updated>
+    <updated>${new Date().toISOString()}</updated>
     <description>${siteMeta.description}</description>
     <author>
       <name>${siteMeta.author.name}</name>
       <email>${siteMeta.author.email}</email>
       <uri>${siteMeta.author.link}</uri>
     </author>
+    <link href="${hostLink}"></link>
     <language>zh-Hans</language>
     <generator uri="https://github.com/SinzMise/blog">Ceta Blog</generator>
     <icon>${hostLink}${siteMeta.logo}</icon>
@@ -103,7 +104,7 @@ export const createRssFile = async (config, themeConfig) => {
     <entry>
       <id>${hostLink}${page.url}</id>
       <title>${page.frontmatter.title}</title>
-      <updated>${new Date(page.lastUpdated || page.frontmatter.updated).toLocaleDateString()}</updated>
+      <updated>${new Date(page.lastUpdated || page.frontmatter.updated).toISOString()}</updated>
       <author>
         <name>${siteMeta.author.name}</name>
       </author>
@@ -113,7 +114,7 @@ export const createRssFile = async (config, themeConfig) => {
       <link href="${hostLink}${page.url}"></link>
       <summary>${page.frontmatter.description || `暂无简介`}</summary>
       <category term="${page.frontmatter.categories}"></category>
-      <published>${new Date(page.frontmatter.date || page.lastUpdated).toLocaleDateString()}</published>
+      <published>${new Date(page.frontmatter.date || page.lastUpdated).toISOString()}</published>
     </entry>
     `).join('')}
   </feed>` 

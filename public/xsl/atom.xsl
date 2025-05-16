@@ -42,7 +42,7 @@
         <br />
         由 <xsl:value-of select="atom:feed/atom:generator" /> 生成
         <br />
-        最近更新：<xsl:value-of select="atom:feed/atom:updated" />
+        最近更新：<xsl:value-of select="substring(atom:feed/atom:updated, 1, 10)" />
       </footer>
     </body>
 
