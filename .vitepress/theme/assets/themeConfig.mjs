@@ -183,13 +183,18 @@ export const themeConfig = {
       list: [
         {
           icon: "/images/icon.png",
-          name: "博客站",
+          name: "魔法屋",
           url: "/",
         },
         {
-          icon: "/images/icon.png",
-          name: "个人主页",
+          icon: "https://www.storical.space/favicon.ico",
+          name: "故事空间",
           url: "https://www.storical.space/",
+        },
+        {
+          icon: "https://diary.sinzmise.top/upload/3cf8380460044642b9e11050c7a163c6",
+          name: "中弦记事本",
+          url: "https://diary.sinzmise.top/",
         },
       ],
     },
