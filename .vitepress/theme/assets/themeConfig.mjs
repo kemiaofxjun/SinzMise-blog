@@ -351,6 +351,18 @@ export const themeConfig = {
     // 站点数据
     siteData: {
       enable: true,
+      links: [
+        { 
+          title: "无聊湾 🥱 The Boring Bay",
+          href: "https://boringbay.com",
+          image: "https://boringbay.com/api/badge/blog.storical.space"
+        },
+        { 
+          title: "Web Site Hit Counter",
+          href: "https://www.easycounter.com/",
+          image: "https://www.easycounter.com/counter.php?szninty"
+        }
+      ]
     },
   },
   // 友链朋友圈
