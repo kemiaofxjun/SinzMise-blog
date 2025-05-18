@@ -32,6 +32,10 @@ export default withPwa(
     lastUpdated: true,
     // 主题
     appearance: "dark",
+    // sitemap
+    sitemap: {
+      hostname: themeConfig.siteMeta.site,
+    },
     // 主题配置
     themeConfig: {
       ...themeConfig,

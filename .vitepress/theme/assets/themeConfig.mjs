@@ -135,7 +135,7 @@ export const themeConfig = {
       [
         "link",
         {
-          href: "https://QAS05YI2PH-dsn.algolia.net",
+          href: "https://72TOQYD33Q-dsn.algolia.net",
           rel: "preconnect",
           crossorigin: "",
         },
@@ -394,8 +394,8 @@ export const themeConfig = {
   // https://www.algolia.com/
   search: {
     enable: true,
-    appId: "QAS05YI2PH",
-    apiKey: "ca5f8dbdbff910816e2995bfd16c2b27",
+    appId: "72TOQYD33Q",
+    apiKey: "608d2f3acd06140a2473153f6cb61eda",
   },
   // 打赏
   rewardData: {
