@@ -274,14 +274,14 @@ export const themeConfig = {
           { text: "MIIT备20240818号", link: "https://beian.miit.cn.com/gov/search.php?query=20240818", newTab: true },
           { text: "官码2024000155号", link: "https://guan.ma/hao/2024000155/", newTab: true },
           { text: "SICP备20243448号", link: "https://icp.sepocatch.xyz/search.php?keyword=blog.storical.space", newTab: true },
-          { text: "追梦ICP备20251025号", link: "https://icp.20097747.xyz/id.php?keyword=20251025", newTab: true },
+          { text: "霞ICP备20251025号", link: "https://icp.20097747.xyz/id.php?keyword=20251025", newTab: true },
           { text: "联bBb盟 icp备20256592", link: "https://icp.bbb-lsy07.my/query.php?keyword=20256592", newTab: true },
         ],
       },
       {
         text: "我加入的-1",
         items: [
-          { text: "中文博客列表", link: "https://zhblogs.ohyee.cc/", newTab: true },
+          { text: "中文博客列表", link: "https://www.zhblogs.net/", newTab: true },
           { text: "个站商店", link: "https://storeweb.cn/member/o/1585", newTab: true },
           { text: "BlogFinder", link: "https://bf.zzxworld.com/s/995", newTab: true },
           { text: "站点聚合平台", link: "https://sites.applinzi.com/site-info?siteType=life&siteId=64cb373190e35300a8eec654", newTab: true },
