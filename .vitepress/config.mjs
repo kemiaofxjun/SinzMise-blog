@@ -32,8 +32,6 @@ export default withPwa(
     lastUpdated: true,
     // 主题
     appearance: "dark",
-    // Head
-    head: themeConfig.inject.header,
     // 主题配置
     themeConfig: {
       ...themeConfig,
@@ -68,7 +66,7 @@ export default withPwa(
         .replace(/index\.md$/, "")
         .replace(/\.md$/, "");
       pageData.frontmatter.head ??= [];
-      pageData.frontmatter.head.push(["link", { rel: "canonical", href: canonicalUrl }]);
+      pageData.frontmatter.head.push(...themeConfig.inject.header,["link", { rel: "canonical", href: canonicalUrl }]);
     },
     // transformHtml
     transformHtml: (html) => {

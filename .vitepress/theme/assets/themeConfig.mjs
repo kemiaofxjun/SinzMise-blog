@@ -140,6 +140,7 @@ export const themeConfig = {
           crossorigin: "",
         },
       ],
+      ["meta", { name: "algolia-site-verification", content: "3BC3AFED4AD9E73D" }],
     ],
   },
   // 导航栏菜单
@@ -392,7 +393,7 @@ export const themeConfig = {
   // 搜索
   // https://www.algolia.com/
   search: {
-    enable: false,
+    enable: true,
     appId: "QAS05YI2PH",
     apiKey: "ca5f8dbdbff910816e2995bfd16c2b27",
   },
