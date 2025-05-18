@@ -155,9 +155,10 @@ export const themeConfig = {
     },
     {
       text: "友链",
+      newtab: true,
       items: [
-        { text: "友链鱼塘", link: "/pages/circle", symbol: "icon-pjh-icon_pengyouquan" },
-        { text: "友人帐", link: "/pages/link", symbol: "icon-pjh-lianjie" },
+        { text: "友链鱼塘", link: "https://friends.sinzmise.top/circle", symbol: "icon-pjh-icon_pengyouquan" },
+        { text: "友人帐", link: "https://friends.sinzmise.top/", symbol: "icon-pjh-lianjie" },
       ],
     },
     {
@@ -396,6 +397,7 @@ export const themeConfig = {
     enable: false,
     appId: "72TOQYD33Q",
     apiKey: "608d2f3acd06140a2473153f6cb61eda",
+    index: ""
   },
   // 打赏
   rewardData: {

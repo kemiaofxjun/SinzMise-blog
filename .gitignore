@@ -34,3 +34,6 @@ themeConfig.mjs
 *.sw?
 
 .vercel
+
+pages/circle.md
+pages/link.md
