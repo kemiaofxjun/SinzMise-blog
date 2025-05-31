@@ -157,8 +157,8 @@ export const themeConfig = {
       text: "友链",
       newtab: true,
       items: [
-        { text: "友链鱼塘", link: "https://friends.sinzmise.top/circle", symbol: "icon-pjh-icon_pengyouquan" },
-        { text: "友人帐", link: "https://friends.sinzmise.top/", symbol: "icon-pjh-lianjie" },
+        { text: "友链鱼塘", link: "https://friends.storical.space/circle", symbol: "icon-pjh-icon_pengyouquan" },
+        { text: "友人帐", link: "https://friends.storical.space/", symbol: "icon-pjh-lianjie" },
       ],
     },
     {
