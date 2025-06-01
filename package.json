@@ -13,8 +13,8 @@
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix",
-    "dev": "node link.mjs && vitepress dev --host",
-    "build": "node link.mjs && vitepress build",
+    "dev": "vitepress dev --host",
+    "build": "vitepress build",
     "preview": "vitepress preview",
     "deploy:vercel": "vercel deploy"
   },
