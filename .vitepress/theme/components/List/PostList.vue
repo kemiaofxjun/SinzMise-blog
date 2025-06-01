@@ -309,7 +309,7 @@ const toPost = (path) => {
       &.cover-right,
       &.cover-both {
         flex-direction: column !important;
-        background: transparent !important;
+        background: var(--main-card-second-background) !important;
       }
     }
   }
