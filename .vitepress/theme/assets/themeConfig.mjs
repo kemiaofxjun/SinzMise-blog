@@ -368,7 +368,12 @@ export const themeConfig = {
           title: "Web Site Hit Counter",
           href: "https://www.easycounter.com/",
           image: "https://www.easycounter.com/counter.php?szninty"
-        }
+        },
+        { 
+          title: "本站已经支持HTTP/3",
+          href: "https://http3.wcode.net/?q=blog.storical.space",
+          image: "https://http3.wcode.net/badges/http3.svg?host=blog.storical.space"
+        },
       ]
     },
   },
