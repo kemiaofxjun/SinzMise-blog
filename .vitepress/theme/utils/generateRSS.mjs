@@ -1,7 +1,7 @@
 import { createContentLoader } from "vitepress";
 import { writeFileSync } from "fs";
 import { Feed } from "feed";
-import path,{resolve} from "path";
+import path from "path";
 
 /**
  * 生成 RSS
@@ -27,6 +27,7 @@ export const createRssFile = async (config, themeConfig) => {
   });
   // 加载文章
   let posts = await createContentLoader("posts/**/*.md", {
+    excerpt: true,
     render: true,
   }).load();
   // 日期降序排序
@@ -59,21 +60,9 @@ export const createRssFile = async (config, themeConfig) => {
       ],
     });
   }
-  // 获取所有页面 
-  let pages = await createContentLoader('posts/**/*.md', {
-    excerpt: true,
-    render: true 
-  }).load()
-
-  // 按照日期排序
-  pages = pages.sort((a, b) => {
-    const dateA = new Date(a.frontmatter.date);
-    const dateB = new Date(b.frontmatter.date);
-    return dateB - dateA;
-  });
 
   // 过滤隐藏文章
-  const filteredPages = pages 
+  const filteredPages = posts
     .filter(page => !page.frontmatter.hidden) 
   
   // RSS、Atom的XSL美化
@@ -98,7 +87,7 @@ export const createRssFile = async (config, themeConfig) => {
     <generator uri="https://github.com/SinzMise/blog">Ceta Blog</generator>
     <icon>${hostLink}${siteMeta.logo}</icon>
     <logo>${hostLink}${siteMeta.logo}</logo>
-    <rights>Copyright © 2021-${new Date().getFullYear()} ${siteMeta.title}</rights>
+    <rights>Copyright © 2021-${new Date().getFullYear()} ${siteMeta.copy || siteMeta.title}</rights>
     <subtitle>${siteMeta.subtitle}</subtitle>
     ${filteredPages.map(page  => `
     <entry>

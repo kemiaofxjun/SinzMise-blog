@@ -21,6 +21,7 @@ export const themeConfig = {
       email: "email@sinzmise.top",
       link: "https://www.storical.space",
     },
+    copy: "SinZero Limited",
   },
   // 备案信息
   // icp: "萌ICP备114514号",

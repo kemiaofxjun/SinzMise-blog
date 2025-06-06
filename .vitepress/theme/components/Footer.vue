@@ -2,9 +2,9 @@
   <footer id="main-footer" class="main-footer">
     <div class="footer-content">
       <div class="copyright">
-        <span class="time">@ 2021 - {{ thisYear }} By </span>
+        <span class="time">@ 2021 - {{ thisYear }} </span>
         <a :href="theme.siteMeta.author.link" class="author link" target="_blank">
-          {{ theme.siteMeta.author.name }}
+          {{ theme.siteMeta.copy || theme.siteMeta.author.name }}
         </a>
         <a v-if="theme.icp" class="icp link" href="https://beian.miit.gov.cn/" target="_blank">
           <i class="iconfont icon-safe" />
