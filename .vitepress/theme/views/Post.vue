@@ -157,10 +157,10 @@ onMounted(() => {
             margin-right: 6px;
           }
           &:hover {
-            color: var(--main-color);
+            color: var(--main-site-background);
             background-color: var(--main-color-bg);
             .iconfont {
-              color: var(--main-color);
+              color: var(--main-site-background);
             }
           }
         }
@@ -184,10 +184,10 @@ onMounted(() => {
             font-weight: normal;
           }
           &:hover {
-            color: var(--main-color);
+            color: var(--main-site-background);
             background-color: var(--main-color-bg);
             .iconfont {
-              color: var(--main-color);
+              color: var(--main-site-background);
             }
           }
         }
@@ -229,10 +229,10 @@ onMounted(() => {
             background-color 0.3s;
           cursor: pointer;
           &:hover {
-            color: var(--main-color);
+            color: var(--main-site-background);
             background-color: var(--main-color-bg);
             .iconfont {
-              color: var(--main-color);
+              color: var(--main-site-background);
             }
           }
         }
@@ -289,10 +289,10 @@ onMounted(() => {
               font-weight: normal;
             }
             &:hover {
-              color: var(--main-color);
+              color: var(--main-site-background);
               background-color: var(--main-color-bg);
               .iconfont {
-                color: var(--main-color);
+                color: var(--main-site-background);
               }
             }
           }

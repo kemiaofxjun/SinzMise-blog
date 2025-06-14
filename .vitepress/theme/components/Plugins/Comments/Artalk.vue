@@ -1,5 +1,5 @@
 <template>
-  <div ref="commentRef" id="comment-dom" :class="['comment-content', 'artalk', { fill }]" />
+  <div ref="commentRef" id="comment-dom" :class="['comment-content', 'artalk', { fill }]">正在加载</div>
 </template>
 
 <script setup>

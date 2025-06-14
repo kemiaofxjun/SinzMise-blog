@@ -314,7 +314,7 @@ export const themeConfig = {
     // https://artalk.js.org/
     artalk: {
       site: "汐塔魔法屋",
-      server: "https://artalk.sinzmise.top/",
+      server: "https://artalk.sinzmise.top",
     },
     // twikoo
     // https://twikoo.js.org/
