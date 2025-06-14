@@ -1,5 +1,5 @@
 <template>
-  <div ref="commentRef" id="comment-dom" :class="['comment-content', 'twikoo', { fill }]" />
+  <div ref="commentRef" id="comment-dom" :class="['comment-content', 'twikoo', { fill }]" >正在加载评论系统。。。。。。</div>
 </template>
 
 <script setup>
