@@ -16,7 +16,8 @@
     "dev": "vitepress dev --host",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "deploy:vercel": "vercel deploy"
+    "deploy:vercel": "vercel deploy",
+    "new": "node scripts/new-post.mjs"
   },
   "devDependencies": {
     "cheerio": "1.0.0-rc.12",
@@ -46,6 +47,7 @@
     "@vueuse/core": "^11.3.0",
     "algoliasearch": "^5.19.0",
     "aplayer": "^1.10.1",
+    "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "instantsearch.js": "^4.77.0",
     "lodash-es": "^4.17.21",
