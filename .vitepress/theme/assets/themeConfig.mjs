@@ -118,7 +118,7 @@ export const themeConfig = {
         {
           crossorigin: "anonymous",
           rel: "stylesheet",
-          href: "//at.alicdn.com/t/c/font_4199232_vgnl0ve5ode.css",
+          href: "//at.alicdn.com/t/c/font_4199232_5a15rygopns.css",
         },
       ],
       // Embed code
@@ -451,7 +451,6 @@ export const themeConfig = {
   // WebMention
   webmention:{
     enable: true,
-    url: 'blog.storical.space',
   },
   // IndieWeb Webring
   indiewebring: true,
