@@ -98,7 +98,7 @@
         <!-- 评论 -->
         <Comments ref="commentRef" />
         <!-- 网络回响 -->
-        <WebMention v-if="theme.webmention.enable" :domain="theme.webmention.url" :token="theme.webmention.token" />
+        <WebMention v-if="theme.webmention.enable"/>
       </article>
       <Aside showToc />
     </div>

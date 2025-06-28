@@ -1,0 +1,30 @@
+# .github/workflows/webmention.yml
+name: Send WebMentions
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  send-webmentions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          
+      - name: Install dependencies
+        run: npm install -g webmention @isomorphic-git/lightning-fs isomorphic-git
+        
+      - name: Send WebMentions
+        run: |
+          for file in $(find . -name "*.md"); do
+            url="https://blog.storical.space/${file#./}"
+            webmention $url --limit 1
+            sleep 1 # 避免速率限制
+          done
+        env:
+          WEBMENTION_API_KEY: ${{ secrets.WEBMENTION_API_KEY }}

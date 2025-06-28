@@ -1,466 +1,556 @@
-<script setup>
-import { ref, computed, onMounted } from 'vue'
- 
-const props = defineProps({
-  domain: {
-    type: String,
-    required: true 
-  },
-  token: {
-    type: String,
-    required: true 
-  }
-})
- 
-// Reactive data 
-const webmentions = ref([])
-const loading = ref(true)
-const error = ref(null)
-const sending = ref(false)
-const sendError = ref(null)
-const sendSuccess = ref(false)
-const mentionUrl = ref('')
-const mentionType = ref('reply')
-const mentionContent = ref('')
- 
-// Computed properties 
-const likes = computed(() => webmentions.value.filter(m  => m['wm-property'] === 'like'))
-const reposts = computed(() => webmentions.value.filter(m  => m['wm-property'] === 'repost'))
-const comments = computed(() => {
-  return webmentions.value.filter(m  => 
-    m['wm-property'] === 'in-reply-to' || 
-    m['wm-property'] === 'mention' ||
-    m['wm-property'] === 'reply'
-  )
-})
- 
-// Fetch webmentions using fetch API 
-const fetchWebmentions = async () => {
-  try {
-    const currentUrl = typeof window !== 'undefined' ? window.location.href  : ''
-    const response = await fetch(
-      `https://webmention.io/api/mentions.jf2?domain=${props.domain}&token=${props.token}&per-page=100&sort-dir=down&target=${encodeURIComponent(currentUrl)}` 
-    )
-    
-    if (!response.ok)  {
-      throw new Error(`HTTP error! status: ${response.status}`) 
-    }
-    
-    const data = await response.json() 
-    webmentions.value  = data.children  || []
-  } catch (err) {
-    error.value  = err.message  
-  } finally {
-    loading.value  = false 
-  }
-}
- 
-// Send webmention using fetch API 
-const sendWebmention = async () => {
-  if (!mentionUrl.value)  {
-    sendError.value  = '请填写URL'
-    return 
-  }
- 
-  sending.value  = true 
-  sendError.value  = null 
-  sendSuccess.value  = false 
- 
-  try {
-    const currentUrl = window.location.href  
-    const endpoint = 'https://webmention.io/'  + props.domain  + '/webmention'
-    
-    const formData = new URLSearchParams()
-    formData.append('source',  mentionUrl.value) 
-    formData.append('target',  currentUrl)
-    
-    if (mentionContent.value  && mentionType.value  === 'reply') {
-      formData.append('content',  mentionContent.value) 
-    }
- 
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      }
-    })
-    
-    if (response.status  === 202) {
-      sendSuccess.value  = true 
-      setTimeout(fetchWebmentions, 3000) // Refresh after 3 seconds 
-    } else {
-      const errorData = await response.text() 
-      throw new Error(errorData || `HTTP error! status: ${response.status}`) 
-    }
-  } catch (err) {
-    sendError.value  = err.message  
-  } finally {
-    sending.value  = false 
-  }
-}
- 
-// Send like 
-const sendLike = async () => {
-  mentionType.value  = 'like'
-  mentionUrl.value  = typeof window !== 'undefined' ? window.location.href  : ''
-  await sendWebmention()
-}
- 
-onMounted(() => {
-  fetchWebmentions()
-})
-</script>
- 
 <template>
-  <div class="webmentions">
-    <h2>互动与反馈</h2>
-    
-    <!-- Send WebMention Form -->
-    <div class="send-mention">
-      <h3>发送回响</h3>
-      <div class="form-group">
-        <label for="mention-type">类型:</label>
-        <select id="mention-type" v-model="mentionType" class="form-control">
-          <option value="reply">回复</option>
-          <option value="like">点赞</option>
-          <option value="repost">转发</option>
-          <option value="mention">提及</option>
-        </select>
-      </div>
-      
-      <div class="form-group">
-        <label for="mention-url">你的内容URL:</label>
-        <input 
-          id="mention-url" 
-          v-model="mentionUrl" 
-          type="url" 
-          placeholder="https://你的网站/文章"
-          class="form-control"
-        />
-      </div>
-      
-      <div v-if="mentionType === 'reply'" class="form-group">
-        <label for="mention-content">内容 (可选):</label>
-        <textarea 
-          id="mention-content" 
-          v-model="mentionContent" 
-          placeholder="你的回复内容..."
-          class="form-control"
-          rows="3"
-        ></textarea>
-      </div>
-      
-      <button 
-        @click="sendWebmention" 
-        :disabled="sending"
-        class="send-button"
-      >
-        {{ sending ? '发送中...' : '发送' }}
-      </button>
-      
-      <div v-if="sendError" class="error-message">
-        {{ sendError }}
-      </div>
-      
-      <div v-if="sendSuccess" class="success-message">
-        成功发送! 回响可能需要几分钟才会显示。 
+  <div class="webmentions" v-if="showWebmentions">
+    <div class="webmentions-header">
+      <h2>互动反馈 ({{ filteredMentions.length }})</h2>
+      <div class="webmentions-controls">
+        <button 
+          @click="fetchMentions" 
+          :disabled="loading"
+          class="refresh-button"
+          aria-label="刷新互动数据"
+        >
+          <span v-if="!loading">🔄</span>
+          <span v-else class="loading-dots">...</span>
+        </button>
+        <div class="webmentions-filters">
+          <button 
+            v-for="type in mentionTypes" 
+            :key="type.value"
+            @click="toggleFilter(type.value)"
+            :class="{ active: activeFilters.includes(type.value) }"
+            class="filter-button"
+            :aria-label="`筛选${type.label}`"
+          >
+            {{ type.icon }} ({{ typeCounts[type.value] || 0 }})
+          </button>
+        </div>
       </div>
     </div>
     
-    <!-- Display WebMentions -->
-    <div v-if="loading" class="loading">加载中...</div>
-    
-    <div v-else-if="error" class="error">
-      加载WebMentions时出错: {{ error }}
+    <div v-if="loading" class="loading-state">
+      <div class="loading-spinner"></div>
+      <p>正在加载互动数据...</p>
     </div>
     
-    <div v-else class="mentions-container">
-      <!-- Likes -->
-      <div v-if="likes.length  > 0" class="mention-section">
-        <h3>点赞 <span class="count">{{ likes.length  }}</span></h3>
-        <div class="like-list">
-          <a 
-            v-for="like in likes" 
-            :key="like['wm-id']" 
-            :href="like.url"  
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="like-item"
-          >
-            <img 
-              v-if="like.author.photo"  
-              :src="like.author.photo"  
-              :alt="like.author.name"  
-              class="avatar" 
-            />
-            <span v-else class="default-avatar">👍</span>
-            <span class="like-author">{{ like.author.name  }}</span>
-          </a>
-        </div>
+    <div v-else>
+      <div v-if="error" class="error-state">
+        <p>⚠️ {{ error }}</p>
+        <button @click="fetchMentions" class="retry-button">重试</button>
       </div>
       
-      <!-- Reposts -->
-      <div v-if="reposts.length  > 0" class="mention-section">
-        <h3>转发 <span class="count">{{ reposts.length  }}</span></h3>
-        <div class="repost-list">
-          <a 
-            v-for="repost in reposts" 
-            :key="repost['wm-id']" 
-            :href="repost.url"  
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="repost-item"
+      <div v-else>
+        <div v-if="filteredMentions.length" class="mentions-container">
+          <div 
+            v-for="(mention, index) in filteredMentions" 
+            :key="mention.id" 
+            class="mention"
+            :style="`animation-delay: ${index * 0.1}s`"
           >
-            <img 
-              v-if="repost.author.photo"  
-              :src="repost.author.photo"  
-              :alt="repost.author.name"  
-              class="avatar" 
-            />
-            <span class="repost-author">{{ repost.author.name  }}</span>
-          </a>
-        </div>
-      </div>
-      
-      <!-- Comments -->
-      <div v-if="comments.length  > 0" class="mention-section">
-        <h3>评论 <span class="count">{{ comments.length  }}</span></h3>
-        <ul class="comment-list">
-          <li v-for="comment in comments" :key="comment['wm-id']" class="comment-item">
-            <a :href="comment.url"  target="_blank" rel="noopener noreferrer" class="comment-link">
+            <a 
+              :href="mention.data.url" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="mention-avatar-link"
+              :aria-label="`查看${mention.data.author.name}的原文`"
+            >
               <img 
-                v-if="comment.author.photo"  
-                :src="comment.author.photo"  
-                :alt="comment.author.name"  
-                class="avatar" 
-              />
-              <div class="comment-content">
-                <div class="comment-meta">
-                  <strong>{{ comment.author.name  }}</strong>
-                  <span class="comment-date">
-                    {{ new Date(comment.published  || comment['wm-received']).toLocaleDateString() }}
-                  </span>
-                </div>
-                <div 
-                  v-if="comment.content"  
-                  v-html="comment.content.html  || comment.content.text"  
-                  class="comment-text"
-                ></div>
-              </div>
+                :src="mention.data.author.photo || defaultAvatar" 
+                :alt="mention.data.author.name" 
+                class="mention-avatar"
+                loading="lazy"
+                width="48"
+                height="48"
+              >
             </a>
-          </li>
-        </ul>
-      </div>
-      
-      <div v-if="webmentions.length  === 0" class="no-mentions">
-        目前还没有互动。你可以通过上面的表单发送WebMention反馈。
+            <div class="mention-content">
+              <div class="mention-header">
+                <a 
+                  :href="mention.data.url" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="mention-author"
+                >
+                  {{ mention.data.author.name }}
+                </a>
+                <span class="mention-type" :class="`mention-type--${mention.activity.type}`">
+                  {{ getTypeLabel(mention.activity.type) }}
+                </span>
+              </div>
+              <div 
+                class="mention-text" 
+                v-if="mention.data.content"
+                v-html="formatContent(mention.data.content.text || mention.data.content)"
+              ></div>
+              <div class="mention-meta">
+                <time :datetime="mention.data.published || mention.verified_date">
+                  {{ formatDate(mention.data.published || mention.verified_date) }}
+                </time>
+                <span>•</span>
+                <a 
+                  :href="mention.data.url" 
+                  class="mention-source" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  查看原文
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-else class="no-mentions">
+          <p>还没有互动反馈，<a href="https://indieweb.org/Webmention" target="_blank" rel="noopener noreferrer">了解如何参与</a></p>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+const defaultAvatar = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyLDRBNiw2LDAsMSwwLDE4LDEwLDYsNiwwLDAsMCwxMiw0WiIgZmlsbD0iI2NjYyIvPjxwYXRoIGQ9Ik0xMiwxMWE1LDUsMCwwLDAtNSw1LDcsNywwLDAsMCw3LDcsNyw3LDAsMCwwLDctN0E1LDUsMCwwLDAsMTIsMTFaIiBmaWxsPSIjY2NjIi8+PC9zdmc+'
+
+export default {
+  data() {
+    return {
+      mentions: [],
+      loading: false,
+      error: null,
+      activeFilters: ['like', 'repost', 'reply', 'mention'],
+      defaultAvatar,
+      currentUrl: ''
+    }
+  },
+  computed: {
+    showWebmentions() {
+      return this.mentions.length > 0 || this.loading
+    },
+    mentionTypes() {
+      return [
+        { value: 'like', label: '喜欢', icon: '👍' },
+        { value: 'repost', label: '转发', icon: '🔄' },
+        { value: 'reply', label: '回复', icon: '💬' },
+        { value: 'mention', label: '提及', icon: '🔗' }
+      ]
+    },
+    typeCounts() {
+      const counts = {}
+      this.mentions.forEach(mention => {
+        counts[mention.activity.type] = (counts[mention.activity.type] || 0) + 1
+      })
+      return counts
+    },
+    sortedMentions() {
+      return [...this.mentions].sort((a, b) => {
+        const dateA = new Date(a.data.published || a.verified_date)
+        const dateB = new Date(b.data.published || b.verified_date)
+        return dateB - dateA
+      })
+    },
+    filteredMentions() {
+      if (this.activeFilters.length === 0) return []
+      return this.sortedMentions.filter(mention => 
+        this.activeFilters.includes(mention.activity.type)
+      )
+    }
+  },
+  methods: {
+    getTypeLabel(type) {
+      const labels = {
+        like: '喜欢',
+        repost: '转发',
+        reply: '回复',
+        mention: '提及'
+      }
+      return labels[type] || type
+    },
+    formatDate(dateString) {
+      if (!dateString) return ''
+      const date = new Date(dateString)
+      return date.toLocaleDateString('zh-CN', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      })
+    },
+    formatContent(content) {
+      if (typeof content !== 'string') return ''
+      // 简单的链接处理
+      return content.replace(
+        /(https?:\/\/[^\s]+)/g, 
+        '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+      )
+    },
+    toggleFilter(type) {
+      if (this.activeFilters.includes(type)) {
+        this.activeFilters = this.activeFilters.filter(t => t !== type)
+      } else {
+        this.activeFilters = [...this.activeFilters, type]
+      }
+    },
+    getCurrentUrl() {
+      // 确保在客户端环境下执行
+      if (typeof window !== 'undefined') {
+        // 移除可能的hash和查询参数
+        return window.location.href.split(/[?#]/)[0]
+      }
+      return ''
+    },
+    async fetchMentions() {
+      try {
+        this.loading = true
+        this.error = null
+        
+        // 获取当前页面URL
+        this.currentUrl = this.getCurrentUrl()
+        if (!this.currentUrl) {
+          throw new Error('无法获取当前页面URL')
+        }
+        
+        const response = await fetch(
+          `https://webmention.io/api/mentions.jf2?target=${encodeURIComponent(this.currentUrl)}`
+        )
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        
+        const data = await response.json()
+        this.mentions = data.children || []
+      } catch (err) {
+        console.error('Failed to fetch webmentions:', err)
+        this.error = '无法加载互动数据，请稍后再试'
+      } finally {
+        this.loading = false
+      }
+    }
+  },
+  async mounted() {
+    // 只在客户端执行
+    if (typeof window !== 'undefined') {
+      await this.fetchMentions()
+    }
+  }
+}
+</script>
  
 <style scoped>
-/* 样式保持不变，与之前的实现相同 */
 .webmentions {
   margin: 3rem 0;
   padding: 1.5rem;
-  border-top: 1px solid var(--main-border-shadow);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  transition: all 0.3s ease;
 }
- 
-.action-buttons {
+
+.webmentions:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.webmentions-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 1.5rem;
 }
- 
-.like-button {
+
+.webmentions-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+}
+
+.webmentions-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.refresh-button {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
   padding: 0.5rem 1rem;
-  background-color: var(--main-site-background);
-  border: 1px solid var(--main-border-shadow);
-  color: var(--main-font-color);
-  border-radius: 4px;
-  cursor: pointer;
   font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: all 0.3s;
 }
- 
-.like-button:hover {
-  background-color: var(--main-card-second-background);
+
+.refresh-button:hover {
+  background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-brand);
+  color: var(--vp-c-brand);
 }
- 
-.count {
-  background-color: var(--main-site-background);
-  border-radius: 50%;
-  width: 1.5rem;
-  height: 1.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-}
- 
-.send-mention {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background-color: var(--main-site-background);
-  border-radius: 6px;
-}
- 
-.form-group {
-  margin-bottom: 1rem;
-}
- 
-.form-control {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid var(--main-border-shadow);
-  color:var(--main-font-second-color);
-  background-color: var(--main-card-background);
-  border-radius: 4px;
-  font-size: 0.9rem;
-}
- 
-.send-button {
-  padding: 0.5rem 1rem;
-  background-color: var(--main-color);
-  color: var(--main-card-background);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.3s;
-}
- 
-.send-button:hover {
-  background-color: var(--main-color-hover);
-}
- 
-.send-button:disabled {
-  background-color: var(--main-color-bg);
+
+.refresh-button:disabled {
+  opacity: 0.7;
   cursor: not-allowed;
 }
- 
-.error-message {
-  color: #d33;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-}
- 
-.success-message {
-  color: #2c7d32;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-}
- 
-.loading {
-  color: #666;
-}
- 
-.error {
-  color: #d33;
-}
- 
-.mentions-container {
-  margin-top: 2rem;
-}
- 
-.mention-section {
-  margin-bottom: 2rem;
-}
- 
-.mention-section h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+
+.webmentions-filters {
   display: flex;
-  align-items: center;
   gap: 0.5rem;
-}
- 
-.like-list, .repost-list {
-  display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
 }
- 
-.like-item, .repost-item {
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: inherit;
-  padding: 0.3rem 0.6rem;
-  background-color: var(--main-site-background);
-  border-radius: 4px;
-  font-size: 0.9rem;
+  gap: 0.25rem;
 }
- 
-.avatar {
-  width: 32px;
-  height: 32px;
+
+.filter-button:hover {
+  border-color: var(--vp-c-brand-light);
+}
+
+.filter-button.active {
+  background: var(--vp-c-brand-light);
+  border-color: var(--vp-c-brand);
+  color: var(--vp-c-brand-darker);
+}
+
+.mentions-container {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.mention {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 8px;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider-light);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.mention:hover {
+  border-color: var(--vp-c-brand);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.mention-avatar-link {
+  flex-shrink: 0;
+}
+
+.mention-avatar {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
- 
-.default-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: var(--main-site-background);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
+
+.mention:hover .mention-avatar {
+  transform: scale(1.05);
 }
- 
-.comment-list {
-  list-style: none;
-  padding: 0;
-}
- 
-.comment-item {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: var(--main-site-background);
-  border-radius: 6px;
-}
- 
-.comment-link {
-  display: flex;
-  gap: 1rem;
-  text-decoration: none;
-  color: inherit;
-}
- 
-.comment-content {
+
+.mention-content {
   flex: 1;
+  min-width: 0;
 }
- 
-.comment-meta {
+
+.mention-header {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 0.3rem;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
- 
-.comment-date {
-  font-size: 0.8rem;
-  color: #666;
+
+.mention-author {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
- 
-.comment-text {
-  font-size: 0.9rem;
-  line-height: 1.5;
+
+.mention-author:hover {
+  color: var(--vp-c-brand);
 }
- 
-.comment-text :deep(a) {
-  color: #0078d7;
+
+.mention-type {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.mention-type--like {
+  background: rgba(0, 184, 124, 0.1);
+  color: #00b87c;
+}
+
+.mention-type--repost {
+  background: rgba(0, 130, 230, 0.1);
+  color: #0082e6;
+}
+
+.mention-type--reply {
+  background: rgba(255, 140, 0, 0.1);
+  color: #ff8c00;
+}
+
+.mention-type--mention {
+  background: rgba(138, 43, 226, 0.1);
+  color: #8a2be2;
+}
+
+.mention-text {
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.mention-text a {
+  color: var(--vp-c-brand);
+  text-decoration: none;
+}
+
+.mention-text a:hover {
   text-decoration: underline;
 }
- 
+
+.mention-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--vp-c-text-3);
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.mention-meta time {
+  font-family: monospace;
+}
+
+.mention-source {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mention-source:hover {
+  color: var(--vp-c-brand);
+  text-decoration: underline;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--vp-c-divider-light);
+  border-top-color: var(--vp-c-brand);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  color: var(--vp-c-red);
+  text-align: center;
+}
+
+.retry-button {
+  padding: 0.5rem 1rem;
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retry-button:hover {
+  background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-red);
+  color: var(--vp-c-red);
+}
+
 .no-mentions {
-  color: #666;
-  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+  color: var(--vp-c-text-2);
+}
+
+.no-mentions a {
+  color: var(--vp-c-brand);
+  text-decoration: none;
+}
+
+.no-mentions a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .webmentions {
+    padding: 1rem;
+  }
+  
+  .mention {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .mention-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .mention-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .webmentions-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>

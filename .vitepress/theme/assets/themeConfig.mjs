@@ -452,7 +452,6 @@ export const themeConfig = {
   webmention:{
     enable: true,
     url: 'blog.storical.space',
-    token: 'BUDcxWH7PTphGZE7n6NTpA',
   },
   // IndieWeb Webring
   indiewebring: true,

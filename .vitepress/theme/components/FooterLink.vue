@@ -13,6 +13,7 @@
         :href="item.link"
         target="_blank"
         class="social-link"
+        rel="me"
       >
         <i :class="`iconfont icon-${item.icon}`"></i>
       </a>
@@ -25,6 +26,7 @@
         :href="item.link"
         target="_blank"
         class="social-link"
+        rel="me"
       >
         <i :class="`iconfont icon-${item.icon}`"></i>
       </a>
