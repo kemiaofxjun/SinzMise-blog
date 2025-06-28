@@ -132,15 +132,7 @@ export const themeConfig = {
           rel: "stylesheet",
         },
       ],
-      // 预载 DocSearch
-      [
-        "link",
-        {
-          href: "https://72TOQYD33Q-dsn.algolia.net",
-          rel: "preconnect",
-          crossorigin: "",
-        },
-      ],
+      // Algolia相关
       ["meta", { name: "algolia-site-verification", content: "3BC3AFED4AD9E73D" }],
     ],
   },
@@ -400,10 +392,13 @@ export const themeConfig = {
   // 搜索
   // https://www.algolia.com/
   search: {
-    enable: false,
-    appId: "72TOQYD33Q",
-    apiKey: "608d2f3acd06140a2473153f6cb61eda",
-    index: ""
+    enable: true,
+    type: 'algolia',
+    algolia:{
+      appId: "72TOQYD33Q",
+      apiKey: "608d2f3acd06140a2473153f6cb61eda",
+      index: "crawler_cetahouse"
+    }
   },
   // 打赏
   rewardData: {

@@ -145,7 +145,7 @@
     <MobileMenu />
     <!-- 全局搜索 -->
     <ClientOnly>
-      <Search v-if="theme.search.enable" />
+      <Algolia v-if="theme.search.enable && theme.search.type === 'algolia'" />
     </ClientOnly>
   </header>
 </template>

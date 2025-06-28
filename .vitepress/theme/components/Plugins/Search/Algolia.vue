@@ -12,7 +12,7 @@
       :future="{
         preserveSharedStateOnUnmount: true,
       }"
-      :index-name="theme.value.search.index"
+      :index-name="theme.search.algolia.index"
       @state-change="searchChange"
     >
       <ais-configure :hits-per-page.camel="8" />
@@ -63,7 +63,7 @@ const store = mainStore();
 const router = useRouter();
 
 const { theme } = useData();
-const { appId, apiKey } = theme.value.search;
+const { appId, apiKey } = theme.value.search.algolia;
 
 const searchClient = liteClient(appId, apiKey);
 
