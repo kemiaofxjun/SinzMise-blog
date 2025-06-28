@@ -85,7 +85,7 @@ onMounted(() => {
 
 <template>
   <div class="webmentions">
-    <h2>互动反馈</h2>
+    <h2><i class="pj-historical icon-pjh-hulianwang"></i>WebMention 网络回响</h2>
     
     <div v-if="loading" class="loading">正在加载互动数据...</div>
     
