@@ -24,27 +24,52 @@ const fetchWebmentions = async () => {
   }
 }
 
-// 分类和排序mention
+// 过滤私有mention并分类
+const filteredMentions = computed(() => {
+  return rawMentions.value.filter(mention => 
+    // 只显示公开的mention或没有设置wm-private的mention
+    mention['wm-private'] !== true
+  )
+})
+
 const mentions = computed(() => {
   const result = {
-    all: [...rawMentions.value].sort((a, b) => 
+    all: [...filteredMentions.value].sort((a, b) => 
       new Date(b['wm-received']) - new Date(a['wm-received'])),
-    likes: rawMentions.value
+    likes: filteredMentions.value
       .filter(m => m['wm-property'] === 'like-of')
       .sort((a, b) => new Date(b['wm-received']) - new Date(a['wm-received'])),
-    reposts: rawMentions.value
+    reposts: filteredMentions.value
       .filter(m => m['wm-property'] === 'repost-of')
       .sort((a, b) => new Date(b['wm-received']) - new Date(a['wm-received'])),
-    replies: rawMentions.value
+    replies: filteredMentions.value
       .filter(m => m['wm-property'] === 'in-reply-to')
       .sort((a, b) => new Date(b['wm-received']) - new Date(a['wm-received'])),
-    mentions: rawMentions.value
+    mentions: filteredMentions.value
       .filter(m => m['wm-property'] === 'mention-of')
       .sort((a, b) => new Date(b['wm-received']) - new Date(a['wm-received']))
   }
   
   return result
 })
+
+// 包含私有互动的统计（仅用于显示总数）
+const allMentionCounts = computed(() => ({
+  all: rawMentions.value.length,
+  likes: rawMentions.value.filter(m => m['wm-property'] === 'like-of').length,
+  reposts: rawMentions.value.filter(m => m['wm-property'] === 'repost-of').length,
+  replies: rawMentions.value.filter(m => m['wm-property'] === 'in-reply-to').length,
+  mentions: rawMentions.value.filter(m => m['wm-property'] === 'mention-of').length
+}))
+
+// 公开互动的统计
+const publicMentionCounts = computed(() => ({
+  all: filteredMentions.value.length,
+  likes: mentions.value.likes.length,
+  reposts: mentions.value.reposts.length,
+  replies: mentions.value.replies.length,
+  mentions: mentions.value.mentions.length
+}))
 
 // 当前显示的mention
 const displayedMentions = computed(() => {
@@ -53,15 +78,6 @@ const displayedMentions = computed(() => {
     : mentions.value[activeTab.value]
 })
 
-// 统计总数
-const mentionCounts = computed(() => ({
-  all: rawMentions.value.length,
-  likes: mentions.value.likes.length,
-  reposts: mentions.value.reposts.length,
-  replies: mentions.value.replies.length,
-  mentions: mentions.value.mentions.length
-}))
-
 onMounted(() => {
   fetchWebmentions()
 })
@@ -69,7 +85,7 @@ onMounted(() => {
 
 <template>
   <div class="webmentions">
-    <h2><i class="pj-historical icon-pjh-hulianwang"></i>WebMention 网络回响</h2>
+    <h2>互动反馈</h2>
     
     <div v-if="loading" class="loading">正在加载互动数据...</div>
     
@@ -90,8 +106,18 @@ onMounted(() => {
             tab === 'likes' ? '点赞' :
             tab === 'reposts' ? '转发' : '提及'
           }}
-          <span class="count">{{ mentionCounts[tab] }}</span>
+          <span class="count">{{ publicMentionCounts[tab] }}</span>
+          <span v-if="allMentionCounts[tab] > publicMentionCounts[tab]" 
+                class="private-count" 
+                title="包含私有互动">
+            +{{ allMentionCounts[tab] - publicMentionCounts[tab] }}
+          </span>
         </button>
+      </div>
+      
+      <!-- 私有互动提示 -->
+      <div v-if="allMentionCounts.all > publicMentionCounts.all" class="private-notice">
+        有 {{ allMentionCounts.all - publicMentionCounts.all }} 条私有互动未显示
       </div>
       
       <!-- 内容区域 -->
@@ -105,8 +131,8 @@ onMounted(() => {
                 :alt="item.author.name"
                 class="avatar"
               >
+              <span class="author-name">{{ item.author.name }}</span>
             </a>
-            <a :href="item.author.url" class="author-name">{{ item.author.name }}</a>
             <span class="mention-type">
               {{ 
                 item['wm-property'] === 'like-of' ? '点赞了' :
@@ -139,7 +165,7 @@ onMounted(() => {
           activeTab === 'replies' ? '回复' :
           activeTab === 'likes' ? '点赞' :
           activeTab === 'reposts' ? '转发' : '提及'
-        }}互动
+        }}公开互动
       </div>
     </template>
   </div>
@@ -200,6 +226,20 @@ onMounted(() => {
   border-radius: 999px;
 }
 
+.private-count {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.private-notice {
+  font-size: 0.8rem;
+  color: var(--main-font-color);
+  margin-bottom: 1rem;
+}
+
 .mention-content {
   display: flex;
   flex-direction: column;
@@ -231,12 +271,12 @@ onMounted(() => {
 }
 
 .mention-type {
-  color: var(--vp-c-text-2);
+  color: var(--main-font-second-color);
   font-size: 0.9rem;
 }
 
 .mention-date {
-  color: var(--vp-c-text-3);
+  color: var(--main-font-second-color);
   font-size: 0.8rem;
 }
 
