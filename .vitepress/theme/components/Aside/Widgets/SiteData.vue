@@ -34,17 +34,17 @@
         </span>
         <span class="num" id="busuanzi_value_site_uv">0</span>
       </div>
-      <a
-        v-if="theme.aside.siteData.links"
-        v-for="(item, index) in theme.aside.siteData.links"
-        :key="index"
-        :href="item.href"
-        :title="item.title"
-        target="_blank"
-      >
-        <img v-if="item.image" :src=item.image >
-        <p v-else>{{ item.title }}</p>
-      </a>
+      <p v-if="theme.aside.siteData.links" v-for="(item, index) in theme.aside.siteData.links" class="data-image">
+        <a
+          :key="index"
+          :href="item.href"
+          :title="item.title"
+          target="_blank"
+        >
+          <img v-if="item.image" :src=item.image >
+          <p v-else>{{ item.title }}</p>
+        </a>
+      </p>
     </div>
   </div>
 </template>
@@ -99,6 +99,9 @@ onMounted(() => {
       &:last-child {
         padding-bottom: 0;
       }
+    }
+    .data-image{
+      text-align: center;
     }
   }
 }
