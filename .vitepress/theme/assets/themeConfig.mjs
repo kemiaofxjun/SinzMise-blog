@@ -60,6 +60,9 @@ export const themeConfig = {
           }
         })
       }],
+      ['script', { 
+        src: 'https://unpkg.com/@ruffle-rs/ruffle'
+      }],
       // RSS
       [
         "link",
