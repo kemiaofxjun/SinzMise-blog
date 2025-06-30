@@ -454,4 +454,10 @@ export const themeConfig = {
   indiewebring: true,
   // Iconfont JS
   iconfont: '//at.alicdn.com/t/c/font_4199232_f0feiwgh0uw.js',
+  // AI摘要
+  postsummary: {
+    enable: true,
+    use: 'cloudflare', // fakegpt/cloudflare
+    cfapi: 'https://summary.blog.sinzmise.top'
+  }
 };

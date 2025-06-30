@@ -1,13 +1,13 @@
-<!-- AI 摘要（假） -->
+<!-- AI 摘要（Cloudflare AI Worker） -->
 <template>
-  <div v-if="frontmatter.articleGPT" class="article-gpt s-card">
+  <div class="article-gpt s-card">
     <div class="title">
-      <span class="name" @click="router.go('/posts/2024/0218')">
+      <span class="name" @click="initAbstract">
         <i class="iconfont icon-robot"></i>
         文章摘要
         <i class="iconfont icon-up"></i>
       </span>
-      <span :class="['logo', { loading }]" @click="showOther"> FakeGPT </span>
+      <span :class="['logo', { loading }]" @click="showOther"> CloudFlare AI Worker </span>
     </div>
     <div class="content s-card">
       <span class="text">{{ abstractData === "" ? "加载中..." : abstractData }}</span>
@@ -15,19 +15,12 @@
     </div>
     <div class="meta">
       <span class="tip">此内容根据文章生成，并经过人工审核，仅用于文章内容的解释与总结</span>
-      <a
-        href="https://eqnxweimkr5.feishu.cn/share/base/form/shrcnCXCPmxCKKJYI3RKUfefJre"
-        class="report"
-        target="_blank"
-      >
-        投诉
-      </a>
     </div>
   </div>
 </template>
 
 <script setup>
-const { frontmatter } = useData();
+const { theme } = useData();
 const router = useRouter();
 
 // 摘要数据
@@ -36,11 +29,55 @@ const waitTimeOut = ref(null);
 const abstractData = ref("");
 const showIndex = ref(0);
 const showType = ref(false);
+const summary = ref('')
+
+async function summarizer(input) {
+  const response = await fetch(
+    theme.value.postsummary.cfapi,
+    {
+      headers: {'Content-Type':'application/json'},
+      method: 'POST',
+      body: JSON.stringify(input)
+    }
+  );
+  const result = await response.json()
+  return result
+}
+
+function htmlFilter(html) {
+  // clone for editing
+  const tempElement = html.cloneNode(true);
+  // remove class language-* elements
+  const langElements = tempElement.querySelectorAll("[class^='language-']")
+  langElements.forEach(el => el.parentNode?.removeChild(el))
+  
+  // remove class footnotes elements
+  const footnotes = tempElement.querySelectorAll('.footnotes')
+  footnotes.forEach(el => el.parentNode?.removeChild(el))
+
+  // remove class footnote elements
+  const footnote = tempElement.querySelectorAll('.footnote')
+  footnote.forEach(el => el.parentNode?.removeChild(el))
+  
+  return tempElement.innerText
+}
+
+function run(){
+  const articleElement = document.querySelector('.markdown-main-style');
+  if (!articleElement) return
+  
+  loading.value = true
+  const articleText = htmlFilter(articleElement)
+  summarizer({message: articleText}).then((res) => {
+    summary.value = res['response']['result']['response']
+    loading.value = false
+  })
+}
 
 // 输出摘要
 const typeWriter = (text = null) => {
   try {
-    const data = text || frontmatter.value.articleGPT;
+    const data = text || summary.value;
     if (!data) return false;
     if (showIndex.value < data.length) {
       abstractData.value += data.charAt(showIndex.value++);
@@ -62,6 +99,8 @@ const typeWriter = (text = null) => {
 
 // 初始化摘要
 const initAbstract = () => {
+  abstractData.value = "";
+  run();
   waitTimeOut.value = setTimeout(
     () => {
       typeWriter();
@@ -74,7 +113,7 @@ const initAbstract = () => {
 const showOther = () => {
   if (loading.value) return false;
   const text =
-    "我是無名开发的摘要生成助理 FakeGPT，如你所见，这是一个假的 GPT，所有文本皆源于本地书写的内容。我在这里只负责显示，并仿照 GPT 的形式输出，如果你像我一样囊中羞涩，你也可以像我这样做，当然，你也可以使用 Tianli 开发的 TianliGPT 来更简单地实现真正的 AI 摘要。";
+    "我是汐塔魔法屋的摘要生成助理 CloudFlareGPT，如你所见，所有文本皆源于CloudFlare AI Worker生成的内容。";
   showIndex.value = 0;
   loading.value = true;
   abstractData.value = "";
@@ -88,7 +127,7 @@ const showOther = () => {
 };
 
 onMounted(() => {
-  if (frontmatter.value.articleGPT) initAbstract();
+  initAbstract()
 });
 
 onBeforeUnmount(() => {
