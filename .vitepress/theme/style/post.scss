@@ -99,7 +99,7 @@
     a {
       position: relative;
       display: inline-flex;
-      color: var(--main-color);
+      color: var(--main-font-color);
       &::before {
         content: "";
         position: absolute;
@@ -109,7 +109,7 @@
         right: 0;
         height: 1px;
         opacity: 0.8;
-        background-color: var(--main-color);
+        background-color: var(--main-color-hover);
         border-radius: 4px;
         transition: all 0.3s;
       }
