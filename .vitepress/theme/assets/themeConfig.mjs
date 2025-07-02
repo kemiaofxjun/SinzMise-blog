@@ -361,6 +361,11 @@ export const themeConfig = {
           image: "https://boringbay.com/api/badge/blog.storical.space"
         },
         { 
+          title: "BlogsClub 博阅榜",
+          href: "https://www.blogsclub.org/rank.html",
+          image: "https://www.blogsclub.org/badge/blog.storical.space"
+        },
+        { 
           title: "Web Site Hit Counter",
           href: "https://www.easycounter.com/",
           image: "https://www.easycounter.com/counter.php?szninty"
