@@ -38,6 +38,8 @@
   <RightMenu ref="rightMenuRef" />
   <!-- 全局消息 -->
   <Message />
+  <!-- 站点统计 -->
+  <Umami v-if="theme.status.umami.enable" />
 </template>
 
 <script setup>

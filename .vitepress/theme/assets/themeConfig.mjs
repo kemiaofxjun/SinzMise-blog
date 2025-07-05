@@ -448,8 +448,12 @@ export const themeConfig = {
     ],
   },
   // 站点统计
-  tongji: {
-    "51la": "",
+  status: {
+    umami:{
+      enable: true,
+      src: 'https://umami.status.sinzmise.top/a8f9c04189c7d6a2b6b03f4f3948ef41',
+      id: 'f18a2137-2dfe-45b9-a524-21413e09bd68'
+    }
   },
   // WebMention
   webmention:{
