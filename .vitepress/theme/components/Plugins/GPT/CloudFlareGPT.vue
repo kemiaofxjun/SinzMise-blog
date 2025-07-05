@@ -15,13 +15,13 @@
     </div>
     <div class="meta">
       <span class="tip">此内容根据文章生成，并经过人工审核，仅用于文章内容的解释与总结</span>
+      <span class="report">{{theme.postsummary.cloudflare.model}}</span>
     </div>
   </div>
 </template>
 
 <script setup>
 const { theme } = useData();
-const router = useRouter();
 
 // 摘要数据
 const loading = ref(true);
@@ -33,7 +33,7 @@ const summary = ref('')
 
 async function summarizer(input) {
   const response = await fetch(
-    theme.value.postsummary.cfapi,
+    theme.value.postsummary.cloudflare.api,
     {
       headers: {'Content-Type':'application/json'},
       method: 'POST',

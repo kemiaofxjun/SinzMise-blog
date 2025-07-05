@@ -463,6 +463,9 @@ export const themeConfig = {
   postsummary: {
     enable: true,
     use: 'cloudflare', // fakegpt/cloudflare
-    cfapi: 'https://summary.blog.sinzmise.top'
+    cloudflare: {
+      api: 'https://summary.blog.sinzmise.top',
+      model: 'llama-3.1-8b-instruct'
+    }
   }
 };
