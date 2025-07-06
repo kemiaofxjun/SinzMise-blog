@@ -87,7 +87,7 @@ const props = defineProps({
     .all-link {
       display: grid;
       gap: 20px;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, 18.7%);
       .link-card {
         display: flex;
         flex-direction: row;
@@ -190,10 +190,10 @@ const props = defineProps({
         }
       }
       @media (max-width: 1200px) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 23.4%);
       }
       @media (max-width: 992px) {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 32%);
       }
       @media (max-width: 768px) {
         grid-template-columns: repeat(2, 1fr);

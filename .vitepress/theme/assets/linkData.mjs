@@ -50,10 +50,10 @@ const linkData = [
       },
       {
         name:"勿埋我心",
-        url:"https://www.skyqian.com",
-        avatar:"https://www.skyqian.com/favicon.ico",
+        url:"https://www.calmxin.com",
+        avatar:"https://www.calmxin.com/favicon.ico",
         desc:"我要这天，再遮不住我的眼；要这地，再埋不了我的心。",
-        topimg:"https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://www.skyqian.com"
+        topimg:"https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://www.calmxin.com"
       },
       {
         name:"iMaeGoo’s Blog",
@@ -720,13 +720,6 @@ const linkData = [
         avatar:"https://r1n.top/avatar_nr.jpg",
         desc:"Everything collapses, but you rise.",
         topimg:"https://r1n.top/siteshot.jpg"
-      },
-      {
-        name:"森尧记",
-        url:"https://07111.cn",
-        avatar:"https://07111.cn/logo1.png",
-        desc:"多年的建站小白",
-        topimg:"https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://07111.cn"
       },
       {
         name:"厄尔科斯",
