@@ -61,7 +61,7 @@ export const themeConfig = {
         })
       }],
       ['script', { 
-        src: 'https://unpkg.com/@ruffle-rs/ruffle'
+        src: 'https://jsd.cdn.sinzmise.top/npm/@ruffle-rs/ruffle'
       }],
       // RSS
       [

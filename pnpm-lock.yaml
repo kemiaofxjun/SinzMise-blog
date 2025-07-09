@@ -44,6 +44,9 @@ importers:
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@4.9.5)
+      vue-aplayer:
+        specifier: ^1.6.1
+        version: 1.6.1(vue@3.5.13(typescript@4.9.5))
       vue-instantsearch:
         specifier: ^4.20.1
         version: 4.20.7(@vue/server-renderer@3.5.13(vue@3.5.13(typescript@4.9.5)))(algoliasearch@5.24.0)(vue@3.5.13(typescript@4.9.5))
@@ -4000,6 +4003,11 @@ packages:
         optional: true
       postcss:
         optional: true
+
+  vue-aplayer@1.6.1:
+    resolution: {integrity: sha512-c+ZAwZ63bVDsKkcHeKLAonIL2gY4nrVRdKypoPRXSkh+8B1cVhFT2tx8HSTNT6eX6WZyDtaYrEJfcgetrfvcdQ==}
+    peerDependencies:
+      vue: ^2.5.16
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -8501,6 +8509,10 @@ snapshots:
       - terser
       - typescript
       - universal-cookie
+
+  vue-aplayer@1.6.1(vue@3.5.13(typescript@4.9.5)):
+    dependencies:
+      vue: 3.5.13(typescript@4.9.5)
 
   vue-demi@0.14.10(vue@3.5.13(typescript@4.9.5)):
     dependencies:
