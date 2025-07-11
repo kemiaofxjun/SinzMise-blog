@@ -275,7 +275,6 @@ export const themeConfig = {
         items: [
           { text: "萌ICP备20231033号", link: "https://icp.gov.moe/?keyword=20231033", newTab: true },
           { text: "团ICP备20250007号", link: "https://icp.星.fun/id.php?keyword=20250007", newTab: true },
-          { text: "官码2024000155号", link: "https://guan.ma/hao/2024000155/", newTab: true },
           { text: "SICP备20243448号", link: "https://icp.sepocatch.xyz/search.php?keyword=blog.storical.space", newTab: true },
           { text: "霞ICP备20251025号", link: "https://icp.20097747.xyz/id.php?keyword=20251025", newTab: true },
           { text: "联bBb盟 icp备20256592", link: "https://icp.bbb-lsy07.my/query.php?keyword=20256592", newTab: true },
@@ -299,7 +298,7 @@ export const themeConfig = {
           { text: "笔墨迹", link: "https://blogscn.fun/", newTab: true },
           { text: "博客大全", link: "https://daohang.lusongsong.com/", newTab: true },
           { text: "BlogsClub", link: "https://www.blogsclub.org/blog/99.html", newTab: true },
-          { text: "OurBlogs", link: "https://ourblo.gs/blogs/55/", newTab: true },
+          { text: "揪蝉", link: "https://jiuchan.org", newTab: true },
         ],
       },
     ],
