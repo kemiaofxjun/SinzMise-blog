@@ -137,6 +137,13 @@ export const themeConfig = {
       ],
       // Algolia相关
       ["meta", { name: "algolia-site-verification", content: "3BC3AFED4AD9E73D" }],
+      // Font Awesome
+      [
+        "script",
+        {
+          src: "https://jsd.cdn.sinzmise.top/npm/@fortawesome/fontawesome-free/js/all.min.js",
+        },
+      ],
     ],
   },
   // 导航栏菜单
@@ -268,7 +275,6 @@ export const themeConfig = {
         items: [
           { text: "萌ICP备20231033号", link: "https://icp.gov.moe/?keyword=20231033", newTab: true },
           { text: "团ICP备20250007号", link: "https://icp.星.fun/id.php?keyword=20250007", newTab: true },
-          { text: "MIIT备20240818号", link: "https://beian.miit.cn.com/gov/search.php?query=20240818", newTab: true },
           { text: "官码2024000155号", link: "https://guan.ma/hao/2024000155/", newTab: true },
           { text: "SICP备20243448号", link: "https://icp.sepocatch.xyz/search.php?keyword=blog.storical.space", newTab: true },
           { text: "霞ICP备20251025号", link: "https://icp.20097747.xyz/id.php?keyword=20251025", newTab: true },
@@ -314,7 +320,7 @@ export const themeConfig = {
     // https://twikoo.js.org/
     twikoo: {
       // 必填，若不想使用 CDN，可以使用 pnpm add twikoo 安装并引入
-      js: "https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/twikoo/1.6.39/twikoo.all.min.js",
+      js: "https://jsd.cdn.sinzmise.top/npm/twikoo/dist/twikoo.all.min.js",
       envId: "",
       // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
       region: "ap-shanghai",
@@ -470,5 +476,8 @@ export const themeConfig = {
       api: 'https://summary.blog.sinzmise.top',
       model: 'llama-3.1-8b-instruct'
     }
+  },
+  chatroom: {
+    css: 'https://jsd.cdn.sinzmise.top/gh/awaae001/htmls@main/ChatRoom/main.css'
   }
 };
