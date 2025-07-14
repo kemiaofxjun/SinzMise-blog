@@ -308,7 +308,7 @@ export const themeConfig = {
     enable: true,
     // 评论系统选择
     // artalk / twikoo
-    type: "artalk",
+    type: "twikoo",
     // artalk
     // https://artalk.js.org/
     artalk: {
@@ -320,10 +320,21 @@ export const themeConfig = {
     twikoo: {
       // 必填，若不想使用 CDN，可以使用 pnpm add twikoo 安装并引入
       js: "https://jsd.cdn.sinzmise.top/npm/twikoo/dist/twikoo.all.min.js",
-      envId: "",
+      envId: "https://tk.pl.blog.sinzmise.top/",
       // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
       region: "ap-shanghai",
       lang: "zh-CN",
+    },
+        // twikoo
+    // https://twikoo.js.org/
+    waline: {
+      // 必填
+      css: 'https://jsd.cdn.sinzmise.top/npm/@waline/client/dist/waline.css',
+      js: "https://jsd.cdn.sinzmise.top/npm/@waline/client/dist/waline.js",
+      serverURL: "https://wle.pl.sinzmise.top/",
+      lang: "zh-CN",
+      placeholder: '就很无语，我搞的Artalk寄了，没办法，只好换评论系统了\n但之前2025.01之后的数据全丢失了啊（悲）',
+      login: ''
     },
   },
   // 侧边栏

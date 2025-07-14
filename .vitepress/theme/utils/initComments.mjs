@@ -36,6 +36,20 @@ const initComments = async (themeConfig) => {
             },
           });
         });
+      case "waline":
+        // 引入资源
+        await loadCSS(option[commentType].css);
+        return await new Promise((resolve, reject) => {
+          loadScript(option[commentType].js, {
+            callback: () => {
+              if (typeof waline === "object") {
+                resolve(waline);
+              } else {
+                reject(new Error("Waline 初始化失败"));
+              }
+            },
+          });
+        });  
       default:
         return false;
     }
