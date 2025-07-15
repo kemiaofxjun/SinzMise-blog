@@ -88,7 +88,7 @@ const initWaline = async () => {
       meta: comment.waline.meta || ['nick', 'mail', 'link'],
       requiredMeta: comment.waline.requiredMeta || ['nick', 'mail'],
       login: comment.waline.login || 'enable',
-      wordLimit: comment.waline.wordLimit || '0',
+      wordLimit: comment.waline.wordLimit || undefined,
       imageUploader: comment.waline.imageUploader || true,
       pageSize: comment.waline.pageSize || '10',
       recaptchaV3Key: comment.waline.recaptchaV3Key || '',
