@@ -1,5 +1,5 @@
 ---
-title: 友情链接
+title: 友人帐
 aside: false
 comment: true
 ---
