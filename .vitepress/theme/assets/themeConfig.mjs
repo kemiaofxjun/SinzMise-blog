@@ -307,8 +307,8 @@ export const themeConfig = {
   comment: {
     enable: true,
     // 评论系统选择
-    // artalk / twikoo
-    type: "twikoo",
+    // artalk / twikoo / waline
+    type: "waline",
     // artalk
     // https://artalk.js.org/
     artalk: {
@@ -330,11 +330,21 @@ export const themeConfig = {
     waline: {
       // 必填
       css: 'https://jsd.cdn.sinzmise.top/npm/@waline/client/dist/waline.css',
-      js: "https://jsd.cdn.sinzmise.top/npm/@waline/client/dist/waline.js",
+      js: "https://jsd.cdn.sinzmise.top/npm/@waline/client/dist/waline.umd.js",
       serverURL: "https://wle.pl.sinzmise.top/",
       lang: "zh-CN",
       placeholder: '就很无语，我搞的Artalk寄了，没办法，只好换评论系统了\n但之前2025.01之后的数据全丢失了啊（悲）',
-      login: ''
+      login: 'force',
+      turnstileKey: '0x4AAAAAAAF_16bZaYVC96tY',
+      emoji: [
+        '//jsd.cdn.sinzmise.top/npm/@waline/emojis@1.2.0/bmoji',
+        '//jsd.cdn.sinzmise.top/npm/@waline/emojis@1.2.0/bilibili',
+        '//jsd.cdn.sinzmise.top/gh/GamerNoTitle/ValineCDN@master/Menhera-chan',
+        '//files.blog.sinzmise.top/emotes/ba',
+        '//files.blog.sinzmise.top/emotes/azurlane',
+        '//files.blog.sinzmise.top/emotes/a-li/png',
+        '//files.blog.sinzmise.top/emotes/a-li/gif'
+      ]
     },
   },
   // 侧边栏

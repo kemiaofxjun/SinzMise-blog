@@ -6,10 +6,10 @@ const initComments = async (themeConfig) => {
     const option = themeConfig.comment;
     const commentType = option.type;
     if (!option.enable) return false;
-    const server = option[commentType].server;
-    console.log("开始加载", commentType, server);
     switch (commentType) {
       case "artalk":
+        const server = option[commentType].server;
+        console.log("开始加载", commentType, server);
         // 引入资源
         await loadCSS(`${server}/dist/Artalk.css`);
         return await new Promise((resolve, reject) => {
@@ -24,6 +24,8 @@ const initComments = async (themeConfig) => {
           });
         });
       case "twikoo":
+        const envId = option[commentType].envId;
+        console.log("开始加载", commentType, envId);
         // 引入资源
         return await new Promise((resolve, reject) => {
           loadScript(option[commentType].js, {
@@ -37,13 +39,15 @@ const initComments = async (themeConfig) => {
           });
         });
       case "waline":
+        const serverURL = option[commentType].serverURL;
+        console.log("开始加载", commentType, serverURL);
         // 引入资源
         await loadCSS(option[commentType].css);
         return await new Promise((resolve, reject) => {
           loadScript(option[commentType].js, {
             callback: () => {
-              if (typeof waline === "object") {
-                resolve(waline);
+              if (typeof Waline === "object") {
+                resolve(Waline);
               } else {
                 reject(new Error("Waline 初始化失败"));
               }

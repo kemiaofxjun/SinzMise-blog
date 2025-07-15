@@ -91,10 +91,12 @@ const initWaline = async () => {
       wordLimit: comment.waline.wordLimit || '0',
       imageUploader: comment.waline.imageUploader || true,
       pageSize: comment.waline.pageSize || '10',
-      recaptchaV3Key: comment.waline.recaptchaV3Key || undefined,
-      turnstileKey: comment.waline.turnstileKey || undefined,
+      recaptchaV3Key: comment.waline.recaptchaV3Key || '',
+      turnstileKey: comment.waline.turnstileKey || '',
       reaction: comment.waline.reaction || true,
       emoji: comment.waline.emoji || ['//unpkg.com/@waline/emojis@1.1.0/weibo'],
+      pageview: true,
+      comment: true,
       locale,
     });
     return waline.value;
@@ -122,3 +124,10 @@ onMounted(() => {
   jumpRedirect(null, theme.value, true);
 });
 </script>
+<style lang="scss">
+#comment-dom,
+.comment-content {
+  --waline-theme-color: var(--main-color) !important;
+  --waline-active-color: var(--main-color-hover) !important;
+}
+</style>
