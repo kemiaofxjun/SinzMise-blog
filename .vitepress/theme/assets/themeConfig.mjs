@@ -302,7 +302,7 @@ export const themeConfig = {
         ],
       },
       {
-        text: "被收录的",
+        text: "站点导航",
         items: [
           { text: "博客大全", link: "https://daohang.lusongsong.com/", newTab: true },
           { text: "浪海导航", link: "https://www.langhai.net/", newTab: true },
