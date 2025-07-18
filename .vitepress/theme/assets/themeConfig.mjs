@@ -297,9 +297,15 @@ export const themeConfig = {
         items: [
           { text: "RssBlog", link: "https://rssblog.cn/member/d711afd659d65c2ba2d3b18697818cf7/", newTab: true },
           { text: "笔墨迹", link: "https://blogscn.fun/", newTab: true },
-          { text: "博客大全", link: "https://daohang.lusongsong.com/", newTab: true },
           { text: "BlogsClub", link: "https://www.blogsclub.org/blog/99.html", newTab: true },
           { text: "揪蝉", link: "https://jiuchan.org", newTab: true },
+        ],
+      },
+      {
+        text: "被收录的",
+        items: [
+          { text: "博客大全", link: "https://daohang.lusongsong.com/", newTab: true },
+          { text: "浪海导航", link: "https://www.langhai.net/", newTab: true },
         ],
       },
     ],
