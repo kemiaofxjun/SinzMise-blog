@@ -798,13 +798,6 @@ const linkData = [
         url:"https://i.bbb-lsy07.sbs",
         topimg:"https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://i.bbb-lsy07.sbs"
       },
-      {
-        name:"浪海导航",
-        desc:"浪海导航 ~ 收录各种类型的博客以及论坛网站",
-        avatar:"https://www.langhai.net/assets/images/langhai-logo.png",
-        url:"https://www.langhai.net/",
-        topimg:"https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://www.langhai.net/"
-      },
     ],
   },
 ];
