@@ -161,7 +161,7 @@ export const themeConfig = {
       items: [
         { text: "友人帐", link: "/pages/link", symbol: "icon-pjh-lianjie" },
         { text: "朋友圈", link: "/pages/circle", symbol: "icon-pjh-icon_pengyouquan" },
-        { text: "留言板", link: "/pages/comments", symbol: "icon-pjh-lianjie" },
+        { text: "留言板", link: "/pages/comments", symbol: "icon-pjh-liuyanban" },
       ],
     },
     {
