@@ -341,7 +341,7 @@ export const themeConfig = {
       serverURL: "https://wle.pl.sinzmise.top/",
       lang: "zh-CN",
       placeholder: '就很无语，我搞的Artalk寄了，没办法，只好换评论系统了\n但之前2025.01之后的数据全丢失了啊（悲）',
-      login: 'force',
+      login: 'enable',
       recaptchaV3Key: '6LfPDYomAAAAAGSF3pwm6SFvAyFrKfsNyukZaq_-',
       emoji: [
         '//jsd.cdn.sinzmise.top/npm/@waline/emojis@1.2.0/bmoji',
