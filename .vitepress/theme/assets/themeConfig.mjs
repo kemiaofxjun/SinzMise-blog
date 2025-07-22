@@ -342,7 +342,7 @@ export const themeConfig = {
       lang: "zh-CN",
       placeholder: '就很无语，我搞的Artalk寄了，没办法，只好换评论系统了\n但之前2025.01之后的数据全丢失了啊（悲）',
       login: 'enable',
-      recaptchaV3Key: '6LfPDYomAAAAAGSF3pwm6SFvAyFrKfsNyukZaq_-',
+      recaptchaV3Key: '6LdKGYsrAAAAAJWRy33v5gBwQ6rCHoMZE-r9NHb6',
       emoji: [
         '//jsd.cdn.sinzmise.top/npm/@waline/emojis@1.2.0/bmoji',
         '//jsd.cdn.sinzmise.top/npm/@waline/emojis@1.2.0/bilibili',
