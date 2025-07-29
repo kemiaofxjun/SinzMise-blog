@@ -22,9 +22,13 @@ jobs:
         
       - name: Send WebMentions
         run: |
-          for file in $(find . -name "*.md"); do
-            url="https://blog.storical.space/${file#./}"
-            webmention $url --limit 1 --send
+          find . -name "*.md" ! -name "README.md" ! -name "page.md" ! -name "index.md" ! -path "./page/*" ! -path "./pages/*" | while read file; do
+            # 移除路径前缀和.md扩展名
+            url_path="${file#./}"
+            url_path="${url_path%.md}"
+            url="https://blog.storical.space/${url_path}"
+            echo "Sending webmention for: $url"
+            webmention "$url" --limit 1 --send
             sleep 1 # 避免速率限制
           done
         env:
