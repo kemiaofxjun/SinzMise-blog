@@ -2,8 +2,9 @@
 name: Send WebMentions
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   send-webmentions:

@@ -794,9 +794,9 @@ const linkData = [
       {
         name:"bbb-lsy07",
         desc:"科技激荡人文，洞见智慧本真。",
-        avatar:"https://i.bbb-lsy07.sbs/upload/quality_restoration_20250211145207618.JPG",
-        url:"https://i.bbb-lsy07.sbs",
-        topimg:"https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://i.bbb-lsy07.sbs"
+        avatar:"https://images.6uu.us/20250511114301488.JPG",
+        url:"https://blog.6uu.us/",
+        topimg:"https://img.z4a.net/images/2025/02/16/2025-02-16-14.08.18.png"
       },
     ],
   },
