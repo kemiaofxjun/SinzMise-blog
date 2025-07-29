@@ -18,13 +18,13 @@ jobs:
           node-version: 16
           
       - name: Install dependencies
-        run: npm install -g webmention @isomorphic-git/lightning-fs isomorphic-git
+        run: npm install -g @remy/webmention @isomorphic-git/lightning-fs isomorphic-git
         
       - name: Send WebMentions
         run: |
           for file in $(find . -name "*.md"); do
             url="https://blog.storical.space/${file#./}"
-            webmention $url --limit 1
+            webmention $url --limit 1 --send
             sleep 1 # 避免速率限制
           done
         env:
