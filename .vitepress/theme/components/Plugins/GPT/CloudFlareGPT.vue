@@ -198,6 +198,9 @@ onBeforeUnmount(() => {
       margin-left: 4px;
       animation: loading 0.8s infinite;
     }
+    .text{
+      word-wrap: break-word;
+    }
   }
   .meta {
     display: flex;
