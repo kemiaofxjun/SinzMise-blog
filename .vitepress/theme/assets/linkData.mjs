@@ -22,10 +22,10 @@ const linkData = [
       },
       {
         name:"SeaEpoch",
-        url:"https://www.seayj.cn",
-        avatar:"https://www.seayj.cn/img/avatar.png",
+        url:"https://www.seaepoch.com",
+        avatar:"https://www.seaepoch.com/img/avatar.png",
         desc:"她站在那里，就像一个小小的永恒！",
-        topimg:"https://www.seayj.cn/img/siteshoot.jpg"
+        topimg:"https://www.seaepoch.com/img/siteshoot.jpg"
       },
       {
         name:"晓雨杂记",
