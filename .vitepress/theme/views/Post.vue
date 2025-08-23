@@ -86,7 +86,7 @@
           </div>
           <a
             href="mailto:email@sinzmise.top"
-            class="report"
+            class="report email"
             target="_blank"
           >
             <i class="iconfont icon-report" />

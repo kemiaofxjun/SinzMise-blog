@@ -477,6 +477,7 @@ export const themeConfig = {
       "right-menu-link",
       "link-card",
       "link-child-btn",
+      "email",
     ],
   },
   // 站点统计
