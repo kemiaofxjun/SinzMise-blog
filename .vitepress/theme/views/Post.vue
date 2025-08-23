@@ -85,7 +85,7 @@
             </a>
           </div>
           <a
-            href="https://eqnxweimkr5.feishu.cn/share/base/form/shrcnCXCPmxCKKJYI3RKUfefJre"
+            href="mailto:email@sinzmise.top"
             class="report"
             target="_blank"
           >

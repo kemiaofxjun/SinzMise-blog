@@ -13,6 +13,7 @@
         评论
       </span>
       <span class="tool" @click="router.go('/pages/privacy')"> 隐私政策 </span>
+      <a class="tool" target="_blank" href="mailto:email@sinzmise.top?subject=评论无法加载"> 评论无法加载？ </a>
     </div>
     <!-- 区分评论系统 -->
     <Artalk v-if="theme.comment.type === 'artalk'" :fill="fill" />
