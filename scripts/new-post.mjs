@@ -20,6 +20,7 @@ const slug = title.toLowerCase().replace(/\s+/g, '-');
 const content = `---
 title: ${title}
 date: ${date}
+updated: ${date}
 ---
 
 ## ${title}
