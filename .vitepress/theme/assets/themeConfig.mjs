@@ -274,10 +274,7 @@ export const themeConfig = {
       {
         text: "我加入的-1",
         items: [
-          { text: "中文博客列表", link: "https://www.zhblogs.net/", newTab: true },
-          { text: "个站商店", link: "https://storeweb.cn/member/o/1585", newTab: true },
           { text: "BlogFinder", link: "https://bf.zzxworld.com/s/995", newTab: true },
-          { text: "站点聚合平台", link: "https://sites.applinzi.com/site-info?siteType=life&siteId=64cb373190e35300a8eec654", newTab: true },
           { text: "博客录", link: "https://boke.lu/", newTab: true },
           { text: "十年之约", link: "https://www.foreverblog.cn/blog/6371.html", newTab: true },
         ],
