@@ -272,16 +272,6 @@ export const themeConfig = {
         ],
       },
       {
-        text: "虚拟备案",
-        items: [
-          { text: "萌ICP备20231033号", link: "https://icp.gov.moe/?keyword=20231033", newTab: true },
-          { text: "团ICP备20250007号", link: "https://icp.星.fun/id.php?keyword=20250007", newTab: true },
-          { text: "SICP备20243448号", link: "https://icp.sepocatch.xyz/search.php?keyword=blog.storical.space", newTab: true },
-          { text: "霞ICP备20251025号", link: "https://icp.20097747.xyz/id.php?keyword=20251025", newTab: true },
-          { text: "联bBb盟 icp备20256592", link: "https://icp.bbb-lsy07.my/query.php?keyword=20256592", newTab: true },
-        ],
-      },
-      {
         text: "我加入的-1",
         items: [
           { text: "中文博客列表", link: "https://www.zhblogs.net/", newTab: true },
