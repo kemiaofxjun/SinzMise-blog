@@ -272,24 +272,22 @@ export const themeConfig = {
         ],
       },
       {
-        text: "我加入的-1",
+        text: "项目",
         items: [
-          { text: "BlogFinder", link: "https://bf.zzxworld.com/s/995", newTab: true },
-          { text: "博客录", link: "https://boke.lu/", newTab: true },
-          { text: "十年之约", link: "https://www.foreverblog.cn/blog/6371.html", newTab: true },
+          { text: "个人主页", link: "https://www.storical.space/", newTab: true },
+          { text: "汐娜故事书", link: "https://mast.sinzmise.top/", newTab: true },
+          { text: "魔法监测站", link: "https://monitor.sinzmise.top/", newTab: true },
         ],
       },
       {
-        text: "我加入的-2",
+        text: "联系",
         items: [
-          { text: "RssBlog", link: "https://rssblog.cn/member/d711afd659d65c2ba2d3b18697818cf7/", newTab: true },
-          { text: "笔墨迹", link: "https://blogscn.fun/", newTab: true },
-          { text: "BlogsClub", link: "https://www.blogsclub.org/blog/99.html", newTab: true },
-          { text: "揪蝉", link: "https://jiuchan.org", newTab: true },
+          { text: "一号Q群", link: "https://qm.qq.com/q/U2UTeFiwsU", newTab: true },
+          { text: "二号Q群", link: "https://qm.qq.com/q/HxRzzl1VoA", newTab: true },
         ],
       },
       {
-        text: "站点导航",
+        text: "导航",
         items: [
           { text: "博客大全", link: "https://daohang.lusongsong.com/", newTab: true },
           { text: "浪海导航", link: "https://www.langhai.net/", newTab: true },

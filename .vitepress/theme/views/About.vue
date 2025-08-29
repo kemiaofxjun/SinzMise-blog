@@ -182,10 +182,40 @@
         </psw>
       </div>
     </div>
+    <!-- 加入的博客联盟 -->
+    <div class="about-content" style="display: flex">
+      <div class="about-item">
+        <span class="tip">加入的博客联盟</span>
+        <span class="title2">同时也是这里面的成员呢~~</span>
+        <div class="joined-list">
+          <a
+            v-for="(item, index) in Joined"
+            :key="index"
+            :style="{ '--color': item.color }"
+            :href="item.link"
+            class="joined-item"
+            target="_blank"
+          >
+            <span class="joined-name">{{ item.text }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
+// 我加入的
+const Joined = [
+  { text: "集博栈（原中文博客列表导航）", link: "https://www.zhblogs.net/"},
+  { text: "BlogFinder", link: "https://bf.zzxworld.com/s/995"},
+  { text: "博客录", link: "https://boke.lu/"},
+  { text: "十年之约", color: "#3776AB", link: "https://www.foreverblog.cn/blog/6371.html"},
+  { text: "RssBlog", link: "https://rssblog.cn/member/d711afd659d65c2ba2d3b18697818cf7/"},
+  { text: "笔墨迹", link: "https://blogscn.fun/"},
+  { text: "BlogsClub", link: "https://www.blogsclub.org/blog/99.html"},
+  { text: "揪蝉", link: "https://jiuchan.org"},
+];
 // 技能数据
 const skillsData = [
   {
@@ -262,6 +292,45 @@ const skillsData = [
       border: 1px solid var(--main-card-border);
       box-shadow: 0 8px 12px -4px var(--main-border-shadow);
       overflow: hidden;
+      .joined-list {
+        margin-top: 12px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .joined-item {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+          margin-top: 10px;
+          padding: 8px 12px 8px 8px;
+          border-radius: 40px;
+          background-color: var(--main-site-background);
+          border: 1px solid var(--main-card-border);
+          box-shadow: 0 8px 12px -4px var(--main-border-shadow);
+          transition: background-color 0.3s;
+          cursor: pointer;
+          .joined-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+            border-radius: 50%;
+            background-color: var(--color);
+            .iconfont {
+              color: #fff;
+            }
+          }
+          .joined-name {
+            font-weight: bold;
+            transition: color 0.3s;
+          }
+          &:hover {
+            background-color: var(--main-card-background);
+          }
+        }
+      }
       .tip {
         font-size: 14px;
         opacity: 0.8;

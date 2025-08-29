@@ -102,6 +102,14 @@ onMounted(() => {
     }
     .data-image{
       text-align: center;
+      a{
+        &::before{
+          display: none;
+        }
+        img{
+          border-radius: 0px;
+        }
+      }
     }
   }
 }

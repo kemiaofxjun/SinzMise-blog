@@ -280,13 +280,6 @@ const linkData = [
         topimg:"https://image.thum.io/get/width/400/crop/800/allowJPG/wait/20/noanimate/https://xyzbz.cn/"
       },
       {
-        name:"南蛮子懋和",
-        url:"https://www.dao.js.cn/",
-        avatar:"https://www.dao.js.cn/zb_users/upload/2021/10/202110151634246697912592.png",
-        desc:"李懋和，俗名李栋梁。书法、国画爱好者，互联网安全与前端建设者。",
-        topimg:"https://image.thum.io/get/width/400/crop/800/allowJPG/wait/20/noanimate/https://www.dao.js.cn/"
-      },
-      {
         name:"青桔气球",
         url:"https://blog.qjqq.cn/",
         avatar:"https://q2.qlogo.cn/headimg_dl?dst_uin=1645253&spec=640",
