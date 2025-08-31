@@ -209,6 +209,7 @@
 const Joined = [
   { text: "集博栈（原中文博客列表导航）", link: "https://www.zhblogs.net/"},
   { text: "BlogFinder", link: "https://bf.zzxworld.com/s/995"},
+  { text: "博友圈", link: "https://www.boyouquan.com"},
   { text: "博客录", link: "https://boke.lu/"},
   { text: "十年之约", color: "#3776AB", link: "https://www.foreverblog.cn/blog/6371.html"},
   { text: "RssBlog", link: "https://rssblog.cn/member/d711afd659d65c2ba2d3b18697818cf7/"},
