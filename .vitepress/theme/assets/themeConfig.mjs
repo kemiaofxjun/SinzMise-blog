@@ -3,25 +3,25 @@ export const themeConfig = {
   // 站点信息
   siteMeta: {
     // 站点标题
-    title: "汐塔魔法屋",
+    title: "喵洛阁",
     // 站点副标题（RSS限定）
-    subtitle: "种下一颗有故事的种子，让它带着魔法和奇迹生根发芽",
+    subtitle: "克喵的博客",
     // 站点描述
-    description: "听，是潮汐的声音",
+    description: "记录克喵的生活日记、资源分享和踩坑教程",
     // 站点logo
-    logo: "/images/icon.png",
+    logo: "https://img.314926.xyz/images/2025/08/13/no-background-kemiaofxjun.webp",
     // 站点地址
-    site: "https://blog.storical.space",
+    site: "https://blog-v3.kemiaosw.top",
     // 语言
     lang: "zh-CN",
     // 作者
     author: {
-      name: "王九弦SZ·Ninty",
-      cover: "https://images1.blog.sinzmise.top/profile/avatar.webp",
-      email: "email@sinzmise.top",
-      link: "https://www.storical.space",
+      name: "克喵爱吃卤面",
+      cover: "https://img.314926.xyz/images/2025/08/09/kemiaofxjun.webp",
+      email: "me@mail.kemeow.top",
+      link: "https://home.kemeow.top",
     },
-    copy: "SinZero Limited",
+    copy: "KeMiao Limited",
   },
   // 备案信息
   // icp: "萌ICP备114514号",
