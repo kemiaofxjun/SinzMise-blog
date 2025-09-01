@@ -78,24 +78,20 @@ const searchChange = ({ uiState, setUiState }) => {
 };
 
 // 处理搜索结果
+// 处理搜索结果
 const formatSearchData = (data) => {
   const results = [];
-  // 遍历搜索结果
   for (let i = 0; i < data.length; i++) {
     const search = data[i];
-    // 若无 anchor
-    // if (search.anchor === "" || search.anchor === "app") continue;
-    // 获取数据
-    const url = search?.url;
-    const type = search.type === "lvl1" ? "post" : "content";
-    const title = search._highlightResult?.hierarchy?.lvl1?.value;
-    const anchor = search._highlightResult?.hierarchy?.[search.type]?.value;
-    const content = search._highlightResult?.content?.value;
-    // 生成搜索数据
-    const searchData = { url, type, title, anchor, content };
-    results.push(searchData);
+
+    // 直接读顶层字段
+    const url   = search.url;
+    const title = search.title || "无标题";
+    const content = search.content ? search.content.substring(0, 120) + "…" : "";
+    const anchor = ""; // 如果没有锚点，保留空即可
+
+    results.push({ url, title, anchor, content });
   }
-  console.log(results);
   return results;
 };
 
