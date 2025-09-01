@@ -31,7 +31,7 @@ export const themeConfig = {
     text: '',
   },
   // 建站日期
-  since: "2020-07-28",
+  since: "2025-09-01",
   // 每页文章数据
   postSize: 8,
   // inject
@@ -40,7 +40,7 @@ export const themeConfig = {
     // https://vitepress.dev/zh/reference/site-config#head
     header: [
       // favicon
-      ["link", { rel: "icon", href: "/favicon.ico" }],
+      ["link", { rel: "icon", href: "https://img.314926.xyz/images/2025/08/13/no-background-kemiaofxjun.webp" }],
       // IndieWeb
       ["link", { rel: "authorization_endpoint", href: "https://indieauth.com/auth" }],
       ["link", { rel: "token_endpoint", href: "https://tokens.indieauth.com/token" }],
@@ -136,7 +136,7 @@ export const themeConfig = {
         },
       ],
       // Algolia相关
-      ["meta", { name: "algolia-site-verification", content: "3BC3AFED4AD9E73D" }],
+      ["meta", { name: "algolia-site-verification", content: "E54E623345307191" }],
       // Font Awesome
       [
         "script",
