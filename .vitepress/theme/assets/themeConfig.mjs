@@ -136,7 +136,7 @@ export const themeConfig = {
         },
       ],
       // Algolia相关
-      ["meta", { name: "algolia-site-verification", content: "4346BBD3C012580A" }],
+      ["meta", { name: "algolia-site-verification", content: "21268A4938445E1D" }],
       // Font Awesome
       [
         "script",
@@ -420,8 +420,8 @@ export const themeConfig = {
     enable: true,
     type: 'algolia',
     algolia:{
-      appId: "CNRPTJAH7X",
-      apiKey: "f377bb0093d504b388238721e6537b17",
+      appId: "9SEUZMI90C",
+      apiKey: "e9a109b12467e90882017055d5c5fd67",
       index: "blog_v3_kemiaosw_top_cnrptjah7x_pages"
     }
   },
