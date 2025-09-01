@@ -404,7 +404,7 @@ export const themeConfig = {
   // 音乐播放器
   // https://github.com/imsyy/Meting-API
   music: {
-    enable: true,
+    enable: false,
     // url
     url: "https://meting.api.sinzmise.top/api",
     // id
@@ -483,7 +483,7 @@ export const themeConfig = {
   iconfont: '//at.alicdn.com/t/c/font_4199232_f0feiwgh0uw.js',
   // AI摘要
   postsummary: {
-    enable: true,
+    enable: false,
     use: 'cloudflare', // fakegpt/cloudflare
     cloudflare: {
       api: 'https://summary.blog.sinzmise.top',
