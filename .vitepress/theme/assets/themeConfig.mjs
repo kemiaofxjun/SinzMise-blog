@@ -196,11 +196,11 @@ export const themeConfig = {
           name: "故事空间",
           url: "https://www.storical.space/",
         },
-        {
-          icon: "https://diary.sinzmise.top/upload/3cf8380460044642b9e11050c7a163c6",
-          name: "中弦记事本",
-          url: "https://diary.sinzmise.top/",
-        },
+        // {
+        //   icon: "https://diary.sinzmise.top/upload/3cf8380460044642b9e11050c7a163c6",
+        //   name: "中弦记事本",
+        //   url: "https://diary.sinzmise.top/",
+        // },
       ],
     },
   ],
