@@ -421,7 +421,7 @@ export const themeConfig = {
     type: 'algolia',
     algolia:{
       appId: "CNRPTJAH7X",
-      apiKey: "f377bb0093d504b388238721e6537b17",
+      apiKey: "9345638525b4827d961de611e6b3e196",
       index: "blog_v3_kemiaosw_top_cnrptjah7x_articles"
     }
   },
