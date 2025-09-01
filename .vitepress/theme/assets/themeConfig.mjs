@@ -420,9 +420,9 @@ export const themeConfig = {
     enable: true,
     type: 'algolia',
     algolia:{
-      appId: "72TOQYD33Q",
-      apiKey: "608d2f3acd06140a2473153f6cb61eda",
-      index: "crawler_cetahouse"
+      appId: "CNRPTJAH7X",
+      apiKey: "f377bb0093d504b388238721e6537b17",
+      index: "blog_v3_kemiaosw_top_cnrptjah7x_pages"
     }
   },
   // 打赏
