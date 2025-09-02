@@ -304,3 +304,11 @@ a {
     color: inherit;
   }
 }
+
+#artitalk_main .artitalk-avatar,
+#artitalk_main .atk-avatar {
+  width: 48px !important;   /* 固定宽度，可按需改 */
+  height: 48px !important;  /* 固定高度，与宽度一致即可 */
+  object-fit: cover;        /* 保持比例裁切，不会拉伸 */
+  border-radius: 50%;       /* 想要圆形就 50%，想要方形就 0 */
+}

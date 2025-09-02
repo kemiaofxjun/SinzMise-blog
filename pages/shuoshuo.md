@@ -4,4 +4,6 @@ aside: true
 card: true
 ---
 
-<Artitalk />
+# 我的说说
+
+<ArtitalkShuo />

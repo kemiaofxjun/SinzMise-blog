@@ -4,6 +4,7 @@ import { routeChange } from "@/utils/initTools.mjs";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import LazyLoader from "@/components/LazyLoader.vue";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+import ArtitalkShuo from '@/components/ArtitalkShuo.vue'
 
 // 根组件
 import App from "@/App.vue";
@@ -22,6 +23,9 @@ const Theme = {
   // extends: Theme,
   Layout: () => {
     return h(App);
+  },
+    enhanceApp({ app }) {
+    app.component('ArtitalkShuo', ArtitalkShuo)
   },
   enhanceApp({ app, router, siteData }) {
     // 挂载
