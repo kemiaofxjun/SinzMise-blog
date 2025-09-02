@@ -14,10 +14,10 @@
         <span class="desc">{{ theme.siteMeta.description }}</span>
       </div>
       <div class="link">
-        <a href="https://github.com/SinzMise" target="_blank" class="social-link">
+        <a href="https://github.com/kemiaofxjun" target="_blank" class="social-link">
           <i class="iconfont icon-github"></i>
         </a>
-        <a href="mailto:email@sinzmise.top" target="_blank" class="social-link">
+        <a href="mailto:me@mail.kemeow.top" target="_blank" class="social-link">
           <i class="iconfont icon-email"></i>
         </a>
       </div>

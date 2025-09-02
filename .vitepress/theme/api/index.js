@@ -1,9 +1,9 @@
 /**
- * 获取一言
+ * 获取
  * @param {string} [rule="updated"] - 文章的排序规则，可以是 "created" 或 "updated"
  */
 export const getHitokoto = async () => {
-  const result = await fetch("https://v1.hitokoto.cn");
+  const result = await fetch("https://yiyan.050815.xyz");
   const hitokoto = await result.json();
   return hitokoto;
 };

@@ -27,8 +27,8 @@ export const themeConfig = {
   // icp: "萌ICP备114514号",
   gongan: {
     enable: false,
-    link: '',
-    text: '',
+    link: 'https://icp.gov.moe/?keyword=20250530',
+    text: '萌ICP备20250530号',
   },
   // 建站日期
   since: "2025-09-01",
@@ -42,8 +42,8 @@ export const themeConfig = {
       // favicon
       ["link", { rel: "icon", href: "https://img.314926.xyz/images/2025/08/13/no-background-kemiaofxjun.webp" }],
       // IndieWeb
-      ["link", { rel: "authorization_endpoint", href: "https://indieauth.com/auth" }],
-      ["link", { rel: "token_endpoint", href: "https://tokens.indieauth.com/token" }],
+      // ["link", { rel: "authorization_endpoint", href: "https://indieauth.com/auth" }],
+      // ["link", { rel: "token_endpoint", href: "https://tokens.indieauth.com/token" }],
       // WebMention
       ["link", { rel: "webmention", href: "https://webmention.io/blog.storical.space/webmention" }],
       ["link", { rel: "pingback", href: "https://webmention.io/blog.storical.space/xmlrpc" }],
@@ -245,11 +245,11 @@ export const themeConfig = {
     social: [
       {
         icon: "email",
-        link: "mailto:email@sinzmise.top",
+        link: "mailto:me@mail.kemeow.top",
       },
       {
         icon: "github",
-        link: "https://github.com/SinzMise/",
+        link: "https://github.com/kemiaofxjun/",
       },
       {
         icon: "bilibili",
@@ -347,7 +347,7 @@ export const themeConfig = {
       text: `<span class="h-card">
       <img class="u-photo" style='display:none' src="https://images1.blog.sinzmise.top/profile/avatar.webp"/>
       昵称：<a class="p-name u-url" href="https://www.storical.space">王九弦SZ·Ninty</a><br>
-      邮箱：<a class="u-email" href="mailto:email@sinzmise.top">email@sinzmise.top</a><br>
+      邮箱：<a class="u-email" href="mailto:me@mail.kemeow.top">me@mail.kemeow.top</a><br>
       <div class="p-note">听，是潮汐的声音在呼唤着我们</div>
       </span>`,
     },

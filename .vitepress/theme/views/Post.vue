@@ -85,7 +85,7 @@
             </a>
           </div>
           <a
-            href="mailto:email@sinzmise.top"
+            href="mailto:me@mail.kemeow.top"
             class="report email"
             target="_blank"
           >
