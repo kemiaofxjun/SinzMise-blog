@@ -45,18 +45,18 @@ export const themeConfig = {
       // ["link", { rel: "authorization_endpoint", href: "https://indieauth.com/auth" }],
       // ["link", { rel: "token_endpoint", href: "https://tokens.indieauth.com/token" }],
       // WebMention
-      ["link", { rel: "webmention", href: "https://webmention.io/blog.storical.space/webmention" }],
-      ["link", { rel: "pingback", href: "https://webmention.io/blog.storical.space/xmlrpc" }],
+      ["link", { rel: "webmention", href: "https://webmention.io/blog-v3.kemiaosw.top/webmention" }],
+      ["link", { rel: "pingback", href: "https://webmention.io/blog-v3.kemiaosw.top/xmlrpc" }],
       ['script', { 
         type: 'application/ld+json',
         innerHTML: JSON.stringify({ 
           "@context": "https://schema.org", 
           "@type": "WebSite",
-          "url": "https://blog.storical.space",
+          "url": "https://blog-v3.kemiaosw.top",
           "potentialAction": {
             "@type": "InteractAction",
             "name": "发送WebMention",
-            "target": "https://webmention.io/blog.storical.space/webmention"
+            "target": "https://webmention.io/blog-v3.kemiaosw.top/webmention"
           }
         })
       }],
@@ -70,7 +70,7 @@ export const themeConfig = {
           rel: "alternate",
           type: "application/rss+xml",
           title: "RSS",
-          href: "https://blog.storical.space/rss.xml",
+          href: "https://blog-v3.kemiaosw.top/rss.xml",
         },
       ],
       // 预载 CDN
@@ -187,27 +187,27 @@ export const themeConfig = {
       name: "项目",
       list: [
         {
-          icon: "/images/icon.png",
-          name: "魔法屋",
+          icon: "https://img.314926.xyz/images/2025/08/13/no-background-kemiaofxjun.webp",
+          name: "首页",
           url: "/",
         },
         {
-          icon: "https://www.storical.space/favicon.ico",
-          name: "故事空间",
-          url: "https://www.storical.space/",
+          icon: "https://www.zhilu.site/api/avatar.png",
+          name: "克喵的主页",
+          url: "https://home.kemeow.top/",
         },
-        // {
-        //   icon: "https://diary.sinzmise.top/upload/3cf8380460044642b9e11050c7a163c6",
-        //   name: "中弦记事本",
-        //   url: "https://diary.sinzmise.top/",
-        // },
+        {
+          icon: "https://img.314926.xyz/images/2025/08/16/telegram.webp",
+          name: "电报频道",
+          url: "https://t.me/kemiaofx_me",
+        },
       ],
     },
   ],
   // 封面配置
   cover: {
     // 是否开启双栏布局
-    twoColumns: false,
+    twoColumns: true,
     // 是否开启封面显示
     showCover: {
       // 是否开启封面显示 文章不设置cover封面会显示异常，可以设置下方默认封面
@@ -216,26 +216,26 @@ export const themeConfig = {
       coverLayout: 'both',
       // 默认封面(随机展示)
       defaultCover: [
-        'https://images1.blog.sinzmise.top/ba/pc/01.73tpzcksoy.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/02.pf43r2w6h.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/03.5tqst12tfi.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/04.8ojgyti07r.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/05.esaalno2u.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/06.86tfa8gmnm.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/07.4qr3i56zll.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/08.9rj69pdu4s.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/09.2veipiuk0n.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/10.54xj90fai0.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/11.4g49ozrrhv.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/12.7p3dlnf8wi.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/13.3uum2oxazj.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/14.7i05q7t3hn.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/15.pf43r2w3d.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/16.2doh0xt6a1.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/17.5q76vb9qmr.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/18.839tcinjtm.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/19.7p2f61ijp.webp',
-        'https://images1.blog.sinzmise.top/ba/pc/20.ibw8bgqp8.webp',
+        'https://img.314926.xyz/images/2025/07/30/cover5.webp',
+        'https://img.314926.xyz/images/2025/07/30/jihuangcover.webp',
+        'https://img.314926.xyz/images/2025/07/30/cover8.webp',
+        'https://img.314926.xyz/images/2025/08/08/cover16.webp',
+        'https://img.314926.xyz/images/2025/08/15/cover18.webp',
+        'https://img.314926.xyz/images/2025/08/15/cover19.webp',
+        'https://img.314926.xyz/images/2025/08/15/cover20.webp',
+        'https://img.314926.xyz/images/2025/08/15/cover21.webp',
+        'https://img.314926.xyz/images/2025/08/15/cover22.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/10.54xj90fai0.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/11.4g49ozrrhv.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/12.7p3dlnf8wi.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/13.3uum2oxazj.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/14.7i05q7t3hn.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/15.pf43r2w3d.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/16.2doh0xt6a1.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/17.5q76vb9qmr.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/18.839tcinjtm.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/19.7p2f61ijp.webp',
+        // 'https://images1.blog.sinzmise.top/ba/pc/20.ibw8bgqp8.webp',
       ]
     }
   },
@@ -253,11 +253,11 @@ export const themeConfig = {
       },
       {
         icon: "bilibili",
-        link: "https://space.bilibili.com/479627766",
+        link: "https://space.bilibili.com/3546643173477234",
       },
       {
         icon: "qq",
-        link: "https://res.abeim.cn/api/qq/?qq=669506721",
+        link: "https://res.abeim.cn/api/qq/?qq=3149261770",
       },
     ],
     // sitemap
@@ -274,23 +274,23 @@ export const themeConfig = {
       {
         text: "项目",
         items: [
-          { text: "个人主页", link: "https://www.storical.space/", newTab: true },
-          { text: "汐娜故事书", link: "https://mast.sinzmise.top/", newTab: true },
-          { text: "魔法监测站", link: "https://monitor.sinzmise.top/", newTab: true },
+          { text: "个人主页", link: "https://home.kemeow.top/", newTab: true },
+          { text: "hexo-solitude", link: "https://myboke.kemiaosw.top/", newTab: true },
+          { text: "网址检测", link: "https://status.kemeow.top/", newTab: true },
         ],
       },
       {
         text: "联系",
         items: [
-          { text: "一号Q群", link: "https://qm.qq.com/q/U2UTeFiwsU", newTab: true },
-          { text: "二号Q群", link: "https://qm.qq.com/q/HxRzzl1VoA", newTab: true },
+          { text: "TG频道", link: "https://t.me/kemiaofx_me", newTab: true },
+          { text: "TG群组", link: "https://t.me/kemiao_me", newTab: true },
         ],
       },
       {
         text: "导航",
         items: [
-          { text: "博客大全", link: "https://daohang.lusongsong.com/", newTab: true },
-          { text: "浪海导航", link: "https://www.langhai.net/", newTab: true },
+          { text: "导航", link: "https://nav.kemeow.top/", newTab: true },
+          // { text: "浪海导航", link: "https://www.langhai.net/", newTab: true },
         ],
       },
     ],
@@ -323,16 +323,16 @@ export const themeConfig = {
       // 必填
       css: 'https://jsd.cdn.sinzmise.top/npm/@waline/client/dist/waline.css',
       js: "https://jsd.cdn.sinzmise.top/npm/@waline/client/dist/waline.umd.js",
-      serverURL: "https://wle.pl.sinzmise.top/",
+      serverURL: "https://waline.kemeow.top/",
       lang: "zh-CN",
-      placeholder: '就很无语，我搞的Artalk寄了，没办法，只好换评论系统了\n但之前2025.01之后的数据全丢失了啊（悲）',
+      placeholder: '克喵的waline评论',
       login: 'enable',
-      recaptchaV3Key: '6LdKGYsrAAAAAJWRy33v5gBwQ6rCHoMZE-r9NHb6',
+      recaptchaV3Key: '',
       emoji: [
-        '//jsd.cdn.sinzmise.top/npm/@waline/emojis@1.2.0/bmoji',
+        'https://jsd.cdn.sinzmise.top/npm/@waline/emojis@1.2.0/bmoji',
         '//jsd.cdn.sinzmise.top/npm/@waline/emojis@1.2.0/bilibili',
-        '//jsd.cdn.sinzmise.top/gh/GamerNoTitle/ValineCDN@master/Menhera-chan',
-        '//files.blog.sinzmise.top/emotes/ba',
+        'https://jsd.cdn.sinzmise.top/gh/GamerNoTitle/ValineCDN@master/Menhera-chan',
+        'https://files.blog.sinzmise.top/emotes/ba',
         '//files.blog.sinzmise.top/emotes/azurlane',
         '//files.blog.sinzmise.top/emotes/a-li/png',
         '//files.blog.sinzmise.top/emotes/a-li/gif'
@@ -345,10 +345,12 @@ export const themeConfig = {
     hello: {
       enable: true,
       text: `<span class="h-card">
-      <img class="u-photo" style='display:none' src="https://images1.blog.sinzmise.top/profile/avatar.webp"/>
-      昵称：<a class="p-name u-url" href="https://www.storical.space">王九弦SZ·Ninty</a><br>
+      <img class="u-photo" style='display:none' src="https://img.314926.xyz/images/2025/08/09/kemiaofxjun.webp"/>
+      昵称：<a class="p-name u-url" href="https://home.kemeow.top">克喵爱吃卤面•KeMiao</a><br>
       邮箱：<a class="u-email" href="mailto:me@mail.kemeow.top">me@mail.kemeow.top</a><br>
-      <div class="p-note">听，是潮汐的声音在呼唤着我们</div>
+      <div class="p-note">欢迎来到克喵的博客！</div><br>
+      如果您遇到网站的任何问题，优先<kbd>CTRL</kbd>+<kbd>F5</kbd>刷新一下。<br>
+      还有什么问题建议直接邮箱联系我。
       </span>`,
     },
     // 目录
@@ -361,54 +363,54 @@ export const themeConfig = {
     },
     // 倒计时
     countDown: {
-      enable: false,
+      enable: true,
       // 倒计时日期
       data: {
         name: "春节",
-        date: "2025-01-29",
+        date: "2026-02-17",
       },
     },
     // 站点数据
     siteData: {
       enable: true,
       links: [
-        { 
-          title: "无聊湾 🥱 The Boring Bay",
-          href: "https://boringbay.com",
-          image: "https://boringbay.com/api/badge/blog.storical.space"
-        },
-        { 
-          title: "BlogsClub 博阅榜",
-          href: "https://www.blogsclub.org/rank.html",
-          image: "https://www.blogsclub.org/badge/blog.storical.space"
-        },
-        { 
-          title: "Web Site Hit Counter",
-          href: "https://www.easycounter.com/",
-          image: "https://www.easycounter.com/counter.php?szninty"
-        },
+        // { 
+        //   title: "无聊湾 🥱 The Boring Bay",
+        //   href: "https://boringbay.com",
+        //   image: "https://boringbay.com/api/badge/blog-v3.kemiaosw.top"
+        // },
+        // { 
+        //   title: "BlogsClub 博阅榜",
+        //   href: "https://www.blogsclub.org/rank.html",
+        //   image: "https://www.blogsclub.org/badge/blog.storical.space"
+        // },
+        // { 
+        //   title: "Web Site Hit Counter",
+        //   href: "https://www.easycounter.com/",
+        //   image: "https://www.easycounter.com/counter.php?szninty"
+        // },
         { 
           title: "本站已经支持HTTP/3",
-          href: "https://http3.wcode.net/?q=blog.storical.space",
-          image: "https://http3.wcode.net/badges/http3.svg?host=blog.storical.space"
+          href: "https://http3.wcode.net/?q=blog-v3.kemiaosw.top",
+          image: "https://http3.wcode.net/badges/http3.svg?host=blog-v3.kemiaosw.top"
         },
       ]
     },
   },
   // 友链朋友圈
   fc: {
-    api: 'https://fc.blog.sinzmise.top/',
+    api: 'https://fc.kemeow.top/',
     number: 20,
     errorImg: 'https://fastly.jsdelivr.net/gh/willow-god/Friend-Circle-Lite@latest/static/favicon.ico'
   },
   // 音乐播放器
   // https://github.com/imsyy/Meting-API
   music: {
-    enable: false,
+    enable: true,
     // url
-    url: "https://meting.api.sinzmise.top/api",
+    url: "https://meting.051531.xyz/api",
     // id
-    id: 8253386665,
+    id: 13681647281,
     // netease / tencent / kugou
     server: "netease",
     // playlist / album / song
