@@ -5,15 +5,15 @@
       <!-- 介绍 -->
       <div class="about-item hello">
         <span class="text1">你好，很高兴认识你👋</span>
-        <span class="text2 title2">我是 王九弦SZ·Ninty</span>
+        <span class="text2 title2">我是 克喵爱吃卤面·KeMiao</span>
         <span class="text3">只是一名 博主</span>
       </div>
       <!-- 追求 -->
       <div class="about-item pursuit">
-        <span class="tip">追求</span>
-        <span class="title2">源于</span>
-        <span class="title2">热爱而去写下</span>
-        <span class="title2">个人的故事</span>
+        <span class="tip">记录生活</span>
+        <span class="title2">分享资源</span>
+        <span class="title2">踩坑教程</span>
+        <span class="title2">希望我的博文能帮助到你！</span>
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 2fr 3fr">
@@ -44,7 +44,7 @@
           <i>进步了吗？</i>
         </span>
         <div class="list">
-          <span class="list-item" style="--color: #357ef5">在摆烂和努力中反复横跳</span>
+          <span class="list-item" style="--color: #357ef5">一个没有实力的普通人在笨拙地学习~</span>
         </div>
       </div>
     </div>
@@ -52,18 +52,18 @@
       <!-- 性格 -->
       <div class="about-item character" style="--color: #4298b4">
         <span class="tip">性格</span>
-        <span class="title2">建筑师</span>
-        <span class="title2" style="color: var(--color)">INTJ-A / INTJ-T</span>
+        <span class="title2">提倡者</span>
+        <span class="title2" style="color: var(--color)">INFJ</span>
         <span class="more">
           在
           <a href="https://www.16personalities.com/ch/" target="_blank">16personalities</a>
           了解更多关于
-          <a href="https://www.16personalities.com/intj-personality?utm_source=welcome-turbulent-campaigner&utm_medium=email&utm_campaign=results&utm_content=type-personality-0" target="_blank">
-            建筑师
+          <a href="https://www.16personalities.com/infj-personality?utm_source=welcome-turbulent-campaigner&utm_medium=email&utm_campaign=results&utm_content=type-personality-0" target="_blank">
+            提倡者
           </a>
         </span>
         <img
-          src="https://www.16personalities.com/static/images/personality-types/avatars/email/large/INTJ_male.png?v=1"
+          src="https://www.16personalities.com/static/images/personality-types/avatars/email/large/INFJ_male.png?v=1"
           alt="male"
           class="male"
         />
@@ -71,8 +71,8 @@
       <!-- 座右铭 -->
       <div class="about-item">
         <span class="tip">座右铭</span>
-        <span class="title1" style="margin-top: 20px">脚踏实地，</span>
-        <span class="title2">一丝不苟。</span>
+        <span class="title1" style="margin-top: 20px">愿你看清一切真相后，</span>
+        <span class="title2">依旧热爱你的家人和朋友。</span>
       </div>
     </div>
     <div class="about-content" style="grid-template-columns: 1fr 1fr">

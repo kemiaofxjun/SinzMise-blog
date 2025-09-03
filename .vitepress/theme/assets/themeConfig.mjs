@@ -121,7 +121,7 @@ export const themeConfig = {
         {
           crossorigin: "anonymous",
           rel: "stylesheet",
-          href: "//at.alicdn.com/t/c/font_4199232_5a15rygopns.css",
+          href: "//at.alicdn.com/t/c/font_5012804_xl6gxco9da.css",
         },
       ],
       // Embed code
@@ -151,40 +151,43 @@ export const themeConfig = {
     {
       text: "文章",
       items: [
-        { text: "归档", link: "/pages/archives", symbol: "icon-pjh-wenzhang" },
-        { text: "分类", link: "/pages/categories", symbol: "icon-pjh-fenlei" },
-        { text: "标签", link: "/pages/tags", symbol: "icon-pjh-qunfariji" },
+        { text: "归档", link: "/pages/archives", symbol: "icon-archives" },
+        { text: "分类", link: "/pages/categories", symbol: "icon-fenlei" },
+        { text: "标签", link: "/pages/tags", symbol: "icon-tag" },
       ],
     },
     {
       text: "友链",
       items: [
-        { text: "友人帐", link: "/pages/link", symbol: "icon-pjh-lianjie" },
-        { text: "朋友圈", link: "/pages/circle", symbol: "icon-pjh-icon_pengyouquan" },
-        { text: "留言板", link: "/pages/comments", symbol: "icon-pjh-liuyanban" },
+        { text: "友人帐", link: "/pages/link", symbol: "icon-LINKS" },
+        { text: "朋友圈", link: "/pages/circle", symbol: "icon-wechat-friend" },
+        { text: "留言板", link: "/pages/comments", symbol: "icon-liuyanban" },
       ],
     },
     {
       text: "我的",
       items: [
-        { text: "关于本站", link: "/pages/about", symbol: "icon-pjh-guanyuwomen" },
+        { text: "微语", link: "/pages/shuoshuo", symbol: "icon-taolun" },
+        // { text: "音乐馆", link: "https://music.kemiao.online/", target: '_blank', symbol: "icon-Music", newtab: true },
+        // { text: "相册", link: "https://plog.kemeow.top/", symbol: "icon-xiangce" },
+        { text: "关于本站", link: "/pages/about", symbol: "icon-about" },
       ],
     },
-    {
-      text: "穿梭",
-      newtab: true,
-      items: [
-        { text: "十年之约", link: "https://www.foreverblog.cn/go.html", symbol: "icon-pjh-chongdonglogo" },
-        { text: "个站商店", link: "https://storeweb.cn/s/1707", symbol: "icon-pjh-shangdian" },
-        { text: "博客录", link: "https://boke.lu/sj", symbol: "icon-pjh-blog" },
-        { text: "空间穿梭", link: "https://www.blogsclub.org/go", symbol: "icon-pjh-chuansuokuang" },
-      ],
-    },
+    // {
+    //   text: "穿梭",
+    //   newtab: true,
+    //   items: [
+    //     { text: "十年之约", link: "https://www.foreverblog.cn/go.html", symbol: "icon-pjh-chongdonglogo" },
+    //     { text: "个站商店", link: "https://storeweb.cn/s/1707", symbol: "icon-pjh-shangdian" },
+    //     { text: "博客录", link: "https://boke.lu/sj", symbol: "icon-pjh-blog" },
+    //     { text: "空间穿梭", link: "https://www.blogsclub.org/go", symbol: "icon-pjh-chuansuokuang" },
+    //   ],
+    // },
   ],
   // 导航栏菜单 - 左侧
   navMore: [
     {
-      name: "项目",
+      name: "网站",
       list: [
         {
           icon: "https://img.314926.xyz/images/2025/08/13/no-background-kemiaofxjun.webp",
@@ -200,6 +203,16 @@ export const themeConfig = {
           icon: "https://img.314926.xyz/images/2025/08/16/telegram.webp",
           name: "电报频道",
           url: "https://t.me/kemiaofx_me",
+        },
+        {
+          icon: "https://imgtg.kemeow.top/file/AgACAgUAAyEGAAScqokCAANTaLhKy6KaXlbuAo_rglIAAZtyJvS1AAJkyTEbvR_AVQtiwDuxSlBEAQADAgADeAADNgQ.webp",
+          name: "相册",
+          url: "https://plog.kemeow.top/",          
+        },
+        {
+          icon: "https://imgtg.kemeow.top/file/AgACAgUAAyEGAAScqokCAANVaLhLUDXZR606eUWuat0MRWdG8TsAAmvJMRu9H8BVA0Q3X6Yzb7kBAAMCAAN4AAM2BA.webp",
+          name: "音乐馆",
+          url: "https://music.kemiao.online/",          
         },
       ],
     },
@@ -429,11 +442,11 @@ export const themeConfig = {
   },
   // 打赏
   rewardData: {
-    enable: false,
+    enable: true,
     // 微信二维码
-    wechat: "https://pic.efefee.cn/uploads/2024/04/07/66121049d1e80.webp",
+    wechat: "https://img.314926.xyz/images/2025/07/12/wechat.webp",
     // 支付宝二维码
-    alipay: "https://pic.efefee.cn/uploads/2024/04/07/661206631d3b5.webp",
+    alipay: "https://img.314926.xyz/images/2025/07/12/alipay.webp",
   },
   // 图片灯箱
   fancybox: {
@@ -482,7 +495,7 @@ export const themeConfig = {
   // IndieWeb Webring
   indiewebring: true,
   // Iconfont JS
-  iconfont: '//at.alicdn.com/t/c/font_4199232_f0feiwgh0uw.js',
+  iconfont: '//at.alicdn.com/t/c/font_5012804_xl6gxco9da.js',
   // AI摘要
   postsummary: {
     enable: false,
