@@ -35,7 +35,7 @@ card: true
 您应该定期查看本页面，使用浏览器的「刷新」按钮，然后检查本政策的任何修改。如果「最后更新」日期保持不变，可以假设没有更改。
 :::
 
-新修改的政策将立刻替代此前发布的所有版本，但 CDN 提供商、网站托管商、浏览器、运营商和其他组织或个人可能出于节省带宽或其他因素缓存本页面，在这种情况下导致您看到的页面内容可能和实际不符，应当以 GitHub 提交记录为准。您始终可以通过[此链接](https://github.com/SinzMise/blog/blob/master/pages/policies/privacy.md)查看本页面的原始 Markdown 文件。
+新修改的政策将立刻替代此前发布的所有版本，但 CDN 提供商、网站托管商、浏览器、运营商和其他组织或个人可能出于节省带宽或其他因素缓存本页面，在这种情况下导致您看到的页面内容可能和实际不符，应当以 GitHub 提交记录为准。您始终可以通过[此链接](https://github.com/kemiaofxjun/SinzMise-blog/blob/master/pages/policies/privacy.md)查看本页面的原始 Markdown 文件。
 
 ### 我们主动收集的信息和理由
 
