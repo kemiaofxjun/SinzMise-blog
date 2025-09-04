@@ -2,7 +2,7 @@
   <footer id="main-footer" class="main-footer">
     <div class="footer-content">
       <div class="copyright">
-        <span class="time">@ 2021 - {{ thisYear }} </span>
+        <span class="time">@ 2025 - {{ thisYear }} </span>
         <a :href="theme.siteMeta.author.link" class="author link" target="_blank">
           {{ theme.siteMeta.copy || theme.siteMeta.author.name }}
         </a>

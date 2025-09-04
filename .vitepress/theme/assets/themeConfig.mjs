@@ -261,6 +261,14 @@ export const themeConfig = {
         link: "mailto:me@mail.kemeow.top",
       },
       {
+        icon: "telegram",
+        link: "https://t.me/KemiaoJun",
+      },
+      {
+        icon: "twitter-x",
+        link: "https://x.com/kemiaofxjun",
+      },
+      {
         icon: "github",
         link: "https://github.com/kemiaofxjun/",
       },

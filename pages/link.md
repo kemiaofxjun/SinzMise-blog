@@ -12,35 +12,37 @@ import Link from "@/views/Link.vue";
 
 # 友情链接申请
 
-呼，友链页面终于修好了，现在就是：很高兴能和各位优秀的朋友们交流，本站友链目前采用**手动添加**，如果你想加入友链，可以在下方留言，我会在不忙的时候统一添加。
+很高兴能和各位优秀的朋友们交流，本站友链目前采用**手动添加**，如果你想加入友链，可以在下方留言，我会在不忙的时候统一添加。
+
+### 友链相关须知
+
+- 为了友链相关页面和组件的统一性和美观性，可能会对你的部分信息进行缩短处理，例如昵称包含 `博客`、`XX的XX` 等内容或形式**将被简化**。
+- 为了图片加载速度和内容安全性考虑，头像或其他信息中的图片均使用本站图床，**所以无法收到贵站自己的头像更新**，如果有迫切的更改信息需求，**请在本页的评论中评论说明**。
 
 ### 我的友链信息
 
-- 名称：`汐塔魔法屋`
-- 描述：`种下一颗有故事的种子，让它带着魔法和奇迹生根发芽`
-- 地址：`https://blog.storical.space/`
-- 头像：`https://blog.storical.space/images/icon.png`
-- 站点图片：`https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://blog.storical.space/`
-- 订阅：`https://blog.storical.space/rss.xml`
+- 名称：`喵洛阁`
+- 描述：`愿你看轻一切真相后，依旧热爱你的家人和朋友。`
+- 地址：`https://blog-v3.kemiaosw.top/`
+- 头像：`https://img.314926.xyz/images/2025/08/09/kemiaofxjun.webp`
+<!-- - 站点图片：`https://pic.imgdb.cn/item/65dc47009f345e8d030b65ba.png` -->
+- 订阅：`https://blog-v3.kemiaosw.top/rss.xml`
 
 ```yml
-name: 汐塔魔法屋
-desc: 种下一颗有故事的种子，让它带着魔法和奇迹生根发芽
-url: https://blog.storical.space/
-avatar: https://blog.storical.space/images/icon.png
-screenshot: https://image.thum.io/get/allowJPG/wait/20/width/600/crop/950/https://blog.storical.space/
-rss: https://blog.storical.space/rss.xml
+name: 喵洛阁
+desc: 愿你看轻一切真相后，依旧热爱你的家人和朋友。
+url: https://blog-v3.kemiaosw.top/
+avatar: https://img.314926.xyz/images/2025/08/09/kemiaofxjun.webp
+rss: https://blog-v3.kemiaosw.top/rss.xml
 ```
 
 ### 申请友链
 
-- 我已添加 [汐塔魔法屋](https://blog.storical.space/) 的友情链接。
+- 我已添加 [喵洛阁](https://blog-v3.kemiaosw.top/) 的友情链接(不必要)。
 - **请多多进行互动后再来进行友链添加**，若为首次评论直接申请友链，将不会通过。
-- 本站不添加 **采集站**、**纯搬运站点**、**论坛类站点** 等非 **个人博客** 类型的站点（**导航类站点**除外，但是不会添加到友链页面，而是添加到页尾）。
+- 本站不添加 **采集站**、**纯搬运站点**、**论坛类站点** 等非 **个人博客** 类型的站点。
 - 站点目前可以在 **中国大陆区域** 正常访问。
 - 需要是独立域名，不接受 `github.io`、`vercel.app` 等第三方域名。
 - 网站内容符合 **中国大陆法律法规**。
 
 > 若申请时或日后有违反上述规定的站点，博主有权**自行删除且不进行通知！**
-
-（因某些原因，目前已经恢复评论区友链申请）

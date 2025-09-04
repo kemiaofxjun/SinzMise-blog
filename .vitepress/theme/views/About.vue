@@ -80,14 +80,14 @@
         class="about-item like image"
         style="
           --color: #0c0e20;
-          background-image: url(https://jsd.cdn.sinzmise.top/gh/SinzMise/picx-images-hosting@master/20240120/Blue_archive_main_picture.1xn3v0svk0ao.webp);
+          background-image: url(https://img.314926.xyz/images/2025/08/15/cover22.webp);
         "
       >
         <div class="image-content">
           <span class="tip">爱好游戏</span>
-          <span class="title2">蔚蓝档案</span>
+          <span class="title2">饥荒</span>
           <div class="image-desc">
-            <span class="left">手机、电脑及软硬件</span>
+            <span class="left">手机、电脑及软硬件等各种资源</span>
           </div>
         </div>
       </div>
@@ -95,12 +95,12 @@
         class="about-item like image"
         style="
           --color: #7b3c25;
-          background-image: url(https://p1.music.126.net/nd_hrcffrO41ho9kwvh6mQ==/109951163026324216.jpg);
+          background-image: url(https://img.314926.xyz/images/2025/07/30/cover8.webp);
         "
       >
         <div class="image-content">
           <span class="tip">音乐偏好</span>
-          <span class="title2">纯音乐、ACG</span>
+          <span class="title2">古风、摇滚等等我觉得好听的音乐</span>
           <div class="image-desc">
             <span class="left">一起欣赏更多音乐</span>
           </div>
@@ -126,7 +126,7 @@
           </div>
           <div class="image-desc opacity">
             <span class="left">
-              可在 <a href="https://umami.status.sinzmise.top/share/OaBMl3SHl8e9fyMJ/blog.storical.space" target="_blank">这里</a> 查看
+              可在 <a href="https://unami-kemiao.kemiaosw.top/share/M2HsJMn6bC04hztZ/blog-v3.kemiaosw.top" target="_blank">这里</a> 查看
             </span>
           </div>
         </div>
@@ -135,14 +135,14 @@
       <div class="about-item child">
         <div
           class="about-item map image"
-          style="background-image: url(http://files.blog.sinzmise.top/images/msedge_rW8coY9Rbh.png)"
+          style="background-image: url(https://imgtg.kemeow.top/file/AgACAgUAAyEGAAScqokCAANWaLkQld8-65fJGHsQ7sBIqBdv6PcAArLFMRu9H8hV_zZ_oNopE9EBAAMCAAN3AAM2BA.webp)"
         >
-          <span class="position">我现在住在 <strong>中国，广东省 潮州市</strong></span>
+          <span class="position">我现在住在 <strong>中国，江苏省 苏州市</strong></span>
         </div>
         <div class="about-item info">
           <div class="info-item">
             <span class="info-name">生于</span>
-            <span class="info-num" style="--color: #43a6c6">2007</span>
+            <span class="info-num" style="--color: #43a6c6">2005</span>
           </div>
           <div class="info-item">
             <span class="info-name">现在职业</span>
@@ -155,30 +155,30 @@
     <div class="about-content" style="display: flex">
       <div class="about-item">
         <span class="tip">博客搭建历程</span>
-        <span class="title2">从个人网站到博客</span>
+        <span class="title2">我搭建博客的过程~</span>
         <p class="text">
-          19年的时候，我尝试着用<strong>Utool的内网穿透+IIS</strong>搞了我的第一个个人网站，但是因为<strong>耗电量太大</strong>所以这个网站搞着搞着没了
+          23年我进入了现在的大学。一开学就接触了让人难绷的<strong>PU广告校园</strong>，然后各种寻找解决办法，于是接触到了<a href="https://www.coolapk.com/" target="_blank" rel="noopener noreferrer">酷安</a>。
         </p>
         <p class="text">
-          后面意外找到了免费的虚拟主机，所以那次开始我就搞了我的第一个个人博客，使用的<strong>Z-Blog PHP</strong>，但是那个虚拟主机商跑路了，只能就此作罢，再次寻找免费的虚拟主机
+          在酷安的<strong>私人DNS</strong>板块里找到了一个解决办法，之后，我在酷安里找到了不少资源，但是也被大份酷安小编恶心过，后来机缘巧合受评论的启发，接触到了<a href="https://desktop.telegram.org/" target="_blank" rel="noopener noreferrer">Telegram</a>。
         </p>
         <p class="text">
-          后面发现了<strong>Hexo + Github Pages</strong>能实现无服务器部署博客，我搭建静态博客之路也就此开始
+          在继续接触优质资源的同时，也被大佬们的<strong>分享资源</strong>的精神折服，也想分享我所觉得好用的资源！在这过程的同时，接触到了我的第一款<a href="https://github.com/ccbikai/BroadcastChannel" target="_blank" rel="noopener noreferrer">博客</a>。
         </p>
         <p class="text">
-          第一次搭建静态博客，用的是<strong>Hexo-Theme-NexT</strong>主题，后面也试过自己做主题什么的
+          之后我接触过<strong>Hexo</strong>、<strong>astro</strong>、<strong>Nuxt</strong>等静态博客，也部署过<strong>typecho</strong>、<strong>wordpress</strong>等动态博客，令我受益匪浅！
         </p>
         <p class="text">
-          但是随着时间的推移，Hexo博客的加载速度越来越慢，最终我在2025年上半年换掉了这个我使用了4年的框架
+          最近逛Github Stars时无意间想起曾经看到的<a href="https://blog.storical.space" target="_blank" rel="noopener noreferrer">SinzMise的博客</a>，发现佬用了<strong>VitePress</strong>的<a href="https://github.com/imsyy" target="_blank" rel="noopener noreferrer">imsyy</a>大佬的主题，正巧大佬也要重构博客，就一起部署了吧。
         </p>
-        <p class="text">
+        <!-- <p class="text">
           初次换掉Hexo框架的是Valaxy，这个框架经历很多人推荐，klcdm和小何也用的这个框架，所以我就试了一下
         </p>
         <p class="text">
           结果因为tab的问题，不得不再次换框架，最终换成了<strong>VitePress</strong>，使用的是<strong>Curve</strong>主题
-        </p>
+        </p> -->
         <psw class="text">
-          （希望后面不会再换框架或者主题了。。。。。。换来换去我自己都累啊。。。。。。）
+          （替换了大部分为自己的东西，未来会把js、css之类的修改吧，感谢您的浏览！）
         </psw>
       </div>
     </div>
@@ -207,15 +207,16 @@
 <script setup>
 // 我加入的
 const Joined = [
-  { text: "集博栈（原中文博客列表导航）", link: "https://www.zhblogs.net/"},
-  { text: "BlogFinder", link: "https://bf.zzxworld.com/s/995"},
-  { text: "博友圈", link: "https://www.boyouquan.com"},
-  { text: "博客录", link: "https://boke.lu/"},
-  { text: "十年之约", color: "#3776AB", link: "https://www.foreverblog.cn/blog/6371.html"},
-  { text: "RssBlog", link: "https://rssblog.cn/member/d711afd659d65c2ba2d3b18697818cf7/"},
-  { text: "笔墨迹", link: "https://blogscn.fun/"},
-  { text: "BlogsClub", link: "https://www.blogsclub.org/blog/99.html"},
-  { text: "揪蝉", link: "https://jiuchan.org"},
+  { text: "萌备案", link: "https://icp.gov.moe/" },
+  // { text: "集博栈（原中文博客列表导航）", link: "https://www.zhblogs.net/"},
+  // { text: "BlogFinder", link: "https://bf.zzxworld.com/s/995"},
+  // { text: "博友圈", link: "https://www.boyouquan.com"},
+  // { text: "博客录", link: "https://boke.lu/"},
+  // { text: "十年之约", color: "#3776AB", link: "https://www.foreverblog.cn/blog/6371.html"},
+  // { text: "RssBlog", link: "https://rssblog.cn/member/d711afd659d65c2ba2d3b18697818cf7/"},
+  // { text: "笔墨迹", link: "https://blogscn.fun/"},
+  // { text: "BlogsClub", link: "https://www.blogsclub.org/blog/99.html"},
+  // { text: "揪蝉", link: "https://jiuchan.org"},
 ];
 // 技能数据
 const skillsData = [
