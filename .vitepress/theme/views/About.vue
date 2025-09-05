@@ -209,6 +209,7 @@
 const Joined = [
   { text: "萌备案", link: "https://icp.gov.moe/" },
   { text: "雾备案", link: "https://icp.wudu.ltd/index.php" },
+  { text: "茶备案", link: "https://icp.redcha.cn/" },
   // { text: "集博栈（原中文博客列表导航）", link: "https://www.zhblogs.net/"},
   // { text: "BlogFinder", link: "https://bf.zzxworld.com/s/995"},
   // { text: "博友圈", link: "https://www.boyouquan.com"},
