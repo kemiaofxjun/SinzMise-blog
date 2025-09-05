@@ -113,7 +113,7 @@ const initAbstract = () => {
 const showOther = () => {
   if (loading.value) return false;
   const text =
-    "我是汐塔魔法屋的摘要生成助理 CloudFlareGPT，如你所见，所有文本皆源于CloudFlare AI Worker生成的内容。";
+    "我是喵洛阁的摘要生成助理 CloudFlareGPT，如你所见，所有文本皆源于CloudFlare AI Worker生成的内容。";
   showIndex.value = 0;
   loading.value = true;
   abstractData.value = "";

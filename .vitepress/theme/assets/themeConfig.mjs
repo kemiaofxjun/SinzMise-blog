@@ -325,7 +325,7 @@ export const themeConfig = {
     // artalk
     // https://artalk.js.org/
     artalk: {
-      site: "汐塔魔法屋",
+      site: "喵洛阁",
       server: "https://artalk.sinzmise.top",
     },
     // twikoo
@@ -443,9 +443,9 @@ export const themeConfig = {
     enable: true,
     type: 'algolia',
     algolia:{
-      appId: "CNRPTJAH7X",
-      apiKey: "9345638525b4827d961de611e6b3e196",
-      index: "blog_v3_kemiaosw_top_cnrptjah7x_articles"
+      appId: "6RLQGMD847",
+      apiKey: "7ee39566cd269e93517f7666fe0c1396",
+      index: "blog_v3_kemiaosw_top_6rlqgmd847_pages"
     }
   },
   // 打赏
