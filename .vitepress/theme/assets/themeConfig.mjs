@@ -136,7 +136,7 @@ export const themeConfig = {
         },
       ],
       // Algolia相关
-      ["meta", { name: "algolia-site-verification", content: "072F0A41661AE537" }],
+      ["meta", { name: "algolia-site-verification", content: "71C79BDDBE652AB2" }],
       // Font Awesome
       [
         "script",
